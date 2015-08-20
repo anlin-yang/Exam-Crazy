@@ -3,7 +3,6 @@ var hbs = require('hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 
-var sequelize = new Sequelize('database', 'username', 'password');
 var app = express();
 
 app.use(express.static('bower_components/'));
