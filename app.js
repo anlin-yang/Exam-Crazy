@@ -2,9 +2,9 @@ var express = require('express');
 var hbs = require('hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
-
 var app = express();
-
+var submit = require('./routes/submit.js');
+app.use('/routes/submit.js', submit);
 app.use(express.static('bower_components/'));
 app.use(express.static('public/'));
 app.use(bodyParser.urlencoded({
@@ -17,6 +17,6 @@ app.engine('html', hbs.__express);
 app.get('/', function(req, res) {
   res.send('hello world');
 });
- 
+
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");
