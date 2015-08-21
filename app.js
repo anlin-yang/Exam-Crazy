@@ -13,7 +13,7 @@ app.use('/submit', submit);
 
 var check = require('./routes/check.js');
 
-app.use('/routes/check.js',check);
+app.use('/routes/check',check);
 app.use('/routes/submit.js', submit);
 app.use(express.static('migrations'));
 
@@ -24,9 +24,15 @@ app.use(bodyParser.urlencoded({
 }));
 app.use("/", login);
 
+<<<<<<< Updated upstream
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
 }));
+=======
+// app.engine('hbs', hbs.express4({
+//   partialsDir: __dirname + '/views/partials'
+// }));
+>>>>>>> Stashed changes
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.engine('html', hbs.__express);

@@ -22,7 +22,7 @@ router.use(function timeLog(req, res, next) {
 
 
 router.get('/',function(req,res) {
-  res.render('index');
+  res.render('checkpage');
   //res.send("hello");
 });
 
