@@ -2,10 +2,10 @@ var express = require('express');
 var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
-var login = require('./routes/login.js');
-var register = require('./routes/register.js');
-var check = require('./routes/check.js');
-var submit = require('./routes/submit.js');
+var login = require('routes/login.js');
+var register = require('routes/register.js');
+var check = require('routes/check.js');
+var submit = require('routes/submit.js');
 var app = express();
 
 app.use(express.static('bower_components/'));
@@ -26,9 +26,6 @@ app.use("/", login);
 app.use('/register',register);
 app.use('/submit', submit);
 app.use('/check',check);
-app.use('/submit', submit);
-app.use('/check',check);
-app.use('/submit', submit);
 
 
 app.listen(3000);
