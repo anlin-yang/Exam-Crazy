@@ -12,6 +12,7 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "hbs": "^3.1.0",
+    "mysql": "^2.9.0",
     "sequelize": "^3.5.1",
     "sequelize-cli": "^1.7.4"
   },
