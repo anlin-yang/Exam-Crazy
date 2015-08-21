@@ -13,12 +13,14 @@ var check = require('./routes/check.js');
 
 app.use('/routes/check.js',check);
 app.use('/routes/submit.js', submit);
+app.use(express.static('migrations'));
 
 app.use(express.static('bower_components/'));
 app.use(express.static('public/'));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use("/", login);
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views/partials'
@@ -28,7 +30,6 @@ app.set('views', __dirname + '/views');
 app.engine('html', hbs.__express);
 
 app.use("/", login);
-
 
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");
