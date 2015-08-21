@@ -3,41 +3,33 @@ var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var login = require('./routes/login.js');
-
-var app = express();
 var register = require('./routes/register.js');
-app.use('/register',register);
-var submit = require('./routes/submit.js');
-
-app.use('/submit', submit);
-
 var check = require('./routes/check.js');
-
-app.use('/routes/check',check);
-app.use('/routes/submit.js', submit);
-app.use(express.static('migrations'));
+var submit = require('./routes/submit.js');
+var app = express();
 
 app.use(express.static('bower_components/'));
 app.use(express.static('public/'));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use("/", login);
 
-<<<<<<< Updated upstream
+
 app.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views'
+  partialsDir: __dirname + '/views/partials'
 }));
-=======
-// app.engine('hbs', hbs.express4({
-//   partialsDir: __dirname + '/views/partials'
-// }));
->>>>>>> Stashed changes
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
-app.engine('html', hbs.__express);
+
 
 app.use("/", login);
+app.use('/register',register);
+app.use('/submit', submit);
+app.use('/check',check);
+app.use('/submit', submit);
+app.use('/check',check);
+app.use('/submit', submit);
+
 
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");

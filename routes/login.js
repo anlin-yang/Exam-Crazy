@@ -8,6 +8,12 @@ router.get('/', function(req, res) {
   res.sendfile('views/login.html');
 });
 
+app.get('/xy', function(req, res) {
+  res.render("index", {
+    title: 'exam'
+  });
+});
+
 router.post('/login', function(req, res) {
   var username = req.body.un;
   var password = req.body.pw;
