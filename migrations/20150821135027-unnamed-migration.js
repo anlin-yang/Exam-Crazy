@@ -18,6 +18,9 @@ module.exports = {
         allowNull: false
       },
       class:Sequelize.INTEGER,
+      password:{
+        type:Sequelize.STRING,
+      }
     });
   },
 
