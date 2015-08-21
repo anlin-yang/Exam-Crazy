@@ -8,6 +8,7 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true
       },
+      type:Sequelize.STRING,
       question_id: Sequelize.INTEGER,
       answer_context: Sequelize.TEXT
     });
