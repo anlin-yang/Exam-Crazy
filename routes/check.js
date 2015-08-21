@@ -23,18 +23,15 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/',function(req,res) {
   res.render('checkpage');
-<<<<<<< Updated upstream
-=======
   //res.send("hello");
->>>>>>> Stashed changes
 });
 
-router.get('/check.html',function(req,res) {
-    connection.query('select * from papers', function(err, rows, fields) {
-      if (err) throw err;
-      res.send(rows);
-    });
-});
+// router.get('/check.html',function(req,res) {
+//     connection.query('select * from papers', function(err, rows, fields) {
+//       if (err) throw err;
+//       res.send(rows);
+//     });
+// });
 
 // router.get('/page.html',function(req,res) {
 //   var temp = req.query;

@@ -15,7 +15,7 @@ $(function() {
 function showcheckpage(str) {
   $('.right').empty();
   str.map(function(val) {
-    $('.right').append('<tr><td><a href="app/page.html">'+val.paper_name+'</a></td><tr>');
+    $('.right').append('<tr><td>'+val.paper_name+'</td><tr>');
   });
 }
 

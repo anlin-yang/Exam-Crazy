@@ -3,10 +3,9 @@ var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 
-var login = require('routes/login.js');
-var register = require('routes/register.js');
-var check = require('routes/check.js');
-var submit = require('routes/submit.js');
+// var login = require('routes/login.js');
+// var register = require('routes/register.js');
+
 var app = express();
 
 
@@ -14,7 +13,7 @@ var login = require('./routes/login.js');
 var submit = require('./routes/submit.js');
 
 
-app.use('/routes/check',check);
+
 app.use('/routes/submit.js', submit);
 
 
@@ -63,9 +62,9 @@ app.use('/check', check);
 
 
 app.use("/", login);
-app.use('/register',register);
-app.use('/submit', submit);
-app.use('/check',check);
+// app.use('/register',register);
+// app.use('/submit', submit);
+
 
 
 app.listen(3000);
