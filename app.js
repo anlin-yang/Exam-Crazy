@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var login = require('./routes/login.js');
 
 var app = express();
+var register = require('./routes/register.js');
+app.use('/register',register);
 var submit = require('./routes/submit.js');
 
 app.use('/submit', submit);
@@ -23,7 +25,7 @@ app.use(bodyParser.urlencoded({
 app.use("/", login);
 
 app.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views/partials'
+  partialsDir: __dirname + '/views'
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
