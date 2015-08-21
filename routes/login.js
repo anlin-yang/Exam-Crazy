@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   res.sendfile('views/login.html');
 });
 
-app.get('/xy', function(req, res) {
+router.get('/xy', function(req, res) {
   res.render("index", {
     title: 'exam'
   });
