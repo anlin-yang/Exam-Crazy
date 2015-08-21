@@ -1,0 +1,45 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+
+.cla{
+  margin-right: 30px;
+}
+/*.butt1{
+
+  margin-left: 0px;
+}*/
+.butt2{
+  margin-left: 80px;
+}
+
+form {
+  width: 359px;
+  float: right;
+  display: inline;
+}
+p{
+  color: red;
+}
+.all{
+  /*padding-top: 40px;
+  height: 500px;*/
+  clear:both;
+  display: inline;
+}
+.imag{
+  width:700px;
+  float:left;
+  display:inline
+  margin-top: 123px;
+  margin-left: 95px;
+  height: 440px;
+  background-image: url('../images/ss.jpg');
+}
+.sex{
+  margin-right: 30px;
+}
