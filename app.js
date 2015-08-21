@@ -4,7 +4,14 @@ var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var app = express();
 var submit = require('./routes/submit.js');
+
 app.use('/submit', submit);
+
+var check = require('./routes/check.js');
+
+app.use('/routes/check.js',check);
+app.use('/routes/submit.js', submit);
+
 app.use(express.static('bower_components/'));
 app.use(express.static('public/'));
 app.use(bodyParser.urlencoded({
