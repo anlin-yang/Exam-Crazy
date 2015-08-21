@@ -23,7 +23,6 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/',function(req,res) {
   res.render('checkpage');
-  //res.send("hello");
 });
 
 // router.get('/check.html',function(req,res) {
@@ -37,5 +36,4 @@ router.get('/',function(req,res) {
 //   var temp = req.query;
   //console.log(temp);
 //});
-//router.listen(3000);
  module.exports = router;
