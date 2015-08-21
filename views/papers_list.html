@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table>
+      <thead>
+      <tr>
+        <td>
+          试卷编号
+        </td>
+        <td>
+          试卷名称
+        </td>
+        <td>
+          状态
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+        {{each paper_list}}
+        <tr>
+          <td>
+            {{paper_id}}
+          </td>
+          <td>
+          {{paper_name}}
+          </td>
+          <td>
+            {{paper_status}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>
