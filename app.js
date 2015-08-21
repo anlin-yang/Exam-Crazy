@@ -1,5 +1,5 @@
 var express = require('express');
-var hbs = require('hbs');
+var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var app = express();
@@ -11,11 +11,16 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.set('view engine', 'html');
-app.engine('html', hbs.__express);
+app.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views/partials'
+}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 app.get('/', function(req, res) {
-  res.send('hello world');
+  res.render("index", {
+    title: 'exam'
+  });
 });
 
 app.listen(3000);
