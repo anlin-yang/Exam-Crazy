@@ -2,6 +2,8 @@ var express = require('express');
 var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
+var login = require('./routes/login.js');
+
 var app = express();
 var submit = require('./routes/submit.js');
 
@@ -23,12 +25,10 @@ app.engine('hbs', hbs.express4({
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
+app.engine('html', hbs.__express);
 
-app.get('/', function(req, res) {
-  res.render("index", {
-    title: 'exam'
-  });
-});
+app.use("/", login);
+
 
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");
