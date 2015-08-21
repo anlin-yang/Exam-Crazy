@@ -14,6 +14,10 @@ var login = require('./routes/login.js');
 var submit = require('./routes/submit.js');
 
 
+app.use('/routes/check',check);
+app.use('/routes/submit.js', submit);
+
+
 var app = express();
 
 app.use(express.static('migrations'));
@@ -33,9 +37,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views/partials'
-}));
+// app.engine('hbs', hbs.express4({
+//   partialsDir: __dirname + '/views/partials'
+// }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 

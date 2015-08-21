@@ -23,6 +23,10 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/',function(req,res) {
   res.render('checkpage');
+<<<<<<< Updated upstream
+=======
+  //res.send("hello");
+>>>>>>> Stashed changes
 });
 
 router.get('/check.html',function(req,res) {
