@@ -17,7 +17,7 @@ $('body').on('click', "#button", function() {
       type: 'POST',
       url: '/login',
       data: {
-        un: usernamgine,
+        un: username,
         pw: password
       },
       success: function(result) {
