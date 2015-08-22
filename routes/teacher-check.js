@@ -9,7 +9,7 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/',function(req,res) {
-  res.render('teacher-checkpage');
+  res.render('teacher-check-page');
 });
 
 router.get('/check.html',function(req,res) {

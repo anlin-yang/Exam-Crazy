@@ -1,30 +1,10 @@
-.left {
-  margin: 0 auto 0 0;
-  width: 20%;
-  text-align: center;
-}
 
 .right {
-  margin: -102px 0 0 20%;
+  /*text-align: center;*/
+  margin: 100px auto;
   width: 80%;
+}
+
+.right td {
   text-align: center;
-}
-
-ul {
-  display: inline;
-}
-
-iframe {
-  margin: 50px auto 0 100px;
-}
-
-.top{
-  height: 100px;
-}
-
-.top h2 {
-  text-align: center;
-}
-.top h3 {
-  text-align: right;
 }

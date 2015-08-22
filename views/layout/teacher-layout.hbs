@@ -1,6 +1,12 @@
 {{!< html-struct}}
 {{#contentFor 'pageStyles'}}
   <link rel="stylesheet" href="css/teach-stu-layout.css">
+  <link rel="stylesheet" href="/css/teacher-checkpage.css">
+  <script type="text/javascript" src="jquery/dist/jquery.js"></script>
+{{/contentFor}}
+
+{{#contentFor 'pagecontroljs'}}
+  <script type="text/javascript" src="js/teacher-check-page.js"></script>
 {{/contentFor}}
 
 <div class="nav-topPannel">
@@ -9,7 +15,7 @@
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">老师信息管理</a></li>
       <li><a href="#">老师考试管理</a></li>
-      <li><a href="#">老师考卷查询</a></li>
+      <li><a class="checkpage">老师考卷查询</a></li>
       <li><a href="#">老师信息修改</a></li>
     </ul>
   </div>
