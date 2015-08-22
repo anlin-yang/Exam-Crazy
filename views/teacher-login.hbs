@@ -1,6 +1,8 @@
 {{!< layout/default}}
 {{#contentFor 'pageStyles'}}
   <link href="css/teacher-login.css" rel="stylesheet">
+  <script type="text/javascript" src="js/teacher-login.js">
+  </script>
 {{/contentFor}}
 
 <body>
@@ -17,7 +19,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" id="teacherLoginId" type="submit">Sign in</button>
     </form>
 
   </div>
