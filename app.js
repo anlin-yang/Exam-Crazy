@@ -33,7 +33,7 @@ app.use('/submit', submit);
 app.use('/answerPaper', answerPaper);
 app.use('/teacherLogin', teacherLogin);
 
-app.use('/addSingle',addsingle);
+app.use('/addSingle',addSingle);
 app.use('/teacherPaper',teacherPaper);
 
 app.listen(3000);
