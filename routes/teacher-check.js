@@ -23,7 +23,8 @@ router.get('/page',function(req,res) {
   var result = [];
    models.papers.find({where:{paper_name:temp}}).then(function(data) {
    //changQuestionArray(data);
-   console.log(data);
+   var str = data.dataValues.paper_name.split(',');
+   console.log(data.dataValues);
    //models.questions.find({where:{question_id:data.question_array}});
    //result.push();
    res.render('page.hbs');
