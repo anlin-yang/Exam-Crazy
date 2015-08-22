@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  background-image: url('../images/bg1.jpg');
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+.cla {
+  margin-right: 30px;
+}
+.butt2 {
+  margin-left: 80px;
+}
+form {
+  width: 359px;
+  float: right;
+  display: inline;
+  margin-left: 0px;
+}
+p {
+  color: red;
+}
+.all {
+  clear: both;
+  display: inline;
+}
+.imag {
+  width: 700px;
+  float: left;
+  display: inline margin-top: 123px;
+  margin-left: 95px;
+  height: 440px;
+  background-image: url('../images/xx3.jpg');
+}
+.sex {
+  margin-right: 30px;
+}

@@ -3,7 +3,7 @@ var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var student_login = require('./routes/student-login.js');
-var register = require('./routes/register.js');
+var studentRegister = require('./routes/student-register.js');
 var submit = require('./routes/submit.js');
 var check = require('./routes/teacher-check.js');
 var answer_paper = require('./routes/answer-paper.js');
@@ -24,7 +24,7 @@ app.set('views', __dirname + '/views');
 
 
 app.use("/", student_login);
-app.use('/register', register);
+app.use('/studentRegister', studentRegister);
 app.use('/teacher-check', check);
 app.use('/submit', submit);
 app.use('/answer-paper', answer_paper);
