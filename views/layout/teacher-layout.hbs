@@ -1,7 +1,6 @@
 {{!< default}}
 {{#contentFor 'pageStyles'}}
-  <link rel="stylesheet" href="css/teach-stu-layout.css">
-  {{{block "teacherPageStyles"}}}
+  <link rel="stylesheet" href="css/teach-stu-layout.css"> {{{block "teacherPageStyles"}}}
 {{/contentFor}}
 
 <div class="nav-topPannel">
@@ -18,4 +17,6 @@
     <button id="btn-cancel" type="button" class="btn btn-danger">退出系统</button>
   </div>
 </div>
-{{{body}}} {{{block "pagecontroljs"}}}
+<div class="container">
+  {{{body}}}
+</div>
