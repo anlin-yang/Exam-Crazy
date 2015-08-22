@@ -1,10 +1,9 @@
 {{!< html-struct}}
 {{#contentFor 'pageStyles'}}
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="css/teach-stu-layout.css">
   {{{block "studentPageStyles"}}}
 {{/contentFor}}
 
-<link rel="stylesheet" href="index.css">
 <div class="nav-topPannel">
   <div class="nav-navPills">
     <ul class="nav nav-pills" id="navPill">
@@ -16,7 +15,7 @@
     </ul>
   </div>
   <div class="nav-topCancel">
-    <button type="button" class="btn btn-danger">退出系统</button>
+    <button id="btn-cancel" type="button" class="btn btn-danger">退出系统</button>
   </div>
 </div>
 {{{body}}}
