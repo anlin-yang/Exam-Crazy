@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views/partials'
+  partialsDir: __dirname + '/views'
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');

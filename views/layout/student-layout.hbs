@@ -1,4 +1,9 @@
 {{!< html-struct}}
+{{#contentFor 'pageStyles'}}
+  <link rel="stylesheet" href="index.css">
+{{/contentFor}}
+
+<link rel="stylesheet" href="index.css">
 <div class="nav-topPannel">
   <div class="nav-navPills">
     <ul class="nav nav-pills" id="navPill">
@@ -10,7 +15,7 @@
     </ul>
   </div>
   <div class="nav-topCancel">
-<button type="button" class="btn btn-danger">退出系统</button>
+    <button type="button" class="btn btn-danger">退出系统</button>
   </div>
 </div>
 {{{body}}}
