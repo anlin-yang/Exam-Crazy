@@ -4,7 +4,7 @@ var router = express.Router();
 var questions = models.questions;
 
 router.get('/',function(req , res){
-  res.sendfile('views/add-single.html');
+  res.render('add-single.hbs');
 });
 
 router.post("/", function(req, res){
