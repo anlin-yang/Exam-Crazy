@@ -26,7 +26,6 @@ app.use("/", login);
 app.use('/register', register);
 app.use('/check', check);
 app.use('/submit', submit);
-app.use('/check', check);
 app.use('/answer-paper', answer_paper);
 
 
