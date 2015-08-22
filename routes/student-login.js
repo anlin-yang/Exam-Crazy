@@ -5,14 +5,9 @@ var models = require('../models');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.sendfile('views/login.html');
+  res.render('student-login.hbs');
 });
 
-router.get('/xy', function(req, res) {
-  res.render("index", {
-    title: 'exam'
-  });
-});
 
 router.post('/login', function(req, res) {
   var username = req.body.un;

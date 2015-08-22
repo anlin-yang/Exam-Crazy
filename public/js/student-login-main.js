@@ -3,9 +3,7 @@ $('body').on('click', "#button", function() {
   var username = $("#username").val();
   var password = $("#password").val();
 
-  if (username.length === 0) {
-    $(".un-error").html("请输入学号~");
-  } else if (username.length !== 8 || isNaN(parseInt(username))) {
+  if (username.length !== 8 || isNaN(parseInt(username))) {
     $(".un-error").html("请输入8位数字的学号~");
   } else if (password.length === 0) {
     $(".un-error").html("");
