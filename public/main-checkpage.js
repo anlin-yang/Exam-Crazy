@@ -6,16 +6,17 @@ $(function() {
     });
   });
 
-  $('.right').on('click','td',function(resp) {
-    var temp = $(this).eq(0).text();
-  });
+  // $('.right').on('click','td',function(resp) {
+  //   var temp = $(this).eq(0).text();
+  // });
 });
 
 
 function showcheckpage(str) {
   $('.right').empty();
   str.map(function(val) {
-    $('.right').append('<tr><td>'+val.paper_name+'</td><tr>');
+    var temp = val.paper_name;
+    $('.right').append("<tr><td><a href=check/page?name="+temp+">" +val.paper_name+'</a></td><tr>');
   });
 }
 
