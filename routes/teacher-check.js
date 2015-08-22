@@ -24,20 +24,17 @@ router.get('/page',function(req,res) {
 
    models.papers.find({where:{paper_name:temp}}).then(function(data) {
      var str = data.dataValues.question_array;
-     console.log('------------');
-     console.log(str);
-     console.log('------------');
      var arr = str.split(/\[|\]|,/);
 
    arr.map(function(val) {
-
+      if(val.length !== 0) {
        models.questions.find({where:{question_id:parseInt(val)}}).then(function(data) {
          result.push(data.dataValues);
        });
-
-     console.log(result);
-     res.render('page.hbs',{array:result});
+      }
    });
   });
+  res.render('page.hbs',{array:result});
+
 });
  module.exports = router;
