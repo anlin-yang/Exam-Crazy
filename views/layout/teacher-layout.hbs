@@ -1,11 +1,7 @@
 {{!< html-struct}}
 {{#contentFor 'pageStyles'}}
-  <link rel="stylesheet" href="css/teach-stu-layout.css">
-  <link rel="stylesheet" href="/css/teacher-checkpage.css">
-{{/contentFor}}
-
-{{#contentFor 'pagecontroljs'}}
-  <script type="text/javascript" src="js/teacher-check-page.js"></script>
+  <link rel="stylesheet" href="index.css">
+  {{{block "teacherPageStyles"}}}
 {{/contentFor}}
 
 <div class="nav-topPannel">
@@ -19,7 +15,7 @@
     </ul>
   </div>
   <div class="nav-topCancel">
-    <button type="button" id="btn-cancel" class="btn btn-danger">退出系统</button>
+    <button type="button" class="btn btn-danger">退出系统</button>
   </div>
 </div>
-{{{body}}}
+{{{body}}} {{{block "pagecontroljs"}}}
