@@ -6,7 +6,7 @@ var studentLogin = require('./routes/student-login.js');
 var studentRegister = require('./routes/student-register.js');
 var submit = require('./routes/submit.js');
 var check = require('./routes/teacher-check.js');
-var answer_paper = require('./routes/answer-paper.js');
+var answerPaper = require('./routes/answer-paper.js');
 var teacherLogin = require('./routes/teacher-login.js');
 var app = express();
 
@@ -27,7 +27,7 @@ app.use("/", studentLogin);
 app.use('/studentRegister', studentRegister);
 app.use('/teacher-check', check);
 app.use('/submit', submit);
-app.use('/answer-paper', answer_paper);
+app.use('/answerPaper', answerPaper);
 app.use('/teacherLogin', teacherLogin);
 
 
