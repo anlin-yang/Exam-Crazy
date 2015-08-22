@@ -17,7 +17,6 @@ router.post('/login', function(req, res) {
       student_id: username
     }
   }).then(function(data) {
-    console.log(data);
     if ((data.length === 0) || (data[0].dataValues.password !== password)) {
       res.send({
         status: 404,

@@ -17,14 +17,14 @@ $('body').on('click', "#button", function() {
       type: 'POST',
       url: '/login',
       data: {
-        un: username,
+        un: usernamgine,
         pw: password
       },
       success: function(result) {
         if (result.status === 200) {
           $.cookie('username', username, { expires: 1, path: '/' });
           $.cookie('password', password, { expires: 1, path: '/' });
-          location.href = "teacher-check";
+          location.href = "teacherCheck";
         }
         else {
           $(".pw-error").html("用户名不存在或密码不正确哦");
