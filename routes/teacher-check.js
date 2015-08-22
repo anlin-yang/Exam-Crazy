@@ -21,13 +21,23 @@ router.get('/check.html',function(req,res) {
 router.get('/page',function(req,res) {
   var temp = req.query.name;
   var result = [];
+
    models.papers.find({where:{paper_name:temp}}).then(function(data) {
-   //changQuestionArray(data);
-   var str = data.dataValues.paper_name.split(',');
-   console.log(data.dataValues);
-   //models.questions.find({where:{question_id:data.question_array}});
-   //result.push();
-   res.render('page.hbs');
+     var str = data.dataValues.question_array;
+     console.log('------------');
+     console.log(str);
+     console.log('------------');
+     var arr = str.split(/\[|\]|,/);
+
+   arr.map(function(val) {
+
+       models.questions.find({where:{question_id:parseInt(val)}}).then(function(data) {
+         result.push(data.dataValues);
+       });
+
+     console.log(result);
+     res.render('page.hbs',{array:result});
+   });
   });
 });
  module.exports = router;
