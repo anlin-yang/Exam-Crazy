@@ -17,6 +17,7 @@ router.post("/", function(req, res){
     question_point : 1,
     type_id : 1
   });
+  res.send("aaa");
 });
 
 module.exports = router;

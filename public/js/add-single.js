@@ -15,35 +15,35 @@ $(function() {
       }
     }
 
-    if(!(question)){
+    if (!(question)) {
       $("#que").html("问题忘记填写！");
-    }
-    if(!(A)){
+    } else if (!(A)) {
       $("#quea").html("A选项忘记填写！");
-    }
-    if(!(B)){
+    } else if (!(B)) {
       $("#queb").html("B选项忘记填写！");
-    }
-    if(!(C)){
+    } else if (!(C)) {
       $("#quec").html("C选项忘记填写！");
-    }
-    if(!(D)){
+    } else if (!(D)) {
       $("#qued").html("D选项忘记填写！");
+    } else {
+      var information = {
+        question_information: question + '-' + A + '-' + B + '-' + C + '-' + D,
+        question_answer: answer
+      };
+
+      $.ajax({
+        url: '/addsingle',
+        data: information,
+        type: 'POST',
+        success: function(successfulTip) {
+          console.log(successfulTip);
+          $('.input').val("");
+          
+          [].forEach.call($("[name='ans']"), function(elem) {
+            elem.checked = false;
+          });
+        }
+      });
     }
-
-    var information = {
-      question_information: question + '-' + A + '-' + B + '-' + C + '-' + D,
-      question_answer: answer
-    };
-
-    $.ajax({
-      url: '/addsingle',
-      data: information,
-      type: 'POST',
-      success: function(successfulTip) {
-        console.log(successfulTip);
-        $('.input').val("");
-      }
-    });
   });
 });
