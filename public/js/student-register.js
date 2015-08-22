@@ -39,12 +39,9 @@ $(function() {
     var tempsmm = 0;
     if (infor.id.length === 0) {
       $('#xh').html('学号不能为空！');
-      // tempxh = 1;
     } else if (isNaN(infor.id)) {
       $('#xh').html('学号只能为数字！');
-      // tempxh = 1;
     } else if (infor.id.length !== 8) {
-      // tempxh = 1;
       $('#xh').html('请输入8位学号！');
     } else {
       tempxh = 1;
@@ -78,21 +75,19 @@ $(function() {
     if (tempxh === 1 && tempxm === 1 && tempmm === 1 && tempsmm === 1) {
       $.ajax({
         type: 'POST',
-        url: '/register/res',
+        url: '/studentRegister/res',
         data: {
           infor: infor
         },
         success: function(result) {
           if (result.status === 400) {
-            alert('该学号已经被注册！');
+            $('#registed').html('该学号已被注册！！！');
+          }
+          if (result.status === 200) {
+            location.href = "/";
           }
         }
       });
     }
-
-  });
-
-  $("#cancle").on('click', function() {
-    $.get('/', function() {});
   });
 });

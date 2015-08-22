@@ -32,6 +32,11 @@ router.post('/res', function(req, res) {
         class: infor.classes,
         password: infor.password
       });
+      res.send({
+        status: 200,
+        message: {},
+        data: {}
+      });
     } else {
       res.send({
         status: 400,
@@ -39,12 +44,6 @@ router.post('/res', function(req, res) {
         data: {}
       });
     }
-  });
-});
-
-router.get('/', function(req, res) {
-  res.render('login', {
-    title: ''
   });
 });
 
