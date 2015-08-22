@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
   res.render('student-login.hbs');
 });
 
-
 router.post('/login', function(req, res) {
   var username = req.body.un;
   var password = req.body.pw;
@@ -18,7 +17,8 @@ router.post('/login', function(req, res) {
       student_id: username
     }
   }).then(function(data) {
-    if ((data.length === 0) || (data[0].dataValues.password === password)) {
+    console.log(data);
+    if ((data.length === 0) || (data[0].dataValues.password !== password)) {
       res.send({
         status: 404,
         message: {},
@@ -33,5 +33,7 @@ router.post('/login', function(req, res) {
     }
   });
 });
+
+
 
 module.exports = router;

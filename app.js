@@ -2,7 +2,7 @@ var express = require('express');
 var hbs = require('express-hbs');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
-var student_login = require('./routes/student-login.js');
+var studentLogin = require('./routes/student-login.js');
 var studentRegister = require('./routes/student-register.js');
 var submit = require('./routes/submit.js');
 var check = require('./routes/teacher-check.js');
@@ -23,7 +23,7 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 
-app.use("/", student_login);
+app.use("/", studentLogin);
 app.use('/studentRegister', studentRegister);
 app.use('/teacher-check', check);
 app.use('/submit', submit);

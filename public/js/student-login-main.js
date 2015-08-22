@@ -22,10 +22,12 @@ $('body').on('click', "#button", function() {
       },
       success: function(result) {
         if (result.status === 200) {
-          alert("OK!");
+          $.cookie('username', username, { expires: 1, path: '/' });
+          $.cookie('password', password, { expires: 1, path: '/' });
+          location.href = "teacher-check";
         }
         else {
-          $(".pw-error").html("用户名不存在或密码不正确哦～");
+          $(".pw-error").html("用户名不存在或密码不正确哦");
         }
       }
     });
