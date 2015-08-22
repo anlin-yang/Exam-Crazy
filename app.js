@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var student_login = require('./routes/student-login.js');
 var register = require('./routes/register.js');
 var submit = require('./routes/submit.js');
-var check = require('./routes/check.js');
+var check = require('./routes/teacher-check.js');
 var answer_paper = require('./routes/answer-paper.js');
 var teacherLogin = require('./routes/teacher-login.js');
 var app = express();
@@ -25,7 +25,7 @@ app.set('views', __dirname + '/views');
 
 app.use("/", student_login);
 app.use('/register', register);
-app.use('/check', check);
+app.use('/teacher-check', check);
 app.use('/submit', submit);
 app.use('/answer-paper', answer_paper);
 app.use('/teacherLogin', teacherLogin);
