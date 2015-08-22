@@ -3,7 +3,7 @@ var models = require('../models');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.render('teacher-check-page');
+  res.render('teacher-login');
 });
 
 module.exports = router;
