@@ -84,6 +84,7 @@ $(function() {
             $('#registed').html('该学号已被注册！！！');
           }
           if (result.status === 200) {
+            alert('已注册成功，点击确定后进行登录');
             location.href = "/";
           }
         }
