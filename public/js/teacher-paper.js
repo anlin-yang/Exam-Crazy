@@ -1,8 +1,7 @@
 $(function() {
-
   $("#submit").on("click", function() {
     var data = $("#paperName").val();
-    $.get('/teacher',{
+    $.post('/teacher',{
       data: data
     }, function(msg) {
 
