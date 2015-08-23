@@ -1,9 +1,11 @@
 $(function() {
 
-  $("#submit").on("click",function(){
-    console.log(1);
-    var data=$("#paperName").val();
-    console.log(data);
-  // $.post('/papers',)
+  $("#submit").on("click", function() {
+    var data = $("#paperName").val();
+    $.get('/teacher',{
+      data: data
+    }, function(msg) {
+
+    });
   });
 });

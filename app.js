@@ -10,6 +10,7 @@ var answer_paper = require('./routes/answer-paper.js');
 var teacherLogin = require('./routes/teacher-login.js');
 var addsingle = require('./routes/add-single');
 var addMultiple = require('./routes/add-multiple');
+var teacherPaper=require('./routes/teacher-paper.js');
 var app = express();
 
 app.use(express.static('bower_components/'));
@@ -32,6 +33,6 @@ app.use('/answer-paper', answer_paper);
 app.use('/teacherLogin', teacherLogin);
 app.use('/addsingle',addsingle);
 app.use('/addmultiple',addMultiple);
-
+app.use('/teacher',teacherPaper);
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");
