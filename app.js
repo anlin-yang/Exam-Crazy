@@ -5,12 +5,11 @@ var bodyParser = require('body-parser');
 var studentLogin = require('./routes/student-login.js');
 var studentRegister = require('./routes/student-register.js');
 var submit = require('./routes/submit.js');
-var teacherCheck = require('./routes/teacher-check.js');
-var answerPaper = require('./routes/answer-paper.js');
+var check = require('./routes/teacher-check.js');
+var answer_paper = require('./routes/answer-paper.js');
 var teacherLogin = require('./routes/teacher-login.js');
-var addSingle = require('./routes/add-single');
-var teacherPaper=require("./routes/teacher-paper.js");
-
+var addsingle = require('./routes/add-single');
+var addMultiple = require('./routes/add-multiple');
 var app = express();
 
 app.use(express.static('bower_components/'));
@@ -25,16 +24,14 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
-
 app.use("/", studentLogin);
 app.use('/studentRegister', studentRegister);
-app.use('/teacherCheck', teacherCheck);
+app.use('/teacher-check', check);
 app.use('/submit', submit);
-app.use('/answerPaper', answerPaper);
+app.use('/answer-paper', answer_paper);
 app.use('/teacherLogin', teacherLogin);
-
-app.use('/addSingle',addSingle);
-app.use('/teacherPaper',teacherPaper);
+app.use('/addsingle',addsingle);
+app.use('/addmultiple',addMultiple);
 
 app.listen(3000);
 console.log("Listening on port 3000:http://localhost:3000");
