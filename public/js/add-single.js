@@ -1,4 +1,11 @@
 $(function() {
+  $('body').on('click', "#cancel", function() {
+    $('.input').val("");
+    [].forEach.call($("[name='ans']"), function(elem) {
+      elem.checked = false;
+    });
+  });
+
   $('body').on('click', "#sure", function() {
 
     var question = $("#question").val();
@@ -38,7 +45,6 @@ $(function() {
         success: function(successfulTip) {
           console.log(successfulTip);
           $('.input').val("");
-          
           [].forEach.call($("[name='ans']"), function(elem) {
             elem.checked = false;
           });
