@@ -4,7 +4,7 @@ function Register() {
 
 }
 Register.prototype.getClasses = function(req, res) {
-  var classes = models.class;
+  var classes = models.Class;
   var classs = [];
   classes.findAll().then(function(data) {
     for (var i = 0; i < data.length; i++) {
@@ -20,15 +20,15 @@ Register.prototype.getClasses = function(req, res) {
 
 Register.prototype.verify = function(req, res) {
   var info = req.body.info;
-  var students = models.students;
-  students.findAll({
+  var student = models.Student;
+  student.findAll({
     where: {
-      student_id: info.id
+      id: info.id
     }
   }).then(function(data) {
     if (data.length === 0) {
-      students.create({
-        student_id: info.id,
+      student.create({
+        id: info.id,
         name: info.name,
         gender: info.gender,
         class: info.class,
