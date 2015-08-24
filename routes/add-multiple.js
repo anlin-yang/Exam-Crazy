@@ -12,10 +12,10 @@ router.post("/", function(req, res){
   var answer = req.body.question_answer;
 
   questions.create({
-    type_id : 2,
     question_key : answer,
     question_content :question,
-    question_point : 1
+    question_point : 1,
+    type_id : 2
   });
   res.send("aaa");
 });

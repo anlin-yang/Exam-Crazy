@@ -37,7 +37,7 @@ $(function() {
       };
 
       $.ajax({
-        url: '/addsingle',
+        url: '/addmultiple',
         data: information,
         type: 'POST',
         success: function(successfulTip) {
