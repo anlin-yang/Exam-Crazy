@@ -12,9 +12,6 @@
 <body>
 
   <div class="all container">
-    <div class="imag">
-
-    </div>
     <form class="" action="" method="">
       <div class="panel panel-default ">
         <div class="panel-heading">
@@ -24,7 +21,7 @@
         <div class="panel-body">
           <div class="form-group">
             <label>
-              <p id="xh"></p>
+              <p id="snoTip"></p>
               学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号
               <input type="text" name="name" id='id' value={{infor.id}}>（8位的数字）
             </label>
@@ -32,53 +29,50 @@
 
           <div class="form-group">
             <label>
-              <p id="sxm"></p>
+              <p id="nameTip"></p>
               姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名
-              <input type="text" name="name" id='xm' value="">
+              <input type="text" name="name" id='name' value="">
             </label>
           </div>
 
           <div class="form-group">
-            <label class="sex">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</label>
+            <label class="gender">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</label>
             <label>
-              <input type="radio" name="sex" value="男" class="rad" id="xb" tabindex="9" checked> 男
+              <input type="radio" name="gender" value="男" checked> 男
             </label>
             <label>
-              <input type="radio" name="sex" value="女" class="rad" id="xb" tabindex="10"> 女
+              <input type="radio" name="gender" value="女" > 女
             </label>
-            <div class="r ok" id="imweb_sexInfo"></div>
           </div>
 
           <div class="form-group">
-            <label class="cla">班&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
-            <select name="imweb_city" id="imweb_city" class="city" tabindex="15">
+            <label class="class">班&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
+            <select class="city">
               {{#each classes}}
-              <option value="{{class_id}}" data-classId="2" id="bj" name="classes">{{class_name}}</option>
+              <option value="{{class_id}}" data-classId="2" id="class" name="classes">{{class_name}}</option>
               {{/each}}
             </select>
           </div>
 
           <div class="form-group">
             <label>
-              <p id="smm"></p>
+              <p id="passwordTip"></p>
               密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码
-              <input type="password" name="name" id='mm' value="">（6～12位）
+              <input type="password" name="password" id='password' value="">（6～12位）
             </label>
           </div>
 
           <div class="form-group">
             <label>
-              <p id="summ"></p>
+              <p id="confirmTip"></p>
               确认密码
-              <input type="password" name="name" id='sure-mm' value="">
+              <input type="password" name="confirm" id='confirm' value="">
             </label>
           </div>
 
           <div class="but form-group">
-            <input type="button" class="butt1 btn  btn-primary btn-lg  btn-block" id='sub' name="name" value="注册" />
+            <input type="button" class="butt1 btn btn-primary btn-lg btn-block" id='button' name="name" value="注册" />
           </div>
-          <!-- <input type="button" class="butt2 btn btn-lg" id='cancle' name="name" value="取消" /> -->
-          <p></p>
           <div class="rg_login">
             <a href="/">如已经注册过，请点击此处登录！</a>
           </div>
