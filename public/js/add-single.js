@@ -47,6 +47,9 @@ $(function() {
           $('.input').val("");
           [].forEach.call($("[name='ans']"), function(elem) {
             elem.checked = false;
+
+            $("#addBox").show();
+            $("#addBox").delay(3000).hide(1);
           });
         }
       });
