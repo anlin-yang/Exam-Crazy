@@ -1,4 +1,4 @@
-'use strict';
+'use _strict';
 
 module.exports = {
   up: function(queryInterface, Sequelize) {

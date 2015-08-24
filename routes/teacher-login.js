@@ -2,9 +2,7 @@ var express = require('express');
 var models = require('../models');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.render('teacher-login');
-});
+router.get('/', getTeacherLogin());
 router.post('/teacherAuthority', function(req, res) {
   var id = req.body.id;
   var password = req.body.password;
