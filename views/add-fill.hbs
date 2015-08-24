@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>add-single</title>
+  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/add-fill.css" media="screen" charset="utf-8">
+  <script type="text/javascript" src="jquery/dist/jquery.js"></script>
+
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-md-offset-2" id=“tt”>
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:lightblue;">
+          <h2 class="text-center">添加填空题题目</h2>
+        </div>
+        <form class="form-horizontal">
+          <div class="panel-body" id="add_fill">
+            <label>题目：
+              <input type="text" class="input" id="fill_question">
+              <p id="judge1"></p>
+            </label>
+            </br>
+            <input type="button" class="btn btn-primary" id="fill_answers" name="name" value="点击输入答案">
+            </br>
+            <p id="answer"></p>
+            <!-- <label>答案：
+              <input type="text" class="input" id="A">
+              <p id="judge2"></p>
+            </label> -->
+            <!-- </br> -->
+            <!-- <div class="text-center"> -->
+            <!-- <button   type="button" id="sure" style="background-color:lightblue;">确认</button> -->
+            <!-- <input type="button" class="btn btn-primary" name="name" id="surefill" value="确定"> -->
+            <!-- </div> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/add-fill.js">
+  </script>
+</body>
+
+</html>
