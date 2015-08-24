@@ -1,0 +1,11 @@
+#student-info-frame {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#student-info h4 {
+  text-align: center;
+}
+#student-info {
+  text-align: left;
+}

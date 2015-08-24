@@ -1,7 +1,8 @@
 {{!< layout/html-struct}}
 
 {{#contentFor 'pageStyles'}}
-  <link rel="stylesheet" href="../css/answer-paper.css">
+  <link rel="stylesheet" href="../css/page.css">
+  <script type="text/javascript" src="../js/page.js"></script>
   <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <script type="/text/javascript" src="../jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="/js/formSerializer.js"></script>
@@ -12,7 +13,7 @@
   </div>
   <div class="panel panel-primary" id='student-info-frame'>
    <div class="panel-body" id='student-info'>
-      <h4>UML建模语言</h4>
+      <h4>{{#each array}}{{title}}{{/each}}</h4>
       <table class="table">
          <tr>
            <td>姓名：</td>
@@ -20,73 +21,9 @@
            <td>班级：</td>
            </tr>
       </table>
-   <!-- </div>
-  </div>
-  <br>
-  <div class="panel panel-primary" id='blank'>
-   <div class="panel-body">
-      <h4>一.选择题</h4>
-      <table>
-        <tr>
-          <td>
-            1.UML是什么 <input type="text" class='blank'>
-          </td>
+      <div id="选择题">
+        
+      </div>
 
-        </tr>
-        <tr>
-          <td>
-            2.面向对象三要素 <input type="text" class='blank'>
-            </td>
-
-        </tr>
-        <tr>
-          <td>
-            3.面向对象五原则 <input type="text" class='blank'>
-            </td>
-        </tr>
-      </table>
    </div>
   </div>
-  <br>
-
-  <div class="panel panel-primary" id='single-choose'>
-   <div class="panel-body">
-      <h4>二.单选题</h4>
-      <table>
-        <tr>
-          <td>
-            1.UML是什么
-            <br>
-            <input type="radio"> 1 <br>
-            <input type="radio" > 2 <br>
-            <input type="radio" > 3 <br>
-            <input type="radio" > 4 <br>
-          </td>
-
-        </tr>
-        <tr>
-          <td>
-            2.面向对象三要素
-          </td>
-        </tr>
-        <tr>
-          <td>
-            3.面向对象五原则
-            </td>
-        </tr>
-      </table> -->
-      <table>
-        {{#each array}}
-        <tr>
-          {{question_content}}
-        </tr>
-        {{/each}}
-      </table>
-   </div>
-  </div>
-  <div id='commit'>
-    <input type="button" value="提交">
-  </div>
-
-<!-- </body>
-</html> -->
