@@ -10,6 +10,7 @@ module.exports = {
       },
       paper_name:Sequelize.STRING,
       question_array:Sequelize.TEXT,
+      subject: Sequelize.STRING,
       score: Sequelize.INTEGER
     });
   },

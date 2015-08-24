@@ -3,7 +3,6 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-
     return queryInterface.createTable('scores', {
       score_id: {
         type: Sequelize.INTEGER,
