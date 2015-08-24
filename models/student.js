@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('TeacherInfo', {
+  return sequelize.define('Student', {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       allowNull: false,
+      primaryKey: true,
       autoIncrement: false
     },
     name: {
@@ -11,14 +11,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
     sex: {
-      type: DataTypes.ENUM('F', 'M'),
+      type: DataTypes.ENUM('M', 'F'),
       allowNull: false
     },
+    class: DataTypes.INTEGER,
     password: {
       type: DataTypes.STRING,
     }
   }, {
-    timestamps: false,
-    //freezeTableName: true
+    timestamps: false
   });
 };

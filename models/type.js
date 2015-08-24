@@ -1,11 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Class', {
+  return sequelize.define('Type', {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    className: DataTypes.STRING,
+    type: DataTypes.STRING
   }, {
     timestamps: false
   });

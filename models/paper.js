@@ -1,11 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Class', {
+  return sequelize.define('Paper', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    className: DataTypes.STRING,
+    paperName: DataTypes.STRING,
+    subject: DataTypes.STRING,
+    questionArray: DataTypes.TEXT,
+    score: DataTypes.INTEGER
   }, {
     timestamps: false
   });

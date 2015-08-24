@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 router.post('/teacherAuthority', function(req, res) {
   var id = req.body.id;
   var password = req.body.password;
-  models.teacher_info.findAll({
+  models.TeacherInfo.findAll({
     where: {
       id: id,
       password: password
@@ -22,6 +22,7 @@ router.post('/teacherAuthority', function(req, res) {
       });
       console.log("404");
     } else {
+      console.log("200");
       res.send({
         status: 200,
         message: {},
