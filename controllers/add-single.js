@@ -1,6 +1,5 @@
 var models = require('../models');
-var questions = models.questions;
-var models = require('../models');
+var questions = models.Question;
 
 function AddSingle() {
 
@@ -15,10 +14,10 @@ AddSingle.prototype.postAddSingle = function(req, res) {
   var answer = req.body.questionAnswer;
 
   questions.create({
-    question_key: answer,
-    question_content: question,
-    question_point: 1,
-    type_id: 1
+    questionKey: answer,
+    questionContent: question,
+    questionPoint: 1,
+    typeId: 1
   }).then(function() {
     res.send("aaa");
   });

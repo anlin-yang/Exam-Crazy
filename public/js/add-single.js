@@ -34,8 +34,8 @@ $(function() {
       $("#optionD").html("D选项忘记填写！");
     } else {
       var information = {
-        question_information: question + '-' + A + '-' + B + '-' + C + '-' + D,
-        question_answer: answer
+        questionInformation: question + '-' + A + '-' + B + '-' + C + '-' + D,
+        questionAnswer: answer
       };
 
       $.ajax({

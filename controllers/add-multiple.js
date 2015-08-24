@@ -1,6 +1,5 @@
 var models = require('../models');
-var questions = models.questions;
-var models = require('../models');
+var questions = models.Question;
 
 function AddMultiple() {
 
@@ -15,10 +14,10 @@ AddMultiple.prototype.postAddMultiple = function(req, res) {
   var answer = req.body.questionAnswer;
 
   questions.create({
-    question_key: answer,
-    question_content: question,
-    question_point: 1,
-    type_id: 2
+    questionKey: answer,
+    questionContent: question,
+    questionPoint: 1,
+    typeId: 2
   }).then(function() {
     res.send("aaa");
   });
