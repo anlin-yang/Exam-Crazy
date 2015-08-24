@@ -4,10 +4,11 @@ var models = require('../models');
 router.get("/", function(req, res) {
   res.render('teacher/paper');
 });
-router.post("/",function(req,res){
-  var user = models.papers.create({
-   paper_name:req.body.paperName,
-   subject:req.body.subject
- });
+
+router.post("/", function(req, res) {
+  var user = models.Paper.create({
+    paper_name: req.body.paperName,
+    subject: req.body.subject
+  });
 });
 module.exports = router;
