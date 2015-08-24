@@ -1,20 +1,19 @@
  'use strict';
 
-
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('answered_papers', {
+    return queryInterface.createTable('AnsweredPapers', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      student_id: Sequelize.INTEGER,
-      answers_array: Sequelize.TEXT
+      studentId: Sequelize.INTEGER,
+      answersArray: Sequelize.TEXT
     });
   },
 
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('answered_papers');
+    return queryInterface.dropTable('AnsweredPapers');
   }
 };

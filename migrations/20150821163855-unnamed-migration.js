@@ -1,18 +1,18 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('classes', {
-      class_id: {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('Classes', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      class_name:Sequelize.STRING,
+      className: Sequelize.STRING,
     });
   },
 
-  down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('classes');
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('Classes');
   }
 };

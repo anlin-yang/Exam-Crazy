@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
       },
       sex: {
-        type: Sequelize.ENUM('F', 'M'),
+        type: Sequelize.ENUM('M', 'F'),
         allowNull: false
       },
       password: {

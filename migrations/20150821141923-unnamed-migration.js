@@ -2,19 +2,19 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('answers', {
-      answer_id: {
+    return queryInterface.createTable('Answers', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      types:Sequelize.STRING,
-      question_id: Sequelize.INTEGER,
-      answer_context: Sequelize.TEXT
+      type: Sequelize.STRING,
+      questionId: Sequelize.INTEGER,
+      answerContext: Sequelize.TEXT
     });
   },
 
   down: function(queryInterface, Sequelize) {
-   return queryInterface.dropTable('answers');
+    return queryInterface.dropTable('Answers');
   }
 };
