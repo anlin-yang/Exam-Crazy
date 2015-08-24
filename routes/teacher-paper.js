@@ -1,8 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var models = require('../models');
+
 router.get("/", function(req, res) {
   res.render('teacher/paper');
+});
+
+router.get("/single", function(req, res) {
+  res.render('add-single');
 });
 
 router.post("/", function(req, res) {

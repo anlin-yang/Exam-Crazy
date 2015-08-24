@@ -6,8 +6,8 @@ var router = express.Router();
 var TeacherLogin = new TeacherLogin();
 
 
-router.get('/', TeacherLogin.getTeacherLogin(req, res));
-router.post('/teacherAuthority', TeacherLogin.postTeacherAuthority(req, res));
+router.get('/', TeacherLogin.getTeacherLogin);
+router.post('/teacherAuthority', TeacherLogin.postTeacherAuthority);
 
 
 module.exports = router;
