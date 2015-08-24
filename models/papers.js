@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     paper_name:DataTypes.STRING,
+    subject: DataTypes.STRING,
     question_array:DataTypes.TEXT,
     score:DataTypes.INTEGER
   }, {
