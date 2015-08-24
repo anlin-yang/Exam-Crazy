@@ -1,7 +1,9 @@
 {{!< ../layout/teacher-layout}}
 {{#contentFor 'teacherPageStyles'}}
   <script type="text/javascript" src="js/teacher-paper.js"></script>
+  <script type="text/javascript" src="js/clicksingle.js"></script>
   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/teacher-paper.css">
 {{/contentFor}}
 <div class="panel panel-default">
   <div class="panel-heading">新增试卷</div>
@@ -10,7 +12,6 @@
     <input type="text" id="paperName"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp科目
     <input type="text" id="subjectName">
   </div>
-  <button type="hello" id="submit">
 </div>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -18,14 +19,17 @@
   </div>
   <div class="panel-body">
     <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        填空题
+      <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown">
+        添加题目
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">单选题</a></li>
-        <li><a href="#">多选题</a></li>
+        <li>单选题</li>
+        <li>多选题</li>
+        <li>判断题</li>
       </ul>
+    </div>
+    <div id="addItem">
     </div>
   </div>
 </div>
