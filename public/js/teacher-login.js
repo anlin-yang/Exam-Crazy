@@ -1,17 +1,20 @@
 $(function() {
   $("#teacherLoginId").on('click', function() {
-    var username = $("#inputUsername").val();
+    var id = $("#inputUsername").val();
     var password = $("#inputPassword").val();
     $.ajax({
       type: 'POST',
-      url: '/teacherLogin/teacherLoginCheck',
+      url: '/teacherLogin/teacherAuthority',
       data: {
-        un: username,
-        pw: password
+        id: id,
+        password: password
       },
       success: function(result) {
         if (result.status === 200) {
-          $.cookie('username', username, { expires: 1, path: '/' });
+          // $.cookie('username', username, {
+          //   expires: 1,
+          //   path: '/'
+          // });
           // $.cookie('username', username, {
           //   expires: 1,
           //   path: '/'

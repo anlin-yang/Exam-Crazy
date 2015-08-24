@@ -2,8 +2,8 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('teacher_info', {
-      teacher_id: {
+    return queryInterface.createTable('TeacherInfos', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
@@ -13,18 +13,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      gender: {
-        type: Sequelize.ENUM('男', '女'),
+      sex: {
+        type: Sequelize.ENUM('F', 'M'),
         allowNull: false
       },
       password: {
         type: Sequelize.STRING,
       }
     });
-
   },
 
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('teacher_info');
+    return queryInterface.dropTable('TeacherInfos');
   }
 };

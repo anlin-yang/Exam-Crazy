@@ -5,16 +5,16 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('teacher-login');
 });
-router.post('/teacherLoginCheck', function(req, res) {
-  console.log("password");
-  var username = req.body.un;
-  var password = req.body.pw;
+router.post('/teacherAuthority', function(req, res) {
+  var id = req.body.id;
+  var password = req.body.password;
   models.teacher_info.findAll({
     where: {
-      teacher_id: username
+      id: id,
+      password: password
     }
   }).then(function(data) {
-    if ((data.length === 0) || (data[0].dataValues.password !== password)) {
+    if ((data.length === 0)) {
       res.send({
         status: 404,
         message: {},

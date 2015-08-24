@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('teacher_info', {
-    teacher_id: {
+  return sequelize.define('TeacherInfo', {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gender: {
-      type: DataTypes.ENUM('男', '女'),
+    sex: {
+      type: DataTypes.ENUM('F', 'M'),
       allowNull: false
     },
     password: {
