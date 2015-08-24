@@ -1,7 +1,7 @@
 $(function() {
   $('body').on('click', "#cancel", function() {
     $('.input').val("");
-    [].forEach.call($("[name='ans']"), function(elem) {
+    [].forEach.call($("[name='answer']"), function(elem) {
       elem.checked = false;
     });
   });
@@ -13,7 +13,7 @@ $(function() {
     var B = $("#B").val();
     var C = $("#C").val();
     var D = $("#D").val();
-    var item = $("[name='ans']");
+    var item = $("[name='answer']");
     var answer;
     for (var i = 0; i < item.length; i++) {
       if (item[i].checked) {
@@ -23,15 +23,15 @@ $(function() {
     }
 
     if (!(question)) {
-      $("#que").html("问题忘记填写！");
+      $("#questionPrompt").html("问题忘记填写！");
     } else if (!(A)) {
-      $("#quea").html("A选项忘记填写！");
+      $("#optionA").html("A选项忘记填写！");
     } else if (!(B)) {
-      $("#queb").html("B选项忘记填写！");
+      $("#optionB").html("B选项忘记填写！");
     } else if (!(C)) {
-      $("#quec").html("C选项忘记填写！");
+      $("#optionC").html("C选项忘记填写！");
     } else if (!(D)) {
-      $("#qued").html("D选项忘记填写！");
+      $("#optionD").html("D选项忘记填写！");
     } else {
       var information = {
         question_information: question + '-' + A + '-' + B + '-' + C + '-' + D,
@@ -45,7 +45,7 @@ $(function() {
         success: function(successfulTip) {
           console.log(successfulTip);
           $('.input').val("");
-          [].forEach.call($("[name='ans']"), function(elem) {
+          [].forEach.call($("[name='answer']"), function(elem) {
             elem.checked = false;
 
             $("#addBox").show();
