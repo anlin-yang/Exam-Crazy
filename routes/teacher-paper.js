@@ -6,7 +6,8 @@ router.get("/", function(req, res) {
 });
 router.post("/",function(req,res){
   var user = models.papers.create({
-   paper_name:req.body.data
+   paper_name:req.body.paperName,
+   subject:req.body.subject
  });
 });
 module.exports = router;

@@ -1,13 +1,31 @@
 {{!< ../layout/teacher-layout}}
 {{#contentFor 'teacherPageStyles'}}
-  <script type="text/javascript" src="js/teacher-paper.js">
-  </script>
+  <script type="text/javascript" src="js/teacher-paper.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
 {{/contentFor}}
 <div class="panel panel-default">
   <div class="panel-heading">新增试卷</div>
   <div class="panel-body">
     试卷名称
-    <input type="name" id="paperName">
+    <input type="text" id="paperName"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp科目
+    <input type="text" id="subjectName">
   </div>
-  <input type="button" name="submt" id="submit" value="提交">
+  <button type="hello" id="submit">
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">试卷内容</h3>
+  </div>
+  <div class="panel-body">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        填空题
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">单选题</a></li>
+        <li><a href="#">多选题</a></li>
+      </ul>
+    </div>
+  </div>
 </div>

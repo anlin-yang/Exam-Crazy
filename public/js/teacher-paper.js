@@ -1,10 +1,11 @@
 $(function() {
   $("#submit").on("click", function() {
-    var data = $("#paperName").val();
-    $.post('/teacher',{
-      data: data
+    var paperName = $("#paperName").val();
+    var subjectName = $("#subjectName").val();
+    $.post('/teacher', {
+      paperName: paperName,
+      subject: subjectName
     }, function(msg) {
-
     });
   });
 });
