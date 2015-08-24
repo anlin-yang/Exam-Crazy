@@ -4,15 +4,14 @@ function Register() {
 
 }
 Register.prototype.getClasses = function(req, res) {
-  var classes = models.Class;
-  var classs = [];
-  classes.findAll().then(function(data) {
+  var classes = [];
+  models.Class.findAll().then(function(data) {
     for (var i = 0; i < data.length; i++) {
-      classs.push(data[i].dataValues);
+      classes.push(data[i].dataValues);
     }
     res.render('student-register', {
       title: 'Student Register',
-      classes: classs
+      classes: classes
     });
   });
 
