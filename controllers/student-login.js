@@ -1,4 +1,5 @@
 var models = require('../models');
+var utils = require('utility');
 
 var StudentLogin = {};
 
@@ -10,7 +11,7 @@ StudentLogin.identify = function(req, res) {
   models.Student.findAll({
     where: {
       id: req.body.studentId,
-      password: req.body.password
+      password: utils.md5(req.body.password)
     }
   }).then(function(users) {
     responseIdentify(res, users);
@@ -25,6 +26,7 @@ function responseIdentify(res, data){
       data: {}
     });
   } else {
+    console.log("test");
     res.send({
       status: 404,
       message: {},
