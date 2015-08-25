@@ -1,32 +1,35 @@
 var models = require('../models');
 
-function Student() {}
+var StudentLogin = {};
 
-Student.prototype.displayPage = function(req, res) {
+StudentLogin.displayPage = function(req, res) {
   res.render('student-login.hbs');
 };
 
-Student.prototype.identify = function(req, res) {
-  models.students.findAll({
+StudentLogin.identify = function(req, res) {
+  models.Student.findAll({
     where: {
-      student_id: req.body.username,
+      id: req.body.studentId,
       password: req.body.password
     }
-  }).then(function(data) {
-    if (data.length !== 0) {
-      res.send({
-        status: 200,
-        message: {},
-        data: {}
-      });
-    } else {
-      res.send({
-        status: 404,
-        message: {},
-        data: {}
-      });
-    }
+  }).then(function(users) {
+    responseIdentify(res, users);
   });
 };
 
-module.exports = Student;
+function responseIdentify(res, data){
+  if (data.length !== 0) {
+    res.send({
+      status: 200,
+      message: {},
+      data: {}
+    });
+  } else {
+    res.send({
+      status: 404,
+      message: {},
+      data: {}
+    });
+  }
+}
+module.exports = StudentLogin;
