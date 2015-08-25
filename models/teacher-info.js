@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       authentication: function(id, password) {
-        return TeacherInfo.findAll({
+        return TeacherInfo.find({
           where: {
             id: id,
             password: password
