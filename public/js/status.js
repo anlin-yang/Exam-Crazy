@@ -1,4 +1,4 @@
-var STATUS = {
+var status = {
   "DATA_SUCCESS": 10200,
   "PARAM_ERROR": 10400,
   "NOT_FOUND": 10404,
@@ -9,4 +9,4 @@ var STATUS = {
   "QUR_ERROR": 10504
 }
 
-module.exports = STATUS;
+module.exports = status;
