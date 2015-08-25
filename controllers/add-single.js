@@ -18,9 +18,15 @@ AddSingle.prototype.postAddSingle = function(req, res) {
     questionContent: question,
     questionPoint: 1,
     typeId: 1
-  }).then(function() {
-    res.send("aaa");
-  });
+  }).then(function(data) {
+    if (data.length !== 0) {
+      res.send({
+        status: 200,
+        singleID: data.dataValues.id
+      });
+  }
+});
 };
+
 
 module.exports = AddSingle;

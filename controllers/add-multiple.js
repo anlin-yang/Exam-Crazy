@@ -18,8 +18,13 @@ AddMultiple.prototype.postAddMultiple = function(req, res) {
     questionContent: question,
     questionPoint: 1,
     typeId: 2
-  }).then(function() {
-    res.send("aaa");
+  }).then(function(data) {
+    if (data.length !== 0) {
+      res.send({
+        status: 200,
+        multipleID: data.dataValues.id
+      });
+    }
   });
 };
 
