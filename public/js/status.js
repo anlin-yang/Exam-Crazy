@@ -8,5 +8,4 @@ var status = {
   "UPD_ERROR": 10503,
   "QUR_ERROR": 10504
 };
-
 module.exports = status;
