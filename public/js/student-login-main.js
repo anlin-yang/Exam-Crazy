@@ -23,7 +23,7 @@ $('body').on('click', "#login-button", function() {
         if (result.status === 200) {
           $.cookie('studentId', studentId, {expires: 1, path: '/' });
           $.cookie('password', password, {expires: 1, path: '/' });
-          location.href = "teacher-check";
+          location.href = "/studentHome";
         }
         else {
           $(".input-error").html("用户名不存在或密码不正确");

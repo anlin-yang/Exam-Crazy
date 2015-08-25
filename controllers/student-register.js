@@ -1,10 +1,9 @@
 var models = require('../models');
-
+var STATUS = require('../public/js/status.js');
 
 function Register() {
 
 }
-
 Register.prototype.getClasses = function(req, res) {
   var classes = [];
   models.Class.findAll().then(function(data) {
@@ -22,7 +21,6 @@ Register.prototype.getClasses = function(req, res) {
 Register.prototype.verify = function(req, res) {
   var info = req.body.info;
   var student = models.Student;
-  console.log(STATUS);
   console.log(STATUS.DATA_SUCCESS);
   student.findAll({
     where: {
