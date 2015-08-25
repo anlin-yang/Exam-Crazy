@@ -1,3 +1,4 @@
+var status = require('../public/js/status.js');
 var models = require('../models');
 
 function TeacherCheckPage() {
@@ -10,7 +11,17 @@ TeacherCheckPage.prototype.root = function(req, res) {
 
 TeacherCheckPage.prototype.check = function(req, res) {
   models.Paper.findAll().then(function(data) {
-    res.send(data);
+    if (data.length === 0) {
+      res.send({
+        status: status.QUR_ERROR,
+        data: {}
+      });
+    } else {
+      res.send({
+        status:status.DATA_SUCCESS,
+        data:data
+      });
+    }
   });
 };
 
@@ -28,10 +39,12 @@ TeacherCheckPage.prototype.page = function(req, res) {
 
       models.Type.findAll().then(function(data) {
         addType(data, that.result);
+
         res.render('page.hbs', {
           name: temp,
           array: that.result
         });
+
       });
     });
   });
