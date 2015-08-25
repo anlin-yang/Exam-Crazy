@@ -19,11 +19,11 @@ var StudentAnswer =  {};
 // };
 // Paper.prototype.findPaper = function(creteria){
 //   this.findAll( creteria ).then(function(data) {
-//     contents = filterContents(data);     
-//     return findContents(contents);  
+//     contents = filterContents(data);
+//     return findContents(contents);
 //         }).then(function(data) {
 //           var mapContent = mapContents(data);
-//           return new Promise(mapContent);            
+//           return new Promise(mapContent);
 //         });
 // }
 

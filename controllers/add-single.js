@@ -1,4 +1,5 @@
 var models = require('../models');
+var status = require('../public/js/status.js');
 var questions = models.Question;
 
 function AddSingle() {
@@ -21,7 +22,7 @@ AddSingle.prototype.postAddSingle = function(req, res) {
   }).then(function(data) {
     if (data.length !== 0) {
       res.send({
-        status: 200,
+        status: status.DATA_SUCCESS,
         singleID: data.dataValues.id
       });
   }
