@@ -1,6 +1,6 @@
 $(function() {
   $('.checkpage').on('click',function() {
-    $.get('teacher-check/check.html', function(resp) {
+    $.get('teacher-check/check', function(resp) {
       showcheckpage(resp);
     });
   });

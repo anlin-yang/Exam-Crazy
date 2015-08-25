@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Type', {
+  var Type = sequelize.define('Type', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -8,6 +8,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     type: DataTypes.STRING
   }, {
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      findTypes: function(type_array) {
+        return Types.findAll({
+          where: {
+            type_id: {
+              $in: type_array
+            }
+          }
+        });
+      }
+    }
   });
+  return Type;
 };
