@@ -18,7 +18,7 @@ AddFill.prototype.addFill = function(req, res) {
     typeId: 3,
     questionContent: fill.question,
     questionKey: fill.answers,
-    questionPoint: fill.count
+    questionPoint: fill.point
   }).then(function(data) {
     if (data.dataValues.id > 0) {
       res.send({

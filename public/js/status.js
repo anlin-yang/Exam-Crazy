@@ -8,5 +8,8 @@ var STATUS = {
   "UPD_ERROR": 10503,
   "QUR_ERROR": 10504
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> changr status
 module.exports = STATUS;
