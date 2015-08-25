@@ -44,6 +44,7 @@ $(function() {
             answers: answers,
             count: answersCount
           };
+
           $.ajax({
             type: 'POST',
             url: '/addFill',
@@ -51,8 +52,10 @@ $(function() {
               fill: fill
             },
             success: function(result) {
-              if (result.status === 200) {
+              if (result.status === STATUS.DATA_SUCCESS) {
                 $('#submitSuccess').html('提交成功');
+              } else if(result.status === STATUS.INS_ERROR) {
+                $('#submitSuccess').html('入库失败！');
               }
             }
           });
