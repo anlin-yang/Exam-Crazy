@@ -5,9 +5,7 @@ var TeacherLogin = require('../controllers/teacher-login.js');
 var router = express.Router();
 var TeacherLogin = new TeacherLogin();
 
-
 router.get('/', TeacherLogin.getTeacherLogin);
 router.post('/teacherAuthority', TeacherLogin.postTeacherAuthority);
-
 
 module.exports = router;
