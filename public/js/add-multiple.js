@@ -1,19 +1,19 @@
 $(function() {
   $('body').on('click', "#cancel", function() {
     $('.input').val("");
-    [].forEach.call($("[name='answer']"), function(elem) {
+    [].forEach.call($("[name='multipleAnswer']"), function(elem) {
       elem.checked = false;
     });
   });
   $('body').on('click', "#sure", function() {
 
-    var array = ['#question', '#A', '#B', '#C', '#D'],
+    var array = ['#multipleQuestion', '#A', '#B', '#C', '#D'],
       value = [];
     for (var i = 0; i < array.length; i++) {
       value[i] = $(array[i]).val();
     }
 
-    var item = $("[name='answer']");
+    var item = $("[name='multipleAnswer']");
     var answer = '';
     for (var x = 0; x < item.length; x++) {
       if (item[x].checked) {
@@ -48,7 +48,7 @@ $(function() {
         success: function(successfulTip) {
           console.log(successfulTip);
           $('.input').val("");
-          [].forEach.call($("[name='answer']"), function(elem) {
+          [].forEach.call($("[name='multipleAnswer']"), function(elem) {
             elem.checked = false;
 
             $("#addBox").show();
