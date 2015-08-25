@@ -2,7 +2,6 @@ var status = require('../public/js/status.js');
 var models = require('../models');
 var TeacherInfo = models.TeacherInfo;
 
-
 function TeacherLogin() {}
 
 TeacherLogin.prototype.getTeacherLogin = function(req, res) {

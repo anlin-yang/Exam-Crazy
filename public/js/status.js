@@ -9,8 +9,4 @@ var STATUS = {
   "QUR_ERROR": 10504
 };
 
-<<<<<<< HEAD
-module.exports = status;
-=======
 module.exports = STATUS;
->>>>>>> refs/remotes/origin/dev

@@ -10,7 +10,9 @@ $(function() {
         password: password
       },
       success: function(result) {
-        if (result.status === 200) {
+        console.log(STATUS.DATA_SUCCESS);
+        alert("hello");
+        if (result.STATUS === 200) {
           // $.cookie('username', username, {
           //   expires: 1,
           //   path: '/'
