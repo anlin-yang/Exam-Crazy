@@ -29,7 +29,7 @@ TeacherCheckPage.prototype.page = function(req, res) {
       models.Type.findAll().then(function(data) {
         addType(data, that.result);
         res.render('page.hbs', {
-          name :temp,
+          name: temp,
           array: that.result
         });
       });
@@ -50,12 +50,12 @@ function filterTheArray(data) {
 function dealQuestionContent(data) {
   var result = [];
   data.map(function(val) {
-    var temp = val.question_content.split('-');
+    var temp = val.questionContent.split('-');
 
     if (temp.length > 1) {
       result.push({
-        type_id: val.type_id,
-        question_content: temp[0],
+        typeId: val.typeId,
+        questionContent: temp[0],
         answerA: temp[1],
         answerB: temp[2],
         answerC: temp[3],
@@ -63,7 +63,7 @@ function dealQuestionContent(data) {
       });
     } else {
       result.push({
-        question_content: temp[0]
+        questionContent: temp[0]
       });
     }
   });
@@ -74,7 +74,7 @@ function dealQuestionContent(data) {
 function findTypeId(data) {
   var tempIdArray = [];
   data.map(function(val) {
-    tempIdArray.push(val.type_id.toString());
+    tempIdArray.push(val.typeId.toString());
   });
 
   return tempIdArray;
@@ -83,7 +83,7 @@ function findTypeId(data) {
 function addType(data, result) {
   data.map(function(val) {
     result.map(function(temp) {
-      if (val.type_id === temp.type_id) {
+      if (val.id === temp.typeId) {
         temp.type = val.type;
       }
     });
