@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Paper = sequelize.define('Paper', {
+  return sequelize.define('Paper', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -12,14 +12,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     timestamps: false,
     classMethods: {
-      findQuestionArray: function(paper_name) {
-        return Papers.find({
+      findQuestionArray: function(paperName) {
+        return Paper.find({
           where: {
-            paper_name: paper_name
+            paperName: paperName
           }
         });
       }
     }
   });
-  return Paper;
 };

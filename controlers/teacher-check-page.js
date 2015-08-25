@@ -9,7 +9,7 @@ TeacherCheckPage.prototype.root = function(req, res) {
 };
 
 TeacherCheckPage.prototype.check = function(req, res) {
-  models.papers.findAll().then(function(data) {
+  models.Paper.findAll().then(function(data) {
     res.send(data);
   });
 };
@@ -17,16 +17,16 @@ TeacherCheckPage.prototype.check = function(req, res) {
 TeacherCheckPage.prototype.page = function(req, res) {
   var temp = req.query.name;
   var that = this;
-  models.papers.findQuestionArray(temp).then(function(data) {
+  models.Paper.findQuestionArray(temp).then(function(data) {
 
-    var tempArray = filterTheArray(data.dataValues.question_array);
+    var tempArray = filterTheArray(data.dataValues.questionArray);
 
-    models.questions.findQuestionContents(tempArray).then(function(data) {
+    models.Question.findQuestionContents(tempArray).then(function(data) {
       var tempContents = dealQuestionContent(data);
       var tempIdArray = findTypeId(data);
       that.result = tempContents;
 
-      models.types.findAll().then(function(data) {
+      models.Type.findAll().then(function(data) {
         addType(data, that.result);
         res.render('page.hbs', {
           name :temp,
