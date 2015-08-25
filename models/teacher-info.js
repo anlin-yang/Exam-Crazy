@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('TeacherInfo', {
+  var TeacherInfo = sequelize.define('TeacherInfo', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -19,6 +19,17 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     timestamps: false,
-    //freezeTableName: true
+    classMethods: {
+      authentication: function(id, password) {
+        return TeacherInfo.findAll({
+          where: {
+            id: id,
+            password: password
+          }
+        });
+      }
+      
+    }
   });
+  return TeacherInfo;
 };

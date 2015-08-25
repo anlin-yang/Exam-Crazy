@@ -1,33 +1,26 @@
-var STATUS = require('../config/status.js');
+var status = require('../config/status.json');
+var models = require('../models');
+var TeacherInfo = models.TeacherInfo;
 
-function TeacherLogin() {
 
-}
+function TeacherLogin() {}
 
 TeacherLogin.prototype.getTeacherLogin = function(req, res) {
   res.render('teacher-login');
 };
 
 TeacherLogin.prototype.postTeacherAuthority = function(req, res) {
-  var id = req.body.id;
-  var password = req.body.password;
-  models.TeacherInfo.findAll({
-    where: {
-      id: id,
-      password: password
-    }
-  }).then(function(data) {
-    if ((data.length === 0)) {
+  TeacherInfo.authentication(req.body.id, req.body.password).then(function(data) {
+    console.log(data);
+    if (data.length === 0) {
       res.send({
-        status: STATUS.NOT_FOUND,
+        status: status.NOT_FOUND,
         message: {},
         data: {}
       });
-      console.log("404");
     } else {
-      console.log("200");
       res.send({
-        status: STATUS.DATA_SUCCESS,
+        status: status.DATA_SUCCESS,
         message: {},
         data: {}
       });
