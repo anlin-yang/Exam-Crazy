@@ -5,7 +5,6 @@ exports.setRoutes = function(app) {
   app.use('/studentSolution', require('./student-solution.js'));
   app.use('/student-answer', require('./student-answer.js'));
   app.use('/teacherLogin', require('./teacher-login.js'));
-  app.use('/addsingle', require('./add-single'));
   app.use('/addmultiple', require('./add-multiple'));
   app.use('/teacher', require('./teacher-paper.js'));
 };

@@ -1,9 +1,11 @@
 {{!< ../layout/teacher-layout}}
 {{#contentFor 'teacherPageStyles'}}
   <script type="text/javascript" src="js/teacher-paper.js"></script>
-  <script type="text/javascript" src="js/clicksingle.js"></script>
+   <script type="text/javascript" src="js/add-single.js"></script>
+  <script type="text/javascript" src="js/add-multiple.js"></script>
   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/teacher-paper.css">
+
 {{/contentFor}}
 <div class="panel panel-default">
   <div class="panel-heading">新增试卷</div>
@@ -24,6 +26,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
+        <li id="fill">填空题</li>
         <li id="single">单选题</li>
         <li id="multiple">多选题</li>
         <li id="judge">判断题</li>
@@ -31,5 +34,9 @@
     </div>
     <div id="addItem">
     </div>
+    <br></br>
+    <div class="sure">
+      <input type="button" name="submit" value="保存" id="ensure"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="button" name="cancel" value="取消" id="cancel">
+    </div>
   </div>
-</div>
