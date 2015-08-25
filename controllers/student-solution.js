@@ -6,3 +6,5 @@ var StudentSolution = {};
 StudentSolution.getStudentSolution = function(req, res) {
   var user = answer.bulkCreate(req.body.data);
 };
+
+module.exports = StudentSolution;

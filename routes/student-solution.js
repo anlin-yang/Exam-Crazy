@@ -1,7 +1,6 @@
 var express = require('express');
-var models = require('../models');
 var router = express.Router();
-var answer = models.Answer;
+var StudentSolution = require("../controllers/student-solution.js");
 
 router.post('/', StudentSolution.getStudentSolution);
 

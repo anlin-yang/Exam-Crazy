@@ -6,11 +6,11 @@ $(function() {
       paperName: paperName,
       subjectName: subject
     }, function(msg) {
-      
+
     });
   });
 
-  $("#single").on("click", function() {
+  $("#addfill").on("click", function() {
 
     $.post("teacher/single", function(data) {
       $("#addItem").empty();
@@ -19,10 +19,4 @@ $(function() {
     });
   });
 
-  $("#multiple").on("click", function() {
-    $.post("teacher/multiple", function(data) {
-      $("#addItem").empty();
-      $("#addItem").append(data);
-    });
-  });
 });
