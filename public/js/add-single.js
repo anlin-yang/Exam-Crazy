@@ -8,9 +8,9 @@ $(function() {
 
   $('body').on('click', "#sure", function() {
 
-    var array = ['#question','#A','#B','#C','#D'];
-    var value =[];
-    for(var i = 0; i < array.length;i++){
+    var array = ['#question', '#A', '#B', '#C', '#D'],
+      value = [];
+    for (var i = 0; i < array.length; i++) {
       value[i] = $(array[i]).val();
     }
 
@@ -23,22 +23,25 @@ $(function() {
       }
     }
 
-    var questionInformation = '';
-    var questionAnswer = '';
+    var questionInformation = '',
+      questionAnswer = '',
+      count = 0;
 
-    for(var k = 0; k < value.length; k++){
-      if(!(value[k])) {
+    for (var k = 0; k < array.length; k++) {
+      if (!(value[k])) {
         var itemOne = array[k] + 'option';
-        var itemTwo = array[k] + '选项忘记填写！';
-        $(itemOne).html(itemTwo);
-      }else {
+        $(itemOne).show();
+        $(itemOne).delay(3000).hide(1);
+      } else {
         questionInformation += value[k] + '-';
+        count++;
       }
     }
-    var information = {
-      questionInformation: questionInformation,
-      questionAnswer: answer
-    };
+    if (count === 5) {
+      var information = {
+        questionInformation: questionInformation,
+        questionAnswer: answer
+      };
 
       $.ajax({
         url: '/addsingle',
@@ -55,5 +58,6 @@ $(function() {
           });
         }
       });
+    }
   });
 });

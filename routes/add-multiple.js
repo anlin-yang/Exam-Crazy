@@ -1,7 +1,6 @@
 var express = require('express');
 var models = require('../models');
 var router = express.Router();
-var questions = models.Questions;
 var AddMultiple = require('../controllers/add-multiple.js');
 var addmultiple = new AddMultiple();
 
