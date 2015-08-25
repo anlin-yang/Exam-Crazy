@@ -1,32 +1,44 @@
 var models = require("../models");
 
-function TeacherPaper() {
+var TeacherPaper = {};
 
-}
-
-TeacherPaper.prototype.getTeacherPaper = function(req, res) {
+TeacherPaper.getTeacherPaper = function(req, res) {
   res.render('teacher/paper');
 };
 
-TeacherPaper.prototype.getAddFill = function(req, res) {
+TeacherPaper.getAddFill = function(req, res) {
 
 };
 
-TeacherPaper.prototype.getAddSingle = function(req, res) {
+TeacherPaper.getAddSingle = function(req, res) {
 
 };
 
-TeacherPaper.prototype.getAddMultiple = function(req, res) {
+TeacherPaper.getAddMultiple = function(req, res) {
 
 };
 
-TeacherPaper.prototype.getPaperInfo = function(req, res) {
+TeacherPaper.getJudge = function(req, res) {
+
+};
+
+TeacherPaper.getPaperInfo = function(req, res) {
   var user = models.Paper.create({
     paperName: req.body.paperName,
     subject: req.body.subject,
     score: req.body.score
   }).then(function(data) {
-
+    if (data.length === 0) {
+      res.send({
+        status: status.QUR_ERROR,
+        data: {}
+      });
+    } else {
+      res.send({
+        status: status.DATA_SUCCESS,
+        data: data
+      });
+    }
   });
 };
 

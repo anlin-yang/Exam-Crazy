@@ -33,20 +33,20 @@ StudentAnswer.findPaper = function(req,res){
       subject: subject
     }
   }).then(function(data) {
-    contents = filterContents(data);    
-    return findContents(contents);  
+    contents = filterContents(data);
+    return findContents(contents);
   }).then(function(data) {
     var mapContent = mapContents(data);
-    res.send(mapContent);          
+    res.send(mapContent);
   });
-}
+};
 
 function filterContents(data) {
 	var datas = data.map(function(val){
     return val.dataValues.questionArray.split(/\[|\]|,/);
   });
   var contents = filterDatas(datas);
-  return contents;    
+  return contents;
 }
 
 function filterDatas(datas) {
@@ -69,7 +69,7 @@ function findContents(contents) {
 function mapContents(data) {
   return data.map(function(val) {
     return val.dataValues;
-  }); 
+  });
 }
 
 module.exports = StudentAnswer;

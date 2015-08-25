@@ -3,7 +3,10 @@
   <script type="text/javascript" src="js/teacher-paper.js"></script>
   <script type="text/javascript" src="js/add-single.js"></script>
   <script type="text/javascript" src="js/add-multiple.js"></script>
+  <script type="text/javascript" src="js/add-fill.js"></script>
   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/status_hack.js"></script>
+  <script src="js/status.js"></script>
   <link rel="stylesheet" href="css/teacher-paper.css"> {{{block "addAllKindsQuestions"}}}
 {{/contentFor}}
 
@@ -34,6 +37,31 @@
     </label>
     <div class="model">
       <div id="addItem">
+
+        <div class="addfill">
+          <div class="col-md-8 col-md-offset-2 col-md-offset-2" id=“tt”>
+            <div class="panel panel-default">
+              <div class="panel-heading" style="background-color:lightblue;">
+                <h2 class="text-center">添加填空题题目</h2>
+              </div>
+              <form class="form-horizontal">
+                <div class="panel-body" id="add_fill">
+                  <label>题目：
+                    <input type="text" class="input" id="fill_question">
+                    <p id="judge1"></p>
+                  </label>
+                  </br>
+                  <input type="button" class="btn btn-link form-group" id="fill_answers" name="name" value="点击输入答案">
+                  </br>
+                  <p id="answer"></p>
+                  <p id="answers"></p>
+                  <p id="submitSuccess"></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
         {{{body}}}
       </div>
       <div id="showPaper">

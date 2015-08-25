@@ -1,23 +1,17 @@
 var express = require("express");
 var router = express.Router();
-var models = require('../models');
+var TeacherPaper = require("../controllers/teacher-paper.js");
 
-router.get("/", function(req, res) {
-  res.render('teacher/paper');
-});
+router.get("/", TeacherPaper.getTeacherPaper);
 
-router.post("/single", function(req, res) {
-  res.render('add-single');
-});
+router.post("/fill", TeacherPaper.getAddFill);
 
-router.post("/multiple", function(req, res) {
-  res.render('add-multiple');
-});
+router.post("/single", TeacherPaper.getAddSingle);
 
-router.post("/", function(req, res) {
-  var user = models.Paper.create({
-    paper_name: req.body.paperName,
-    subject: req.body.subject
-  });
-});
+router.post("/multiple", TeacherPaper.getAddMultiple);
+
+router.post("/judge", TeacherPaper.getJudge);
+
+router.post("/",TeacherPaper.getPaperInfo);
+
 module.exports = router;

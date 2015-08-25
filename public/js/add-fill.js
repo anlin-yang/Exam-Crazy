@@ -1,5 +1,4 @@
 function addFill(){
-$(function() {
   $('#fill_answers').click(function() {
 
     $('#answer').html('');
@@ -48,7 +47,7 @@ $(function() {
 
           $.ajax({
             type: 'POST',
-            url: '/addFill',
+            url: '/fill',
             data: {
               fill: fill
             },
@@ -64,5 +63,5 @@ $(function() {
       });
     }
   });
-});
+
 }

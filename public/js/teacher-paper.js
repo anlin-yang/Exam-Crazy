@@ -5,18 +5,17 @@ $(function() {
     $.post('/teacher', {
       paperName: paperName,
       subjectName: subject
-    }, function(msg) {
-
-    });
+    }, function(msg) {});
   });
 
   $("#addfill").on("click", function() {
 
-    $.post("teacher/single", function(data) {
-      $("#addItem").empty();
-      var content=$(data).find("#content");
-      $("#addItem").append(content);
+    // $.post("teacher/fill", function(data) {
+      addfill();
+      // $("#addItem").empty();
+      // var content = $(data).find("#content");
+      // $("#addItem").append(content);
     });
-  });
+  // });
 
 });
