@@ -8,14 +8,21 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/fill', function(req, res, next) {
+router.post('/fill', function(req, res) {
   var fill = req.body.fill;
   models.Question.create({
-    id:1,
     typeId: 3,
     questionContent: fill.question,
-    questionKey:fill.answers[0],
-    questionPoint:1
+    questionKey: fill.answers,
+    questionPoint: fill.count
+  }).then(function(data) {
+    console.log(data.dataValues);
+    if (data.dataValues.id > 0) {
+      res.send({
+        question:data.dataValues.id,
+        status: 200
+      });
+    }
   });
 });
 
