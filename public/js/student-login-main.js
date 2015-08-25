@@ -20,7 +20,7 @@ $('body').on('click', "#login-button", function() {
         password: password
       },
       success: function(result) {
-        if (result.status === 200) {
+        if (result.status === STATUS.DATA_SUCCESS) {
           $.cookie('studentId', studentId, {expires: 1, path: '/' });
           $.cookie('password', password, {expires: 1, path: '/' });
           location.href = "/studentHome";

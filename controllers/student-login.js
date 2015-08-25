@@ -1,5 +1,6 @@
 var models = require('../models');
 var utils = require('utility');
+var status = require('../public/js/status.js');
 
 var StudentLogin = {};
 
@@ -21,13 +22,13 @@ StudentLogin.identify = function(req, res) {
 function responseIdentify(res, data){
   if (data.length !== 0) {
     res.send({
-      status: 200,
+      status: status.DATA_SUCCESS,
       message: {},
       data: {}
     });
   } else {
     res.send({
-      status: 404,
+      status: status.NOT_FOUND,
       message: {},
       data: {}
     });

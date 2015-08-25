@@ -1,4 +1,4 @@
-var status = {
+var STATUS = {
   "DATA_SUCCESS": 10200,
   "PARAM_ERROR": 10400,
   "NOT_FOUND": 10404,
@@ -9,4 +9,8 @@ var status = {
   "QUR_ERROR": 10504
 };
 
+<<<<<<< HEAD
 module.exports = status;
+=======
+module.exports = STATUS;
+>>>>>>> refs/remotes/origin/dev
