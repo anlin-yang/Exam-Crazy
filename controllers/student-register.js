@@ -4,6 +4,7 @@ var STATUS = require('../config/status.json');
 function Register() {
 
 }
+
 Register.prototype.getClasses = function(req, res) {
   var classes = [];
   models.Class.findAll().then(function(data) {

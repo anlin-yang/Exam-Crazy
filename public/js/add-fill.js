@@ -1,5 +1,6 @@
 $(function() {
   $('#fill_answers').click(function() {
+
     $('#answer').html('');
     var question = $('#fill_question').val();
     if (question.length === 0) {
@@ -12,13 +13,11 @@ $(function() {
       for (var i = 0; i < count; i++) {
         fillBlacks += '<input type="text" class="input form-group" id="inputAnswers" name="inputAnswers" value=""><br>';
       }
-      if(i <= 0) {
+      if (i <= 0) {
         $('#judge1').html('请输入要填的空');
       } else {
         fillBlacks += '<input type="button" class="btn btn-primary form-group" id="submitFill" name="name" value="提交">';
-
       }
-
       $('#answers').html(fillBlacks);
 
       $("#submitFill").click(function() {
@@ -43,18 +42,17 @@ $(function() {
           var fill = {
             question: question,
             answers: answers,
-            count:answersCount
+            count: answersCount
           };
           $.ajax({
             type: 'POST',
-            url: '/addFill/fill',
+            url: '/addFill',
             data: {
               fill: fill
             },
             success: function(result) {
-              if(result.status === 200) {
+              if (result.status === 200) {
                 $('#submitSuccess').html('提交成功');
-
               }
             }
           });

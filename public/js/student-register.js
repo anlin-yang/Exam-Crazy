@@ -82,7 +82,7 @@ $(function() {
         },
         success: function(result) {
           if(result.status === 10501) {
-            return;
+            return result.status;
           }
           if (result.status === 10400) {
             $('#registed').html('该学号已被注册！！！');
