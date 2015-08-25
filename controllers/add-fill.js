@@ -4,7 +4,13 @@ function AddFill() {
 
 }
 
-AddFill.prototype.add = function(req, res) {
+AddFill.prototype.fill = function(req,res) {
+    res.render('add-fill', {
+      title: 'Express',
+    });
+};
+
+AddFill.prototype.addFill = function(req, res) {
   var fill = req.body.fill;
   models.Question.create({
     typeId: 3,
