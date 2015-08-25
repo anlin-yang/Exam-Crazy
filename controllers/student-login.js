@@ -26,7 +26,6 @@ function responseIdentify(res, data){
       data: {}
     });
   } else {
-    console.log("test");
     res.send({
       status: 404,
       message: {},
