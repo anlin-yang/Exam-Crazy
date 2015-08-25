@@ -1,3 +1,5 @@
+var STATUS = require('../config/status.js');
+
 function TeacherLogin() {
 
 }
@@ -17,7 +19,7 @@ TeacherLogin.prototype.postTeacherAuthority = function(req, res) {
   }).then(function(data) {
     if ((data.length === 0)) {
       res.send({
-        status: 404,
+        status: STATUS.NOT_FOUND,
         message: {},
         data: {}
       });
@@ -25,7 +27,7 @@ TeacherLogin.prototype.postTeacherAuthority = function(req, res) {
     } else {
       console.log("200");
       res.send({
-        status: 200,
+        status: STATUS.DATA_SUCCESS,
         message: {},
         data: {}
       });
