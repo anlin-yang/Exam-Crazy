@@ -5,13 +5,16 @@ $(function() {
     $.post('/teacher', {
       paperName: paperName,
       subjectName: subject
-    }, function(msg) {});
+    }, function(msg) {
+      
+    });
   });
 
   $("#single").on("click", function() {
+
     $.post("teacher/single", function(data) {
       $("#addItem").empty();
-      var content=$(data).find("#content")
+      var content=$(data).find("#content");
       $("#addItem").append(content);
     });
   });
