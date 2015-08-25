@@ -1,3 +1,4 @@
+function addFill(){
 $(function() {
   $('#fill_answers').click(function() {
 
@@ -66,3 +67,4 @@ $(function() {
     }
   });
 });
+}

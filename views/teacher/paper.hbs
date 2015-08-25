@@ -1,11 +1,10 @@
 {{!< ../layout/teacher-layout}}
 {{#contentFor 'teacherPageStyles'}}
   <script type="text/javascript" src="js/teacher-paper.js"></script>
-   <script type="text/javascript" src="js/add-single.js"></script>
+  <script type="text/javascript" src="js/add-single.js"></script>
   <script type="text/javascript" src="js/add-multiple.js"></script>
   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/teacher-paper.css">
-
+  <link rel="stylesheet" href="css/teacher-paper.css"> {{{block "addAllKindsQuestions"}}}
 {{/contentFor}}
 <div class="panel panel-default">
   <div class="panel-heading">新增试卷</div>
@@ -20,23 +19,29 @@
     <h3 class="panel-title">试卷内容</h3>
   </div>
   <div class="panel-body">
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        添加题目
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li id="fill">填空题</li>
-        <li id="single">单选题</li>
-        <li id="multiple">多选题</li>
-        <li id="judge">判断题</li>
-      </ul>
-    </div>
-    <div id="addItem">
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="fill" value="option1" checked>填空题
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="single" value="option2">单选题
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="multiple" value="option3"> 多选题
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="judge" value="option3"> 判断题
+    </label>
+    <div class="model">
+      <div id="addItem">
+        {{{body}}}
+      </div>
+      <div id="showPaper">
+        <h1>试题展示</h1>
+      </div>
     </div>
     <br></br>
     <div class="sure">
-      <input type="button" name="submit" value="保存" id="ensure"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <input type="button" name="cancel" value="取消" id="cancel">
+      <!-- <input type="button" name="submit" value="保存" id="ensure"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="button" name="cancel" value="取消" id="cancel"> -->
     </div>
   </div>

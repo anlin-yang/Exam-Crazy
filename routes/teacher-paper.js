@@ -6,11 +6,11 @@ router.get("/", function(req, res) {
   res.render('teacher/paper');
 });
 
-router.get("/single", function(req, res) {
+router.post("/single", function(req, res) {
   res.render('add-single');
 });
 
-router.get("/multiple", function(req, res) {
+router.post("/multiple", function(req, res) {
   res.render('add-multiple');
 });
 

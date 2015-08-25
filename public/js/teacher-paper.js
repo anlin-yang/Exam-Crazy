@@ -9,14 +9,15 @@ $(function() {
   });
 
   $("#single").on("click", function() {
-    $.get("teacher/single", function(data) {
+    $.post("teacher/single", function(data) {
       $("#addItem").empty();
-      $("#addItem").append(data);
+      var content=$(data).find("#content")
+      $("#addItem").append(content);
     });
   });
 
   $("#multiple").on("click", function() {
-    $.get("teacher/multiple", function(data) {
+    $.post("teacher/multiple", function(data) {
       $("#addItem").empty();
       $("#addItem").append(data);
     });
