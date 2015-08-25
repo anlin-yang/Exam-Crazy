@@ -10,6 +10,15 @@ module.exports = function(sequelize, DataTypes) {
     questionArray: DataTypes.TEXT,
     score: DataTypes.INTEGER
   }, {
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      findQuestionArray: function(paperName) {
+        return Paper.find({
+          where: {
+            paperName: paperName
+          }
+        });
+      }
+    }
   });
 };

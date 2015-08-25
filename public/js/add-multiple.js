@@ -1,39 +1,44 @@
 $(function() {
   $('body').on('click', "#cancel", function() {
     $('.input').val("");
-    [].forEach.call($("[name='ans']"), function(elem) {
+    [].forEach.call($("[name='answer']"), function(elem) {
       elem.checked = false;
     });
   });
   $('body').on('click', "#sure", function() {
 
-    var question = $("#question").val();
-    var A = $("#A").val();
-    var B = $("#B").val();
-    var C = $("#C").val();
-    var D = $("#D").val();
-    var item = $("[name='ans']");
+    var array = ['#question', '#A', '#B', '#C', '#D'],
+      value = [];
+    for (var i = 0; i < array.length; i++) {
+      value[i] = $(array[i]).val();
+    }
+
+    var item = $("[name='answer']");
     var answer = '';
-    for (var i = 0; i < item.length; i++) {
-      if (item[i].checked) {
-        answer += item[i].value;
+    for (var x = 0; x < item.length; x++) {
+      if (item[x].checked) {
+        answer += item[x].value;
       }
     }
 
-    if (!(question)) {
-      $("#que").html("问题忘记填写！");
-    } else if (!(A)) {
-      $("#quea").html("A选项忘记填写！");
-    } else if (!(B)) {
-      $("#queb").html("B选项忘记填写！");
-    } else if (!(C)) {
-      $("#quec").html("C选项忘记填写！");
-    } else if (!(D)) {
-      $("#qued").html("D选项忘记填写！");
-    } else {
+    var questionInformation = '',
+      questionAnswer = '',
+      count = 0;
+
+    for (var k = 0; k < array.length; k++) {
+      if (!(value[k])) {
+        var itemOne = array[k] + 'option';
+        $(itemOne).show();
+        $(itemOne).delay(3000).hide(1);
+      } else {
+        questionInformation += value[k] + '-';
+        count++;
+      }
+    }
+    if (count === 5) {
       var information = {
-        question_information: question + '-' + A + '-' + B + '-' + C + '-' + D,
-        question_answer: answer
+        questionInformation: questionInformation,
+        questionAnswer: answer
       };
 
       $.ajax({
@@ -43,13 +48,12 @@ $(function() {
         success: function(successfulTip) {
           console.log(successfulTip);
           $('.input').val("");
-
-          [].forEach.call($("[name='ans']"), function(elem) {
+          [].forEach.call($("[name='answer']"), function(elem) {
             elem.checked = false;
-          });
 
-          $("#addBox").show();
-          $("#addBox").delay(3000).hide(1);
+            $("#addBox").show();
+            $("#addBox").delay(3000).hide(1);
+          });
         }
       });
     }

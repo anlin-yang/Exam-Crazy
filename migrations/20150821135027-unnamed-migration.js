@@ -1,4 +1,4 @@
-'use strict';
+'use _strict';
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      sex: {
+      gender: {
         type: Sequelize.ENUM('M', 'F'),
         allowNull: false
       },

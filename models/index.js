@@ -1,4 +1,4 @@
-'use strict';
+'use _strict';
 
 var fs = require('fs');
 var path = require('path');

@@ -11,6 +11,15 @@ module.exports = function(sequelize, DataTypes) {
     questionKey: DataTypes.STRING,
     questionPoint: DataTypes.INTEGER
   }, {
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      findQuestionContents: function(question_array) {
+        return Question.findAll({
+          where: {
+            id:{$in:question_array}
+          }
+        });
+      }
+    }
   });
 };

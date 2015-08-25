@@ -3,10 +3,8 @@ $(function() {
     var forms = $('form')[0];
     var form = new formSerializer();
     var data = form.getFormInfo(forms);
-    $.get('/submit/getform', {
+    $.post('/studentSolution', {
       data: data
-    }, function(msg) {
-
-    });
+    }, function(msg) {});
   });
 });

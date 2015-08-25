@@ -38,10 +38,10 @@
           <div class="form-group">
             <label class="gender">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</label>
             <label>
-              <input type="radio" name="gender" value="男" checked> 男
+              <input type="radio" name="gender" value="M" checked> 男
             </label>
             <label>
-              <input type="radio" name="gender" value="女" > 女
+              <input type="radio" name="gender" value="F" > 女
             </label>
           </div>
 
@@ -49,7 +49,7 @@
             <label class="class">班&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
             <select class="city">
               {{#each classes}}
-              <option value="{{class_id}}" data-classId="2" id="class" name="classes">{{class_name}}</option>
+              <option value="{{id}}" data-classId="2" id="class" name="classes">{{className}}</option>
               {{/each}}
             </select>
           </div>

@@ -1,21 +1,14 @@
 var express = require('express');
 var router = express.Router();
-
+var AddFill = require('../controllers/add-fill.js');
+var models = require('../models');
+var addFill = new AddFill();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('add-fill', {
     title: 'Express',
-    str: []
   });
 });
-
-// router.post('/fillAnswers', function(req, res, next) {
-//   var str = req.body.str;
-//   console.log(req.body.str);
-//   res.render('add-fill', {
-//     title: 'Express',
-//     str: str,
-//   });
-// });
+router.post('/fill', addFill.add);
 
 module.exports = router;

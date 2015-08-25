@@ -14,7 +14,7 @@ $('body').on('click', "#login-button", function() {
     $(".input-error").html("");
     $.ajax({
       type: 'POST',
-      url: '/studentLogin',
+      url: '/login',
       data: {
         studentId: studentId,
         password: password

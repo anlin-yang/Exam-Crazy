@@ -2,18 +2,13 @@
 
 {{#contentFor 'pageStyles'}}
   <link rel="stylesheet" href="../css/page.css">
-  <script type="text/javascript" src="/js/page.js"></script>
-  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script type="/text/javascript" src="/jquery/dist/jquery.js"></script>
+  <!-- <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- // <script type="/text/javascript" src="/jquery/dist/jquery.js"></script> -->
   <script type="text/javascript" src="/js/formSerializer.js"></script>
 {{/contentFor}}
-
-  <div class='time'>
-
-  </div>
   <div class="panel panel-primary" id='student-info-frame'>
    <div class="panel-body" id='student-info'>
-      <h4>{{#each array}}{{title}}{{/each}}</h4> <input type="button"  value="确认" id="suretocheck" data-name={{title}}>
+      <h4>{{name}}</h4>
       <table class="table">
          <tr>
            <td>姓名：</td>
@@ -21,8 +16,10 @@
            <td>班级：</td>
            </tr>
       </table>
-      <!-- <div id="选择题">
-      </div> -->
+      {{#each array}}
+      {{answerA}}
+      {{answerB}}
+      {{/each}}
 
    </div>
   </div>
