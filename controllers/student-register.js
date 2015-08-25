@@ -1,5 +1,5 @@
 var models = require('../models');
-var STATUS = require('../config/status.json');
+
 
 function Register() {
 
