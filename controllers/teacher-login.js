@@ -1,4 +1,4 @@
-var status = require('../config/status.json');
+var status = require('../public/js/status.js');
 var models = require('../models');
 var TeacherInfo = models.TeacherInfo;
 

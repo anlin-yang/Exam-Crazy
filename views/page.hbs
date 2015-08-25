@@ -2,8 +2,6 @@
 
 {{#contentFor 'pageStyles'}}
   <link rel="stylesheet" href="../css/page.css">
-  <!-- <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <!-- // <script type="/text/javascript" src="/jquery/dist/jquery.js"></script> -->
   <script type="text/javascript" src="/js/formSerializer.js"></script>
 {{/contentFor}}
   <div class="panel panel-primary" id='student-info-frame'>
@@ -17,9 +15,11 @@
            </tr>
       </table>
       {{#each array}}
-      {{answerA}}
-      {{answerB}}
+        {{questionContent}} <p>
+        {{answerA}} <p>
+        {{answerB}} <p>
+        {{answerC}} <p>
+        {{answerD}} <p>
       {{/each}}
-
    </div>
   </div>

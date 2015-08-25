@@ -1,6 +1,6 @@
 var express = require('express');
 var models = require('../models');
-var TeacherCheckPage = require('../controlers/teacher-check-page.js');
+var TeacherCheckPage = require('../controllers/teacher-check-page.js');
 
 var router = express.Router();
 
