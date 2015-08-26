@@ -81,7 +81,6 @@ $(function() {
           info: info
         },
         success: function(result) {
-          console.log(result.status);
           if(result.status === STATUS.INS_ERROR) {
             return result.status;
           }
@@ -92,7 +91,6 @@ $(function() {
             alert('已注册成功，点击确定后进行登录');
             location.href = "/";
           }
-          console.log(STATUS.INS_ERROR);
         }
       });
     }
