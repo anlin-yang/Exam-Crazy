@@ -2,15 +2,13 @@ var models = require('../models');
 var status = require('../public/js/status.js');
 var questions = models.Question;
 
-function SingleChoice() {
+var SingleChoice={};
 
-}
-
-SingleChoice.prototype.getSingleChoice = function(req, res) {
+SingleChoice.getSingleChoice = function(req, res) {
   res.render('single-choice.hbs');
 };
 
-SingleChoice.prototype.postSingleChoice = function(req, res) {
+SingleChoice.postSingleChoice = function(req, res) {
   var question = req.body.questionInformation;
   var answer = req.body.questionAnswer;
 

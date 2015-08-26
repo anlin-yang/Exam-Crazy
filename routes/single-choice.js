@@ -1,8 +1,7 @@
 var express = require('express');
 var models = require('../models');
 var router = express.Router();
-var SingleChoice = require('../controllers/single-choice.js');
-var singlechoice = new SingleChoice();
+var singlechoice = require('../controllers/single-choice.js');
 
 router.get('/',singlechoice.getSingleChoice);
 router.post("/",singlechoice.postSingleChoice);
