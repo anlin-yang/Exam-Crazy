@@ -4,11 +4,11 @@ $('body').on('click', "#login-button", function() {
   var password = $("#password").val();
 
   if (studentId.length !== 8 || isNaN(studentId)) {
-    $(".input-error").html("请输入8位数字的学号");
+    $(".input-error").html(loginInputStatus.STUDENT_ID_INVALID);
   } else if (password.length === 0) {
-    $(".input-error").html("请输入密码");
+    $(".input-error").html(loginInputStatus.PASSWORD_NULL);
   } else if (password.length < 6 || password.length > 12) {
-    $(".input-error").html("用户名不存在或密码不正确");
+    $(".input-error").html(loginInputStatus.STUDENT_ID_OR_PASSWORD_ERROR);
     $("#password").val("");
   } else {
     $(".input-error").html("");
@@ -26,7 +26,7 @@ $('body').on('click', "#login-button", function() {
           location.href = "/paperList";
         }
         else {
-          $(".input-error").html("用户名不存在或密码不正确");
+          $(".input-error").html(loginInputStatus.STUDENT_ID_OR_PASSWORD_ERROR);
           $("#password").val("");
         }
       }

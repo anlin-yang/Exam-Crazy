@@ -3,11 +3,11 @@ $(function() {
     var id = $("#inputUsername").val();
     var password = $("#inputPassword").val();
     if (id.length !== 8 || isNaN(id)) {
-      $(".error").html("请输入8位数字的学号");
+      $(".error").html(loginInputStatus.TEACHER_ID_INVALID);
     } else if (password.length === 0) {
-      $(".error").html("请输入密码");
+      $(".error").html(loginInputStatus.PASSWORD_NULL);
     } else if (password.length < 6 || password.length > 12) {
-      $(".error").html("请输入6~12位密码");
+      $(".error").html(loginInputStatus.TEACHER_ID_OR_PASSWORD_ERROR);
       $("#password").val("");
     } else {
       $.ajax({
@@ -21,7 +21,7 @@ $(function() {
           if (result.status === STATUS.DATA_SUCCESS) {
             location.href = "/";
           } else {
-            $(".error").html("对不起，用户名不存在或密码不正确！");
+            $(".error").html(loginInputStatus.TEACHER_ID_OR_PASSWORD_ERROR);
             $("#inputUsername").val("");
             $("#inputPassword").val("");
           }
