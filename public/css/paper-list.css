@@ -1,0 +1,23 @@
+#header {
+  text-align: center;
+  color: #4682B4;
+  font-weight: bold;
+  font-size: 30px;
+}
+#paperList {
+  margin: 0 auto;
+  width: 980px;
+  border-collapse: collapse;
+  background-color: #FFF;
+}
+#paperList td {
+  text-align: center;
+  color: #1E90FF;
+  border-top-color: #87CEEB;
+  border-top-style: solid;
+  border-top-width: 1px;
+  line-height: 40px;
+}
+#paperList tbody tr:nth-of-type(odd) {
+  background-color: rgb(249, 249, 249);
+}
