@@ -1,9 +1,7 @@
 var models = require('../models');
 var status = require('../public/js/status.js');
 
-function Register() {
-}
-Register.prototype.getClasses = function(req, res) {
+exports.register = function(req, res) {
   var classes = [];
   models.Class.findAll().then(function(data) {
     for (var i = 0; i < data.length; i++) {
@@ -17,7 +15,7 @@ Register.prototype.getClasses = function(req, res) {
 
 };
 
-Register.prototype.verify = function(req, res) {
+exports.verify = function(req, res) {
   var info = req.body.info;
   console.log(status.INS_ERROR);
 
@@ -56,5 +54,3 @@ Register.prototype.verify = function(req, res) {
     }
   });
 };
-
-module.exports = Register;
