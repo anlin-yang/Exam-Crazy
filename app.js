@@ -2,6 +2,8 @@ var express = require('express');
 var hbs = require('express-hbs');
 var bodyParser = require('body-parser');
 var route = require('./routes/route.js');
+var helper = require('./view-helpers/helper.js');
+
 var app = express();
 
 app.use(express.static('bower_components/'));
@@ -13,6 +15,7 @@ app.use(bodyParser.urlencoded({
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
 }));
+
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 

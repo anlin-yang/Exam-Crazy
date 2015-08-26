@@ -7,36 +7,34 @@ var singleChoice = [];
 var addBlank = [];
 var manyChoice = [];
 
-var questionBuilder = {
-  '1': function(typeId, temp) {
-    singleChoice.push({
-      "typeId": typeId,
-      "questionContent": temp[0],
-      "answerA": temp[1],
-      "answerB": temp[2],
-      "answerC": temp[3],
-      "answerD": temp[4]
-    });
+function buildChooseQuestion(questionContents) {
+  return questionContents.map(function(val) {
+    return {
+      content: val
+    };
+  });
+}
+
+var questionFactory = {
+  '1': function(questionContents) {
+    singleChoice.push(buildChooseQuestion(questionContents));
   },
-  '2': function(typeId, temp) {
-    addBlank.push({
-      "typeId": typeId,
-      "questionContent": temp[0]
-    });
+  '2': function(questionContents) {
+    addBlank.push(
+      buildChooseQuestion(questionContents)
+    );
   },
-  '3': function(typeId, temp) {
-    manyChoice.push({
-      "typeId": typeId,
-      "questionContent": temp[0]
-    });
+  '3': function(questionContents) {
+    manyChoice.push(buildChooseQuestion(questionContents));
   }
 };
 
-teacherCheckPage.root = function(req, res) {
+
+teacherCheckPage.renderRoot = function(req, res) {
   res.render('teacher-check-page');
 };
 
-teacherCheckPage.check = function(req, res) {
+teacherCheckPage.checkPage = function(req, res) {
   models.Paper.findAll().then(function(data) {
     if (data.length === 0) {
       res.send({
@@ -58,17 +56,16 @@ function initArrays() {
   manyChoice = [];
 }
 
-teacherCheckPage.page = function(req, res) {
-  var temp = req.query.name;
+teacherCheckPage.renderPage = function(req, res) {
+  var name = req.query.name;
   initArrays();
-  models.Paper.findQuestionArrayBypaperName(temp).then(function(data) {
+  models.Paper.findQuestionArrayBypaperName(name).then(function(data) {
     var tempArray = filterTheArray(data.dataValues.questionArray);
     return models.Question.findQuestionContentsById(tempArray);
   }).then(function(data) {
     dealQuestionContent(data);
-    console.log(addBlank);
     res.render('page', {
-      name: temp,
+      name: name,
       singleChoice: singleChoice,
       addBlank: addBlank,
       manyChoice: manyChoice
@@ -88,8 +85,8 @@ function filterTheArray(data) {
 
 function dealQuestionContent(data) {
   data.map(function(val) {
-    var temp = val.dataValues.questionContent.split('-');
-    questionBuilder[val.typeId](val.typeId, temp);
+    var questionContents = val.dataValues.questionContent.split('-');
+    questionFactory[val.typeId](questionContents);
   });
 }
 

@@ -6,9 +6,9 @@ var router = express.Router();
 
 //var teacherCheck = new TeacherCheckPage();
 
-router.get('/',teacherCheckPage.root);
+router.get('/',teacherCheckPage.renderRoot);
 
-router.get('/check',teacherCheckPage.check);
+router.get('/check',teacherCheckPage.checkPage);
 
-router.get('/page', teacherCheckPage.page);
+router.get('/page', teacherCheckPage.renderPage);
 module.exports = router;
