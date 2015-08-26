@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     timestamps: false,
     classMethods: {
-      findQuestionContents: function(question_array) {
+      findQuestionContentsById: function(question_array) {
         return Question.findAll({
           where: {
             id:{$in:question_array}
