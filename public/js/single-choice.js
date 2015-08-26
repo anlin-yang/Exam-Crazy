@@ -1,19 +1,14 @@
 $(function() {
-  $('body').on('click', "#cancel", function() {
+  $('body').on('click', "#singleEmpty", function() {
     $('.input').val("");
     [].forEach.call($("[name='singleAnswer']"), function(elem) {
       elem.checked = false;
     });
   });
 
-  $('body').on('click', "#sure", function() {
+  $('body').on('click', "#singleSure", function() {
 
-    var array = ['#singleQuestion', '#A', '#B', '#C', '#D'],
-      value = [];
-    for (var i = 0; i < array.length; i++) {
-      value[i] = $(array[i]).val();
-    }
-
+    var allsingle = $("[name='singleQuestion']");
     var item = $("[name='singleAnswer']");
     var answer;
     for (var x = 0; x < item.length; x++) {
@@ -23,28 +18,28 @@ $(function() {
       }
     }
 
-    var questionInformation = '',
-      questionAnswer = '',
-      count = 0;
+    var questionInformation = '',questionAnswer = '',count = 0;
+    var option =['question','A','B','C','D'];
 
-    for (var k = 0; k < array.length; k++) {
-      if (!(value[k])) {
-        var itemOne = array[k] + 'option';
+    for (var k = 0; k < allsingle.length; k++) {
+      if (!(allsingle[k].value)) {
+
+        var itemOne = '#' + option[k] + 'singleoption';
         $(itemOne).show();
         $(itemOne).delay(3000).hide(1);
       } else {
-        questionInformation += value[k] + '-';
+        questionInformation += allsingle[k].value + '-';
         count++;
       }
     }
-    if (count === 5) {
+    if (count === allsingle.length) {
       var information = {
         questionInformation: questionInformation,
         questionAnswer: answer
       };
 
       $.ajax({
-        url: '/addsingle',
+        url: '/singleChoice',
         data: information,
         type: 'POST',
         success: function(successfulTip) {
