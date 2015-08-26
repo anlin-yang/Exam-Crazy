@@ -1,6 +1,5 @@
 .model {
   width: 1100px;
-  background: red;
   float: left;
   margin: 20px;
 }
@@ -9,16 +8,12 @@
   height: 470px;
   width: 400px;
   margin: 0 70px;
-  background: pink;
   float: left;
 }
-.sure {
-
-}
-#showPaper{
+.sure {}
+#showPaper {
   float: left;
-  background: green;
-  width:500px;
+  width: 500px;
   height: 400px;
   float: left;
   text-align: center;

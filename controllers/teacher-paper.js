@@ -1,4 +1,5 @@
 var models = require("../models");
+var STATUS = require('../public/js/status.js');
 
 var TeacherPaper = {};
 
@@ -7,7 +8,26 @@ TeacherPaper.getTeacherPaper = function(req, res) {
 };
 
 TeacherPaper.getAddFill = function(req, res) {
+  var fill = req.body.fill;
+  models.Question.create({
+    typeId: 3,
+    questionContent: fill.question,
+    questionKey: fill.answers,
+    questionPoint: fill.count
+  }).then(function(data) {
+    console.log(data.dataValues.id );
+    if (data.dataValues.id > 0) {
 
+      res.send({
+        question: data.dataValues.id,
+        status: STATUS.DATA_SUCCESS,
+      });
+    } else {
+      res.send({
+        status: STATUS.QUR_ERROR,
+      });
+    }
+  });
 };
 
 TeacherPaper.getAddSingle = function(req, res) {
@@ -30,12 +50,12 @@ TeacherPaper.getPaperInfo = function(req, res) {
   }).then(function(data) {
     if (data.length === 0) {
       res.send({
-        status: status.QUR_ERROR,
+        STATUS: STATUS.QUR_ERROR,
         data: {}
       });
     } else {
       res.send({
-        status: status.DATA_SUCCESS,
+        STATUS: STATUS.DATA_SUCCESS,
         data: data
       });
     }
