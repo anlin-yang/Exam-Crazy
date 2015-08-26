@@ -1,23 +1,22 @@
 $(function() {
-  var PaperId=[];
+  var PaperId = [];
   var fillBlank = $("#fillBlank");
   var singleChoice = $("#singleChoice");
   var mutilipeChoice = $("#mutilipeChoice");
   singleChoice.hide();
   mutilipeChoice.hide();
 
-  $("#fill").on("click",function(){
+  $("#fill").on("click", function() {
 
   });
 
   $("#single").on("click", function() {
     $("#singleChoice").show();
-<<<<<<< Updated upstream
+
     var singleChoice = getSingleChoice();
-=======
-    var singleChoice=singlechoice();
+
     PaperId.push(singleChoice);
->>>>>>> Stashed changes
+
 
   });
 
