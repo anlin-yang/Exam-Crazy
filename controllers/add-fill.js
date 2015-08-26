@@ -6,9 +6,7 @@ function AddFill() {
 }
 
 AddFill.prototype.fill = function(req,res) {
-    res.render('add-fill', {
-      title: 'Express',
-    });
+    res.render('add-fill');
 };
 
 AddFill.prototype.addFill = function(req, res) {
@@ -22,7 +20,7 @@ AddFill.prototype.addFill = function(req, res) {
   }).then(function(data) {
     if (data.dataValues.id > 0) {
       res.send({
-        question: data.dataValues.id,
+        questionId: data.dataValues.id,
         status: status.DATA_SUCCESS
       });
     } else {

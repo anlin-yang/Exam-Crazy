@@ -8,6 +8,6 @@ exports.setRoutes = function(app) {
   app.use('/addmultiple', require('./add-multiple'));
   app.use('/singlechoice', require('./single-choice'));
   app.use('/teacher', require('./teacher-paper.js'));
-  app.use('/addFill',require('./add-fill.js'));
+  app.use('/fill',require('./add-fill.js'));
   app.use('/paperList',require('./paper-list.js'));
 };
