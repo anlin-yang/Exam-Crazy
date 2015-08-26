@@ -7,6 +7,7 @@
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/add-fill.css" media="screen" charset="utf-8">
     <script type="text/javascript" src="jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="js/fillStatus.js"></script>
     <script type="text/javascript" src="js/module_hack.js"></script>
     <script type="text/javascript" src="js/status.js"></script>
     <script type="text/javascript" src="js/add-fill.js"></script>
@@ -14,26 +15,25 @@
 
 <body>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-md-offset-2" id=“tt”>
+    <div class="col-md-8 col-md-offset-2 col-md-offset-2" id="fill">
         <div class="panel panel-default">
             <div class="panel-heading" style="background-color:lightblue;">
                 <h2 class="text-center">添加填空题题目</h2>
             </div>
             <form class="form-horizontal">
-                <div class="panel-body" id="add_fill">
+                <div class="panel-body" id="addFill">
                     <label>题目：
-                        <input type="text" class="input" id="fill_question">
-
-                        <p id="judge1"></p>
+                        <input type="text" class="input" id="fillQuestion">
+                        <p id="fillQusetionJudge"></p>
                     </label>
                     </br>
-                    <input type="button" class="btn btn-link form-group" id="fill_answers" name="name" value="点击输入答案">
+                    <input type="button" class="btn btn-link form-group" id="fillAnswers" name="name" value="点击输入答案">
                     </br>
-                    <p id="answer"></p>
+                    <p id="fillAnswerJudge"></p>
 
-                    <p id="answers"></p>
+                    <p id="fillBlank"></p>
 
-                    <p id="submitSuccess" style="display:none;color:red;">提交成功</p>
+                    <p id="submitResult" style="display:none;color:red;">提交成功</p>
                 </div>
             </form>
         </div>
