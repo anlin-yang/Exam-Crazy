@@ -22,6 +22,7 @@ $(function() {
     // fillBlank.hide();
     // mutilipeChoice.hide();
     $("#singleChoice").show();
+    var singleChoice=singlechoice();
 
   });
 
