@@ -37,9 +37,8 @@
     <div class="model">
       <div id="addItem">
 
-        <div id="singleChoice">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 col-md-offset-2" id=“tt”>
+        <div id="singleChoice" class="row">
+          <div class="col-md-8">
             <div class="panel panel-default">
               <div class="panel-heading" style="background-color:lightblue;">
                 <h4 class="text-center">添加单选题</h4>
@@ -79,23 +78,25 @@
                     <input type="radio" class="form-control" value="D" name="singleAnswer">D &nbsp
                   </div>
                   </br>
-                  <div class="col-md-4 col-md-offset-4 col-md-offset-4" class="text-center">
-                    <p id="addBox" style="display:none;color:red;">保存成功！</p>
+                  <div class="col-md-4">
+                    <p id="success" style="display:none;color:red;">保存成功！</p>
+                    <p id="failed" style="display:none;color:blue;">保存失败！</p>
                     <button class="btn btn-primary" type="button" id="singleSure" style="background-color:lightblue;">确认</button>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp
-                    <button class="btn btn-primary" type="button" id="singleEmpty" style="background-color:lightblue;">取消</button>
+                  </div>
+                  <div class="col-md-4">
+                    <button class="btn btn-primary" type="button" id="singleEmpty" style="background-color:lightblue;">清空</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
 
       </div>
-      <div id="showPaper">
-        <h1>试题展示</h1>
+      <div>
+        <h3 class="text-center">试题展示</h3>
+        <ol id="showPaper"></ol>
       </div>
     </div>
     <br></br>

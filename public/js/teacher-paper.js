@@ -19,10 +19,8 @@ $(function() {
   addFill();
 
   $("#single").on("click", function() {
-    // fillBlank.hide();
-    // mutilipeChoice.hide();
     $("#singleChoice").show();
-    var singleChoice=singlechoice();
+    var singleChoice = getSingleChoice();
 
   });
 
