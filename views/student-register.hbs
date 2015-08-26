@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/student-register.css">
   <script src="jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="js/export_hackx.js"></script>
+  <script type="text/javascript" src="js/register-status.js"></script>
+  <script type="text/javascript" src="js/module_hack.js"></script>
   <script type="text/javascript" src="js/status.js"></script>
   <script type="text/javascript" src="js/student-register.js"></script>
   <title>{{title}}</title>
@@ -25,7 +26,7 @@
         <div class="panel-body">
           <div class="form-group">
             <label>
-              <p id="snoTip"></p>
+              <p id="snoHint"></p>
               学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号
               <input type="text" name="name" id='id' value={{infor.id}}>（8位的数字）
             </label>
@@ -33,7 +34,7 @@
 
           <div class="form-group">
             <label>
-              <p id="nameTip"></p>
+              <p id="nameHint"></p>
               姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名
               <input type="text" name="name" id='name' value="">
             </label>
@@ -60,7 +61,7 @@
 
           <div class="form-group">
             <label>
-              <p id="passwordTip"></p>
+              <p id="passwordHint"></p>
               密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码
               <input type="password" name="password" id='password' value="">（6～12位）
             </label>
@@ -68,7 +69,7 @@
 
           <div class="form-group">
             <label>
-              <p id="confirmTip"></p>
+              <p id="confirmHint"></p>
               确认密码
               <input type="password" name="confirm" id='confirm' value="">
             </label>
