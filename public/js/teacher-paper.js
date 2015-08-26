@@ -2,7 +2,7 @@ $(function() {
   var PaperId = [];
   var fillBlank = $("#fillBlank");
   var singleChoice = $("#singleChoice");
-  var mutilipeChoice = $("#mutilipeChoice");
+  var mutilipeChoice = $("#multipleChoice");
   singleChoice.hide();
   mutilipeChoice.hide();
 
@@ -20,10 +20,11 @@ $(function() {
 
   });
 
-  $("#mutilipe").on("click", function() {
+  $("#multiple").on("click", function() {
     fillBlank.hide();
     singleChoice.hide();
-    $("#mutilipe").show();
+    mutilipeChoice.show();
+    var multipleChoice = addMultipleChoice();
   });
 
   $("#submit").on("click", function() {

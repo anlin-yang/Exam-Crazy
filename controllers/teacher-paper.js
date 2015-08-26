@@ -50,7 +50,22 @@ TeacherPaper.getAddSingle = function(req, res) {
 };
 
 TeacherPaper.getAddMultiple = function(req, res) {
+  var question = req.body.questionInformation;
+  var answer = req.body.questionAnswer;
 
+  models.Question.create({
+    questionKey: answer,
+    questionContent: question,
+    questionPoint: 1,
+    typeId: 2
+  }).then(function(data) {
+    if (data.length !== 0) {
+      res.send({
+        status: STATUS.DATA_SUCCESS,
+        multipleID: data.dataValues.id
+      });
+    }
+  });
 };
 
 TeacherPaper.getJudge = function(req, res) {
