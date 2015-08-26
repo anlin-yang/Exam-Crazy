@@ -1,5 +1,10 @@
 $(function() {
-  var fillBlank=$("#row");
+  var fillBlank = $("#fillBlank");
+  var singleChoice = $("#singleChoice");
+  var mutilipeChoice = $("#mutilipeChoice");
+  singleChoice.hide();
+  mutilipeChoice.hide();
+
   $("#submit").on("click", function() {
     var paperName = $("#paperName").val();
     var subject = $("#subjectName").val();
@@ -13,19 +18,17 @@ $(function() {
 
   addFill();
 
-  $("#single").on("click",function(){
-    fillBlank.hide();
-    $("#single").show();
+  $("#single").on("click", function() {
+    // fillBlank.hide();
+    // mutilipeChoice.hide();
+    $("#singleChoice").show();
+
   });
 
-  $("#mutilipe").on("click",function(){
+  $("#mutilipe").on("click", function() {
     fillBlank.hide();
+    singleChoice.hide();
     $("#mutilipe").show();
-  });
-
-  $("#judge").on("click",function(){
-   fillBlank.hide();
-    $("#judge").show();
   });
 
 });
