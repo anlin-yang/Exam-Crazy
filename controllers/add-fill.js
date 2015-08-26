@@ -1,15 +1,10 @@
 var models = require('../models');
 var status = require('../public/js/status.js');
-
-function AddFill() {
-
-}
-
-AddFill.prototype.fill = function(req,res) {
+exports.fill = function(req,res) {
     res.render('add-fill');
 };
 
-AddFill.prototype.addFill = function(req, res) {
+exports.addFill = function(req, res) {
 
   var fill = req.body.fill;
   models.Question.create({
@@ -31,5 +26,3 @@ AddFill.prototype.addFill = function(req, res) {
   });
 
 };
-
-module.exports = AddFill;

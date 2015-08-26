@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var AddFill = require('../controllers/add-fill.js');
-var addFill = new AddFill();
-
+var addFill = require('../controllers/add-fill.js');
 router.get('/', addFill.fill);
 router.post('/', addFill.addFill);
 
