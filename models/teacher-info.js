@@ -4,7 +4,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
-      autoIncrement: false
+      autoIncrement: true
+    },
+    teacherId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     name: {
       type: DataTypes.STRING,
@@ -20,10 +24,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     timestamps: false,
     classMethods: {
-      authentication: function(id, password) {
+      authentication: function(teacherId, password) {
         return TeacherInfo.find({
           where: {
-            id: id,
+            teacherId: teacherId,
             password: password
           }
         });
