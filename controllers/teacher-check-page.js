@@ -28,10 +28,13 @@ TeacherCheckPage.prototype.check = function(req, res) {
 TeacherCheckPage.prototype.page = function(req, res) {
   var temp = req.query.name;
   var that = this;
+  var 
   models.Paper.findQuestionArray(temp).then(function(data) {
 
-    var tempArray = filterTheArray(data.dataValues.questionArray);
+    return filterTheArray(data.dataValues.questionArray);
+  }).then(function(data) {
 
+  })
     models.Question.findQuestionContents(tempArray).then(function(data) {
       var tempContents = dealQuestionContent(data);
       var tempIdArray = findTypeId(data);

@@ -1,8 +1,7 @@
 var models = require('../models');
 var status = require('../public/js/status.js');
-// var utility = require('utility.js');
-function Register() {
 
+function Register() {
 }
 Register.prototype.getClasses = function(req, res) {
   var classes = [];
