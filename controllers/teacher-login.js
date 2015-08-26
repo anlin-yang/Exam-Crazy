@@ -9,7 +9,7 @@ TeacherLogin.getTeacherLogin = function(req, res) {
 };
 
 TeacherLogin.postTeacherAuthority = function(req, res) {
-  TeacherInfo.authentication(req.body.id, req.body.password).then(function(data) {
+  TeacherInfo.authentication(req.body.teacherId, req.body.password).then(function(data) {
     if (data) {
       res.send({
         status: status.DATA_SUCCESS,

@@ -1,9 +1,6 @@
 $(function() {
   $("#teacherLoginId").on('click', function() {
-
-
-    console.log(STATUS.DATA_SUCCESS);
-    var id = $("#inputUsername").val();
+    var teacherId = $("#inputUsername").val();
     var password = $("#inputPassword").val();
     if (id.length !== 8 || isNaN(id)) {
       $(".error").html(loginInputStatus.TEACHER_ID_INVALID);
@@ -17,7 +14,7 @@ $(function() {
         type: 'POST',
         url: '/teacherLogin/teacherAuthority',
         data: {
-          id: id,
+          teacherId: teacherId,
           password: password
         },
         success: function(result) {
