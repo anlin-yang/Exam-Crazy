@@ -7,5 +7,5 @@ $(function() {
       subjectName: subject
     }, function(msg) {});
   });
-  addfill();
+  addFill();
 });

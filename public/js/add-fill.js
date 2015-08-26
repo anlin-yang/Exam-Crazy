@@ -1,6 +1,5 @@
 function addFill() {
   $('#fill_answers').click(function() {
-
     $('#answer').html('');
     var question = $('#fill_question').val();
     if (question.length === 0) {
@@ -68,5 +67,4 @@ function addFill() {
       });
     }
   });
-
 }

@@ -1,48 +1,46 @@
 var models = require('../models');
 
 var paperName = '第一学期语文考试';
-var StudentAnswer =  {};
+var StudentAnswer = {};
 var blankContents = [];
 var singleContents = [];
 var mutilContents = [];
 
 var classifyResult = {
   '1': function(questionObject) {
-     blankContents.push(questionObject);
+    blankContents.push(questionObject);
   },
   '2': function(questionObject) {
-     singleContents.push(questionObject);
+    singleContents.push(questionObject);
   },
   '3': function(questionObject) {
-     mutilContents.push(questionObject);
+    mutilContents.push(questionObject);
   }
 };
 
-StudentAnswer.findPaper = function(req,res){
+StudentAnswer.findPaper = function(req, res) {
   models.Paper.findQuestionArray(paperName)
-  .then(function(data) {
-    contents = filterContents(data);   
-    return models.Question.findQuestionContents(contents); 
-  }).then(function(data) {
-    var mapContent = mapContents(data);
-    classifyContents(mapContent);
-    res.send(blankContents);          
-  });
+    .then(function(data) {
+      contents = filterContents(data);
+      return models.Question.findQuestionContents(contents);
+    }).then(function(data) {
+      var mapContent = mapContents(data);
+      classifyContents(mapContent);
+      res.send(blankContents);
+    });
 };
 
 
 function filterContents(data) {
 
-	var datas = data.dataValues.questionArray.split(/\[|\]|,/);
+  var datas = data.dataValues.questionArray.split(/\[|\]|,/);
   var contents = filterDatas(datas);
   return contents;
-  console.log(contents);
-  return contents;    
 }
 
 function filterDatas(datas) {
   var contents = datas.filter(function(val) {
-    if(val.length !== 0) {
+    if (val.length !== 0) {
       return val;
     }
   });
@@ -58,9 +56,8 @@ function mapContents(data) {
 function classifyContents(contents) {
   var afterChangeResult = [];
 
-  return afterChangeResult = contents.map(function(question) {
+  contents.forEach(function(question) {
     var questionObject = {};
-
     questionObject.questionId = question.id;
     questionObject.typeId = question.typeId;
     questionObject.Content = question.questionContent;
