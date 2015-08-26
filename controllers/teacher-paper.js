@@ -15,7 +15,7 @@ TeacherPaper.getAddFill = function(req, res) {
     questionKey: fill.answers,
     questionPoint: fill.count
   }).then(function(data) {
-    console.log(data.dataValues.id );
+    console.log(data.dataValues.id);
     if (data.dataValues.id > 0) {
 
       res.send({
@@ -31,7 +31,22 @@ TeacherPaper.getAddFill = function(req, res) {
 };
 
 TeacherPaper.getAddSingle = function(req, res) {
+  var question = req.body.questionInformation;
+  var answer = req.body.questionAnswer;
 
+  models.Question.create({
+    questionKey: answer,
+    questionContent: question,
+    questionPoint: 1,
+    typeId: 1
+  }).then(function(data) {
+    if (data.length !== 0) {
+      res.send({
+        status: STATUS.DATA_SUCCESS,
+        singleID: data.dataValues.id
+      });
+    }
+  });
 };
 
 TeacherPaper.getAddMultiple = function(req, res) {
@@ -50,12 +65,12 @@ TeacherPaper.getPaperInfo = function(req, res) {
   }).then(function(data) {
     if (data.length === 0) {
       res.send({
-        STATUS: STATUS.QUR_ERROR,
+        staus: STATUS.QUR_ERROR,
         data: {}
       });
     } else {
       res.send({
-        STATUS: STATUS.DATA_SUCCESS,
+        staus: STATUS.DATA_SUCCESS,
         data: data
       });
     }

@@ -10,11 +10,14 @@
   margin: 0 70px;
   float: left;
 }
-.sure {}
+.sure{
+  text-align: center;
+}
+
 #showPaper {
   float: left;
   width: 500px;
   height: 400px;
+  margin: -10px;
   float: left;
-  text-align: center;
 }

@@ -14,16 +14,31 @@
            <td>班级：</td>
            </tr>
       </table>
+      <div class="">
+        <h2>一.选择题</h2>
+        {{#each singleChoice}}
 
-      {{#each array}}
+          {{questionContent}} <p>
+          {{answerA}} <p>
+          {{answerB}} <p>
+          {{answerC}} <p>
+          {{answerD}} <p>
 
+        {{/each}}
+
+      </div>
+      <div class="">
+        <h2>二.填空题</h2>
+        {{#each addBlank}}
         {{questionContent}} <p>
-        {{answerA}} <p>
-        {{answerB}} <p>
-        {{answerC}} <p>
-        {{answerD}} <p>
-      
-      {{/each}}
+        {{/each}}
+      </div>
+      <div class="">
+        <h2>三.多选题</h2>
+        {{#each manyChoice}}
+        {{questionContent}}<p>
+        {{/each}}
+      </div>
 
    </div>
   </div>

@@ -1,14 +1,12 @@
 {{!< ../layout/teacher-layout}}
 {{#contentFor 'teacherPageStyles'}}
-  <script type="text/javascript" src="js/teacher-paper.js"></script>
-  <script type="text/javascript" src="js/add-single.js"></script>
-  <script type="text/javascript" src="js/add-multiple.js"></script>
-  <script type="text/javascript" src="js/add-fill.js">
 
-  </script>
+  <script type="text/javascript" src="js/teacher-paper.js"></script>
+  <script type="text/javascript" src="js/single-choice.js"></script>
+  <script type="text/javascript" src="js/add-multiple.js"></script>
+  <script type="text/javascript" src="js/add-fill.js"></script>
   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="js/status.js"></script>
-  <link rel="stylesheet" href="css/teacher-paper.css"> {{{block "addAllKindsQuestions"}}}
+  <link rel="stylesheet" href="css/teacher-paper.css">
 {{/contentFor}}
 
 <div class="panel panel-default">
@@ -39,40 +37,71 @@
     <div class="model">
       <div id="addItem">
 
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 col-md-offset-2" id=“tt”>
+        <div id="singleChoice" class="row">
+          <div class="col-md-8">
             <div class="panel panel-default">
               <div class="panel-heading" style="background-color:lightblue;">
-                <h2 class="text-center">添加填空题题目</h2>
+                <h4 class="text-center">添加单选题</h4>
               </div>
-              <form class="form-horizontal">
-                <div class="panel-body" id="add_fill">
+              <div class="panel-body">
+                <form class="form-horizontal">
                   <label>题目：
-                    <input type="text" class="input" id="fill_question">
-                    <p id="judge1"></p>
+                    <input type="text" class="input" name="singleQuestion">
+                    <p id="questionsingleoption" style="display:none;color:red;">问题忘记填写！</p>
                   </label>
                   </br>
-                  <input type="button" class="btn btn-link form-group" id="fill_answers" name="name" value="点击输入答案">
+                  <label>&nbsp&nbsp&nbspA：
+                    <input type="text" class="input" name="singleQuestion">
+                    <p id="Asingleoption" style="display:none;color:red;">A选项忘记填写！</p>
+                  </label>
                   </br>
-                  <p id="answer"></p>
-                  <p id="answers"></p>
-                  <p id="submitSuccess"></p>
-                </div>
-              </form>
+                  <label>&nbsp&nbsp&nbspB：
+                    <input type="text" class="input" name="singleQuestion">
+                    <p id="Bsingleoption" style="display:none;color:red;">B选项忘记填写！</p>
+                  </label>
+                  </br>
+                  <label>&nbsp&nbsp&nbspC：
+                    <input type="text" class="input" name="singleQuestion">
+                    <p id="Csingleoption" style="display:none;color:red;">C选项忘记填写！</p>
+                  </label>
+                  </br>
+                  <label>&nbsp&nbsp&nbspD：
+                    <input type="text" class="input" name="singleQuestion">
+                    <p id="Dsingleoption" style="display:none;color:red;">D选项忘记填写！</p>
+                  </label>
+                  </br>
+                  <div class="row form-inline">
+                    <label>&nbsp&nbsp&nbsp&nbsp&nbsp正确答案：</label>
+                    <input type="radio" class="form-control" value="A" name="singleAnswer">A &nbsp
+                    <input type="radio" class="form-control" value="B" name="singleAnswer">B &nbsp
+                    <input type="radio" class="form-control" value="C" name="singleAnswer">C &nbsp
+                    <input type="radio" class="form-control" value="D" name="singleAnswer">D &nbsp
+                  </div>
+                  </br>
+                  <div class="col-md-4">
+                    <p id="success" style="display:none;color:red;">保存成功！</p>
+                    <p id="failed" style="display:none;color:blue;">保存失败！</p>
+                    <button class="btn btn-primary" type="button" id="singleSure" style="background-color:lightblue;">确认</button>
+                  </div>
+                  <div class="col-md-4">
+                    <button class="btn btn-primary" type="button" id="singleEmpty" style="background-color:lightblue;">清空</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
 
 
-        {{{body}}}
       </div>
-      <div id="showPaper">
-        <h1>试题展示</h1>
+      <div>
+        <h3 class="text-center">试题展示</h3>
+        <ol id="showPaper"></ol>
       </div>
     </div>
     <br></br>
     <div class="sure">
-      <!-- <input type="button" name="submit" value="保存" id="ensure"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <input type="button" name="cancel" value="取消" id="cancel"> -->
+      <button type="button" class="btn btn-info">提交</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <button type="button" class="btn btn-info">重置</button>
     </div>
   </div>

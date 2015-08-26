@@ -81,13 +81,13 @@ $(function() {
           info: info
         },
         success: function(result) {
-          if(result.status === 10501) {
+          if(result.status === STATUS.INS_ERROR) {
             return result.status;
           }
-          if (result.status === 10400) {
+          if (result.status === STATUS.PARAM_ERROR) {
             $('#registed').html('该学号已被注册！！！');
           }
-          if (result.status === 10200) {
+          if (result.status === STATUS.DATA_SUCCESS) {
             alert('已注册成功，点击确定后进行登录');
             location.href = "/";
           }

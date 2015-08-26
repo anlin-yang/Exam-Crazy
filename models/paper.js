@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     timestamps: false,
     classMethods: {
-      findQuestionArray: function(paperName) {
+      findQuestionArrayBypaperName: function(paperName) {
         return Paper.find({
           where: {
             paperName: paperName

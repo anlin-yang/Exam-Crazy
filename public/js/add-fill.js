@@ -1,4 +1,5 @@
 function addFill() {
+
   $('#fill_answers').click(function() {
     $('#answer').html('');
     var question = $('#fill_question').val();
@@ -18,7 +19,6 @@ function addFill() {
         fillBlacks += '<input type="button" class="btn btn-primary form-group" id="submitFill" name="name" value="提交">';
       }
       $('#answers').html(fillBlacks);
-
       $("#submitFill").click(function() {
         var inputAnswers = $("[name='inputAnswers']");
         var temp = 0;
@@ -41,8 +41,26 @@ function addFill() {
           var fill = {
             question: question,
             answers: answers,
-            count: answersCount
+            point: answersCount
           };
+
+          $.ajax({
+            type: 'POST',
+            url: '/addFill',
+            data: {
+              fill: fill
+            },
+            success: function(result) {
+              if (result.status === STATUS.DATA_SUCCESS) {
+                $('#submitSuccess').show();
+                $('#answers').html('');
+                $('#fill_question').val('');
+                $('#submitSuccess').delay(3000).hide(1);
+              } else if (result.status === status.INS_ERROR) {
+                $('#submitSuccess').html('入库失败！');
+              }
+            }
+          });
 
           $.ajax({
             type: 'POST',
@@ -51,13 +69,14 @@ function addFill() {
               fill: fill
             },
             success: function(result) {
-              var realanswers=answers.split("-");
-              console.log(realanswers);
+              var realanswers = answers.split("-");
               if (result.status === STATUS.DATA_SUCCESS) {
-                $('#showPaper').append("<tr>" +
-                  "<td>" +"题目："+ question + "</td>" +
-                  "<td>" +"答案"+1 + "</td>" +
-                  "<td>" + 2+ "</td>" + "</tr>");
+                realanswers.forEach(function(val) {
+                  $('#showPaper').append("<tr>" +
+                    "<td>" + "题目：" + question + "</td>" +
+                    "<td>" + "答案:" + val + "</td>" + "</tr>");
+                });
+
               } else if (result.status === STATUS.INS_ERROR) {
                 $('#submitSuccess').html('入库失败！');
               }

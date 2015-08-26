@@ -7,13 +7,13 @@ StudentSolution.getStudentSolution = function(req, res) {
   var user = answer.bulkCreate(req.body.data).then(function(data) {
     if (data.length === 0) {
       res.send({
-        status: status.QUR_ERROR,
+        status: STATUS.QUR_ERROR,
         messageg: {},
         data: {}
       });
     } else {
       res.send({
-        status: status.DATA_SUCCESS,
+        status: STATUS.DATA_SUCCESS,
         messageg: {},
         data: {}
       });

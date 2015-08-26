@@ -2,15 +2,13 @@ var models = require('../models');
 var status = require('../public/js/status.js');
 var questions = models.Question;
 
-function AddSingle() {
+var SingleChoice={};
 
-}
-
-AddSingle.prototype.getAddSingle = function(req, res) {
-  res.render('add-single.hbs');
+SingleChoice.getSingleChoice = function(req, res) {
+  res.render('single-choice.hbs');
 };
 
-AddSingle.prototype.postAddSingle = function(req, res) {
+SingleChoice.postSingleChoice = function(req, res) {
   var question = req.body.questionInformation;
   var answer = req.body.questionAnswer;
 
@@ -30,4 +28,4 @@ AddSingle.prototype.postAddSingle = function(req, res) {
 };
 
 
-module.exports = AddSingle;
+module.exports = SingleChoice;

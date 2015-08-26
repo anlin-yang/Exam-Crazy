@@ -6,7 +6,7 @@ router.get("/", TeacherPaper.getTeacherPaper);
 
 router.post("/fill", TeacherPaper.getAddFill);
 
-router.post("/single", TeacherPaper.getAddSingle);
+router.post("/singleChoice", TeacherPaper.getAddSingle);
 
 router.post("/multiple", TeacherPaper.getAddMultiple);
 

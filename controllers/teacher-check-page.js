@@ -1,15 +1,42 @@
 var status = require('../public/js/status.js');
 var models = require('../models');
 
-function TeacherCheckPage() {
-  this.result = [];
-}
+var teacherCheckPage = {};
+var result = [];
+var singleChoice = [];
+var addBlank = [];
+var manyChoice = [];
 
-TeacherCheckPage.prototype.root = function(req, res) {
+var questionBuilder = {
+  '1': function(typeId, temp) {
+    singleChoice.push({
+      "typeId": typeId,
+      "questionContent": temp[0],
+      "answerA": temp[1],
+      "answerB": temp[2],
+      "answerC": temp[3],
+      "answerD": temp[4]
+    });
+  },
+  '2': function(typeId, temp) {
+    addBlank.push({
+      "typeId": typeId,
+      "questionContent": temp[0]
+    });
+  },
+  '3': function(typeId, temp) {
+    manyChoice.push({
+      "typeId": typeId,
+      "questionContent": temp[0]
+    });
+  }
+};
+
+teacherCheckPage.root = function(req, res) {
   res.render('teacher-check-page');
 };
 
-TeacherCheckPage.prototype.check = function(req, res) {
+teacherCheckPage.check = function(req, res) {
   models.Paper.findAll().then(function(data) {
     if (data.length === 0) {
       res.send({
@@ -18,34 +45,33 @@ TeacherCheckPage.prototype.check = function(req, res) {
       });
     } else {
       res.send({
-        status:status.DATA_SUCCESS,
-        data:data
+        status: status.DATA_SUCCESS,
+        data: data
       });
     }
   });
 };
 
-TeacherCheckPage.prototype.page = function(req, res) {
+function initArrays() {
+  singleChoice = [];
+  addBlank = [];
+  manyChoice = [];
+}
+
+teacherCheckPage.page = function(req, res) {
   var temp = req.query.name;
-  var that = this;
-  models.Paper.findQuestionArray(temp).then(function(data) {
-
+  initArrays();
+  models.Paper.findQuestionArrayBypaperName(temp).then(function(data) {
     var tempArray = filterTheArray(data.dataValues.questionArray);
-
-    models.Question.findQuestionContents(tempArray).then(function(data) {
-      var tempContents = dealQuestionContent(data);
-      var tempIdArray = findTypeId(data);
-      that.result = tempContents;
-
-      models.Type.findAll().then(function(data) {
-        addType(data, that.result);
-
-        res.render('page.hbs', {
-          name: temp,
-          array: that.result
-        });
-
-      });
+    return models.Question.findQuestionContentsById(tempArray);
+  }).then(function(data) {
+    dealQuestionContent(data);
+    console.log(addBlank);
+    res.render('page', {
+      name: temp,
+      singleChoice: singleChoice,
+      addBlank: addBlank,
+      manyChoice: manyChoice
     });
   });
 };
@@ -61,45 +87,10 @@ function filterTheArray(data) {
 }
 
 function dealQuestionContent(data) {
-  var result = [];
   data.map(function(val) {
-    var temp = val.questionContent.split('-');
-
-    if (temp.length > 1) {
-      result.push({
-        "typeId": val.typeId,
-        "questionContent": temp[0],
-        "answerA": temp[1],
-        "answerB": temp[2],
-        "answerC": temp[3],
-        "answerD": temp[4]
-      });
-    } else {
-      result.push({
-        "questionContent": temp[0]
-      });
-    }
-  });
-
-  return result;
-}
-
-function findTypeId(data) {
-  var tempIdArray = [];
-  data.map(function(val) {
-    tempIdArray.push(val.typeId.toString());
-  });
-
-  return tempIdArray;
-}
-
-function addType(data, result) {
-  data.map(function(val) {
-    result.map(function(temp) {
-      if (val.id === temp.typeId) {
-        temp.type = val.type;
-      }
-    });
+    var temp = val.dataValues.questionContent.split('-');
+    questionBuilder[val.typeId](val.typeId, temp);
   });
 }
-module.exports = TeacherCheckPage;
+
+module.exports = teacherCheckPage;

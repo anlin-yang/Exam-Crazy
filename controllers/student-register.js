@@ -1,8 +1,7 @@
 var models = require('../models');
-var STATUS = require('../public/js/status.js');
+var status = require('../public/js/status.js');
 
 function Register() {
-
 }
 Register.prototype.getClasses = function(req, res) {
   var classes = [];
@@ -20,8 +19,9 @@ Register.prototype.getClasses = function(req, res) {
 
 Register.prototype.verify = function(req, res) {
   var info = req.body.info;
+  console.log(status.INS_ERROR);
+
   var student = models.Student;
-  console.log(STATUS.DATA_SUCCESS);
   student.findAll({
     where: {
       id: info.id
@@ -33,15 +33,15 @@ Register.prototype.verify = function(req, res) {
         name: info.name,
         gender: info.gender,
         class: info.class,
-        password: info.password
+        password: (info.password)
       }).then(function(data) {
         if(data.length === 0) {
           res.send({
-            status:STATUS.INS_ERROR
+            status:status.INS_ERROR
           });
         }else {
           res.send({
-            status: STATUS.DATA_SUCCESS,
+            status: status.DATA_SUCCESS,
             message: {}
           });
         }
@@ -49,7 +49,7 @@ Register.prototype.verify = function(req, res) {
 
     } else {
       res.send({
-        status: STATUS.PARAM_ERROR ,
+        status: status.PARAM_ERROR ,
         message: {},
         data: {}
       });
