@@ -1,0 +1,14 @@
+function JudgeQuestionType(type){
+switch (type) {
+
+    case "radio":function Get
+    break;
+    case "checkbox":
+      var obj = new Choice().getCount(val);
+      break;
+    case "text":
+      obj = new Blank().getRightCount(val);
+      break;
+  }
+  return obj;
+}

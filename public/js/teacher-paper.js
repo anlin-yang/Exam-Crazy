@@ -1,9 +1,31 @@
 $(function() {
+  var PaperId=[];
   var fillBlank = $("#fillBlank");
   var singleChoice = $("#singleChoice");
   var mutilipeChoice = $("#mutilipeChoice");
   singleChoice.hide();
   mutilipeChoice.hide();
+
+  $("#fill").on("click",function(){
+
+  });
+
+  $("#single").on("click", function() {
+    $("#singleChoice").show();
+<<<<<<< Updated upstream
+    var singleChoice = getSingleChoice();
+=======
+    var singleChoice=singlechoice();
+    PaperId.push(singleChoice);
+>>>>>>> Stashed changes
+
+  });
+
+  $("#mutilipe").on("click", function() {
+    fillBlank.hide();
+    singleChoice.hide();
+    $("#mutilipe").show();
+  });
 
   $("#submit").on("click", function() {
     var paperName = $("#paperName").val();
@@ -14,20 +36,6 @@ $(function() {
     }, function(result) {
 
     });
-  });
-
-  addFill();
-
-  $("#single").on("click", function() {
-    $("#singleChoice").show();
-    var singleChoice = getSingleChoice();
-
-  });
-
-  $("#mutilipe").on("click", function() {
-    fillBlank.hide();
-    singleChoice.hide();
-    $("#mutilipe").show();
   });
 
 });
