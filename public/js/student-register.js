@@ -8,7 +8,6 @@ $(function() {
 
   $('#button').on('click', function(evt) {
     evt.preventDefault();
-
     var gender;
     for (var x = 0; x < allGender.length; x++) {
       if (allGender[x].checked) {
@@ -39,37 +38,37 @@ $(function() {
     var tempmm = 0;
     var tempsmm = 0;
     if (info.id.length === 0) {
-      $('#snoTip').html('学号不能为空！');
+      $('#snoHint').html(registerStatus.STUDENT_ID_IS_NULL);
     } else if (isNaN(info.id)) {
-      $('#snoTip').html('学号只能为数字！');
+      $('#snoHint').html(registerStatus.STUDENT_ID_IS_NUN);
     } else if (info.id.length !== 8) {
-      $('#snoTip').html('请输入8位学号！');
+      $('#snoHint').html(registerStatus.STUDENT_ID_LENGTH_NOT_STANDARD);
     } else {
       tempxh = 1;
-      $('#snoTip').html('');
+      $('#snoHint').html('');
     }
     if (info.name.length <= 0) {
-      $('#nameTip').html('请输入姓名！');
+      $('#nameHint').html(registerStatus.STUDENT_NAME_IS_NULL);
     } else {
       tempxm = 1;
-      $('#nameTip').html('');
+      $('#nameHint').html('');
     }
     if (info.password.length === 0) {
-      $('#passwordTip').html('请设置密码！');
+      $('#passwordHint').html(registerStatus.STUDNET_PASSWORD_IS_NULL);
     } else if ((info.password.length < 6 || info.password.length > 12)) {
-      $('#passwordTip').html('密码长度应在6～12位之间!');
+      $('#passwordHint').html(registerStatus.STUDENT_PASSWORD_LENGTH_NOT_STANDARD);
     } else {
       tempmm = 1;
-      $('#passwordTip').html('');
+      $('#passwordHint').html('');
     }
     if (tempmm === 1) {
       if (info.surePassword.length === 0) {
-        $('#confirmTip').html('未设置确认密码！');
+        $('#confirmHint').html(registerStatus.STUDENT_SURE_PASSWORD_IS_NULL);
       } else if (info.password !== info.surePassword) {
-        $('#confirmTip').html('请与设置密码保持一致！');
+        $('#confirmHint').html(registerStatus.STUDENT_SURE_PASSWORD_NOT_SAME);
       } else {
         tempsmm = 1;
-        $('#confirmTip').html('');
+        $('#confirmHint').html('');
       }
     }
 
@@ -85,10 +84,10 @@ $(function() {
             return result.status;
           }
           if (result.status === STATUS.PARAM_ERROR) {
-            $('#registed').html('该学号已被注册！！！');
+            $('#registed').html(registerStatus.STUDENT_ID_IS_REGISTED);
           }
           if (result.status === STATUS.DATA_SUCCESS) {
-            alert('已注册成功，点击确定后进行登录');
+            alert(registerStatus.STUDENT_ID_REGISTE_SUCCESS);
             location.href = "/";
           }
         }
