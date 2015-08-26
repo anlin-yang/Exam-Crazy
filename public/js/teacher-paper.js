@@ -35,7 +35,9 @@ $(function() {
     $.post('/teacher', {
       paperName: paperName,
       subjectName: subject
-    }, function(result) {});
+    }, function(result) {
+
+    });
   });
 
 });
