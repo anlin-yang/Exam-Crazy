@@ -1,6 +1,5 @@
-$(function() {
+function addFill() {
   $('#fill_answers').click(function() {
-
     $('#answer').html('');
     var question = $('#fill_question').val();
     if (question.length === 0) {
@@ -47,22 +46,25 @@ $(function() {
 
           $.ajax({
             type: 'POST',
-            url: '/addFill',
+            url: 'teacher/fill',
             data: {
               fill: fill
             },
             success: function(result) {
+              var realanswers=answers.split("-");
+              console.log(realanswers);
               if (result.status === STATUS.DATA_SUCCESS) {
-                $('#submitSuccess').html('提交成功');
-              } else if(result.status === STATUS.INS_ERROR) {
+                $('#showPaper').append("<tr>" +
+                  "<td>" +"题目："+ question + "</td>" +
+                  "<td>" +"答案"+1 + "</td>" +
+                  "<td>" + 2+ "</td>" + "</tr>");
+              } else if (result.status === STATUS.INS_ERROR) {
                 $('#submitSuccess').html('入库失败！');
               }
             }
           });
-
         }
-
       });
     }
   });
-});
+}

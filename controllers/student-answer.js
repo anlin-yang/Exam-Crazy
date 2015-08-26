@@ -1,75 +1,69 @@
 var models = require('../models');
 
-var subject = '语文';
+var paperName = '第一学期语文考试';
+var StudentAnswer = {};
+var blankContents = [];
+var singleContents = [];
+var mutilContents = [];
 
-var StudentAnswer =  {};
+var classifyResult = {
+  '1': function(questionObject) {
+    blankContents.push(questionObject);
+  },
+  '2': function(questionObject) {
+    singleContents.push(questionObject);
+  },
+  '3': function(questionObject) {
+    mutilContents.push(questionObject);
+  }
+};
 
-// StudentAnswer.prototype.findPaper = function(res) {
-// 	var contents;
-// 	models.papers.findPaper(function(mapContent){
-//     res.send(mapContent);
-//   })
-//   models.papers.findPaper(
-//       {
-//         where:{subject: subject}
-//       }
-//     ).then(mapContent){
-//     res.send(mapContent);
-//   }
-// };
-// Paper.prototype.findPaper = function(creteria){
-//   this.findAll( creteria ).then(function(data) {
-//     contents = filterContents(data);     
-//     return findContents(contents);  
-//         }).then(function(data) {
-//           var mapContent = mapContents(data);
-//           return new Promise(mapContent);            
-//         });
-// }
+StudentAnswer.findPaper = function(req, res) {
+  models.Paper.findQuestionArray(paperName)
+    .then(function(data) {
+      contents = filterContents(data);
+      return models.Question.findQuestionContents(contents);
+    }).then(function(data) {
+      var mapContent = mapContents(data);
+      classifyContents(mapContent);
+      res.send(blankContents);
+    });
+};
 
-StudentAnswer.findPaper = function(req,res){
-  models.Paper.findAll({
-    where: {
-      subject: subject
-    }
-  }).then(function(data) {
-    contents = filterContents(data);    
-    return findContents(contents);  
-  }).then(function(data) {
-    var mapContent = mapContents(data);
-    res.send(mapContent);          
-  });
-}
 
 function filterContents(data) {
-	var datas = data.map(function(val){
-    return val.dataValues.questionArray.split(/\[|\]|,/);
-  });
+
+  var datas = data.dataValues.questionArray.split(/\[|\]|,/);
   var contents = filterDatas(datas);
-  return contents;    
+  return contents;
 }
 
 function filterDatas(datas) {
-  var contents = datas[0].filter(function(val) {
-    if(val.length !== 0) {
+  var contents = datas.filter(function(val) {
+    if (val.length !== 0) {
       return val;
     }
   });
   return contents;
 }
 
-function findContents(contents) {
-	return models. Question.findAll({
-    where: {
-      id: {$in:contents}
-    }
-  });
-}
-
 function mapContents(data) {
   return data.map(function(val) {
     return val.dataValues;
-  }); 
+  });
+}
+
+function classifyContents(contents) {
+  var afterChangeResult = [];
+
+  contents.forEach(function(question) {
+    var questionObject = {};
+    questionObject.questionId = question.id;
+    questionObject.typeId = question.typeId;
+    questionObject.Content = question.questionContent;
+    questionObject.point = question.questionPoint;
+    classifyResult[question.typeId](questionObject);
+  });
 }
 
 module.exports = StudentAnswer;

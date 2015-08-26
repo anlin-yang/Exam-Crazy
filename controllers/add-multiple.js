@@ -1,4 +1,5 @@
 var models = require('../models');
+var status = require('../public/js/status.js');
 var questions = models.Question;
 
 function AddMultiple() {
@@ -18,8 +19,13 @@ AddMultiple.prototype.postAddMultiple = function(req, res) {
     questionContent: question,
     questionPoint: 1,
     typeId: 2
-  }).then(function() {
-    res.send("aaa");
+  }).then(function(data) {
+    if (data.length !== 0) {
+      res.send({
+        status: status.DATA_SUCCESS,
+        multipleID: data.dataValues.id
+      });
+    }
   });
 };
 

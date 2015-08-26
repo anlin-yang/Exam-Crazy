@@ -9,4 +9,5 @@ exports.setRoutes = function(app) {
   app.use('/addsingle', require('./add-single'));
   app.use('/teacher', require('./teacher-paper.js'));
   app.use('/addFill',require('./add-fill.js'));
+  app.use('/paperList',require('./paper-list.js'));
 };

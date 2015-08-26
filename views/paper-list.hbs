@@ -1,0 +1,46 @@
+{{!< layout/student-layout}}
+{{#contentFor 'studentPageStyles'}}
+  <link rel="stylesheet" href="css/paper-list.css">
+  <script src="js/jquery-cookie.js"></script>
+  <script src="js/paper-list.js"></script>
+{{/contentFor}}
+
+<header id='header'>
+  学生试卷列表
+</header>
+<table id='paperList'>
+  <thead>
+    <tr>
+      <td>
+        试卷编号
+      </td>
+      <td>
+        试卷名称
+      </td>
+      <td>
+        状态
+      </td>
+      <td>
+        操作
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each paperList}}
+      <tr>
+        <td>
+          {{id}}
+        </td>
+        <td>
+          {{paperName}}
+        </td>
+        <td>
+          {{status}}
+        </td>
+        <td id='deal'>
+          {{deal}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

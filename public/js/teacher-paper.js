@@ -7,18 +7,5 @@ $(function() {
       subjectName: subject
     }, function(msg) {});
   });
-
-  $("#single").on("click", function() {
-    $.get("teacher/single", function(data) {
-      $("#addItem").empty();
-      $("#addItem").append(data);
-    });
-  });
-
-  $("#multiple").on("click", function() {
-    $.get("teacher/multiple", function(data) {
-      $("#addItem").empty();
-      $("#addItem").append(data);
-    });
-  });
+  addFill();
 });

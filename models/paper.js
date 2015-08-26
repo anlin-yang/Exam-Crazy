@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
             paperName: paperName
           }
         });
-      }
+      },
+
     }
   });
   return Paper;
