@@ -2,7 +2,6 @@ var status = require('../public/js/status.js');
 var models = require('../models');
 
 var teacherCheckPage = {};
-var result = [];
 var singleChoice = [];
 var addBlank = [];
 var manyChoice = [];
@@ -28,7 +27,6 @@ var questionFactory = {
     manyChoice.push(buildChooseQuestion(questionContents));
   }
 };
-
 
 teacherCheckPage.renderRoot = function(req, res) {
   res.render('teacher-check-page');
@@ -59,18 +57,19 @@ function initArrays() {
 teacherCheckPage.renderPage = function(req, res) {
   var name = req.query.name;
   initArrays();
-  models.Paper.findQuestionArrayBypaperName(name).then(function(data) {
-    var tempArray = filterTheArray(data.dataValues.questionArray);
-    return models.Question.findQuestionContentsById(tempArray);
-  }).then(function(data) {
-    dealQuestionContent(data);
-    res.render('page', {
-      name: name,
-      singleChoice: singleChoice,
-      addBlank: addBlank,
-      manyChoice: manyChoice
+  models.Paper
+    .findQuestionArrayBypaperName(name).then(function(data) {
+      var tempArray = filterTheArray(data.dataValues.questionArray);
+      return models.Question.findQuestionContentsById(tempArray);
+    }).then(function(data) {
+      dealQuestionContent(data);
+      res.render('page', {
+        name: name,
+        singleChoice: singleChoice,
+        addBlank: addBlank,
+        manyChoice: manyChoice
+      });
     });
-  });
 };
 
 function filterTheArray(data) {
