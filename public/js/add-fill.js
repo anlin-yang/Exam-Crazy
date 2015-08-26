@@ -1,32 +1,32 @@
-function addFill() {
-
-  $('#fill_answers').click(function() {
-    $('#answer').html('');
-    var question = $('#fill_question').val();
+$(function() {
+  $('#fillAnswers').click(function() {
+    $('#fillAnswerJudge').html('');
+    var question = $('#fillQuestion').val();
     if (question.length === 0) {
-      $('#judge1').html('还没有写题目！');
+      $('#fillQusetionJudge').html(fillStatus.FILL_QUESTION_NULL);
     } else {
-      $('#judge1').html('');
+      $('#fillQusetionJudge').html('');
       var blank = question.split("_");
       var count = blank.length - 1;
       var fillBlacks = '';
       for (var i = 0; i < count; i++) {
-        fillBlacks += '<input type="text" class="input form-group" id="inputAnswers" name="inputAnswers" value=""><br>';
+        fillBlacks += '<input type="text" class="input form-group" id="inputFillAnswers" name="inputFillAnswers" value=""><br>';
       }
       if (i <= 0) {
-        $('#judge1').html('请输入要填的空');
+        $('#fillQusetionJudge').html(fillStatus.FILL_BLANK_NULL);
       } else {
         fillBlacks += '<input type="button" class="btn btn-primary form-group" id="submitFill" name="name" value="提交">';
       }
-      $('#answers').html(fillBlacks);
+      $('#fillBlank').html(fillBlacks);
       $("#submitFill").click(function() {
-        var inputAnswers = $("[name='inputAnswers']");
+        var inputAnswers = $("[name='inputFillAnswers']");
         var temp = 0;
         var answers = '';
         var answersCount = 0;
+        var allAnswers = [];
         for (var x = 0; x < inputAnswers.length; x++) {
           if (inputAnswers[x].value.length === 0) {
-            $('#answer').html('请输入完整的答案！');
+            $('#fillAnswerJudge').html(fillStatus.FILL_ANSWERS_INCOMPLETE);
             temp = 1;
             break;
           } else {
@@ -37,7 +37,7 @@ function addFill() {
         }
 
         if (temp === 0) {
-          $('#answer').html('');
+          $('#fillAnswerJudge').html('');
           var fill = {
             question: question,
             answers: answers,
@@ -46,22 +46,24 @@ function addFill() {
 
           $.ajax({
             type: 'POST',
-            url: '/addFill',
+            url: '/fill',
             data: {
               fill: fill
             },
             success: function(result) {
               if (result.status === STATUS.DATA_SUCCESS) {
-                $('#submitSuccess').show();
-                $('#answers').html('');
-                $('#fill_question').val('');
-                $('#submitSuccess').delay(3000).hide(1);
-              } else if (result.status === status.INS_ERROR) {
-                $('#submitSuccess').html('入库失败！');
+                fillQuestionId = result.questionId;
+                $('#submitResult').show();
+                $('#fillBlank').html('');
+                $('#fillQuestion').val('');
+                $('#submitResult').delay(3000).hide(1);
+              } else if (result.status === STATUS.INS_ERROR) {
+                $('#submitResult').html(fillStatus.FILL_INSERT_FAIL);
+                $('#submitResult').delay(3000).hide(1);
               }
+              return fillQuestionId;
             }
           });
-
           $.ajax({
             type: 'POST',
             url: 'teacher/fill',
@@ -76,7 +78,6 @@ function addFill() {
                     "<td>" + "题目：" + question + "</td>" +
                     "<td>" + "答案:" + val + "</td>" + "</tr>");
                 });
-
               } else if (result.status === STATUS.INS_ERROR) {
                 $('#submitSuccess').html('入库失败！');
               }
@@ -85,5 +86,6 @@ function addFill() {
         }
       });
     }
+
   });
-}
+});
