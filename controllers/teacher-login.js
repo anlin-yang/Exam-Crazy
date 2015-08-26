@@ -2,16 +2,13 @@ var status = require('../public/js/status.js');
 var models = require('../models');
 var TeacherInfo = models.TeacherInfo;
 
-TeacherLogin = {
-  getTeacherLogin: getTeacherLogin,
-  postTeacherAuthority: postTeacherAuthority
+TeacherLogin = {};
+
+TeacherLogin.getTeacherLogin = function(req, res) {
+  res.render('teacher-login');
 };
 
-function getTeacherLogin(req, res) {
-  res.render('teacher-login');
-}
-
-function postTeacherAuthority(req, res) {
+TeacherLogin.postTeacherAuthority = function(req, res) {
   TeacherInfo.authentication(req.body.id, req.body.password).then(function(data) {
     if (data) {
       res.send({
@@ -27,6 +24,6 @@ function postTeacherAuthority(req, res) {
       });
     }
   });
-}
+};
 
 module.exports = TeacherLogin;

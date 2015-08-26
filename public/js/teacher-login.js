@@ -1,5 +1,8 @@
 $(function() {
   $("#teacherLoginId").on('click', function() {
+
+
+    console.log(STATUS.DATA_SUCCESS);
     var id = $("#inputUsername").val();
     var password = $("#inputPassword").val();
     if (id.length !== 8 || isNaN(id)) {
