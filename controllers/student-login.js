@@ -1,5 +1,5 @@
 var models = require('../models');
-// var utils = require('utility');
+var utils = require('utility');
 var status = require('../public/js/status.js');
 
 var StudentLogin = {};

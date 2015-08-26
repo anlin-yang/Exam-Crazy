@@ -10,10 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gender: {
-      type: DataTypes.ENUM('M', 'F'),
-      allowNull: false
-    },
+    //gender: {
+    //  type: DataTypes.ENUM('M', 'F'),
+    //  allowNull: false
+    //},
     class: DataTypes.INTEGER,
     password: {
       type: DataTypes.STRING,
