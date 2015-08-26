@@ -5,7 +5,7 @@ var status = require('../public/js/status.js');
 var StudentLogin = {};
 
 StudentLogin.displayPage = function(req, res) {
-  res.render('student-login.hbs');
+  res.render('student-login');
 };
 
 StudentLogin.identify = function(req, res) {
