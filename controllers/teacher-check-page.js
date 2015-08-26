@@ -3,7 +3,26 @@ var models = require('../models');
 
 function TeacherCheckPage() {
   this.result = [];
+  this.singleChoice = [];
+  this.addBlank = [];
 }
+
+// var questionBuilder = {
+//   1:function(typeId,temp) {
+//     singleChoice.push({"typeId": typeId,
+//         "questionContent": temp[0],
+//         "answerA": temp[1],
+//         "answerB": temp[2],
+//         "answerC": temp[3],
+//         "answerD": temp[4]});
+//   },
+//   2:function(typeId,temp) {
+//     addBlank.push({
+//       "typeId": val.typeId,
+//       "questionContent": temp[0]
+//     });
+//   }
+// };
 
 TeacherCheckPage.prototype.root = function(req, res) {
   res.render('teacher-check-page');
@@ -18,8 +37,8 @@ TeacherCheckPage.prototype.check = function(req, res) {
       });
     } else {
       res.send({
-        status:status.DATA_SUCCESS,
-        data:data
+        status: status.DATA_SUCCESS,
+        data: data
       });
     }
   });
@@ -28,27 +47,21 @@ TeacherCheckPage.prototype.check = function(req, res) {
 TeacherCheckPage.prototype.page = function(req, res) {
   var temp = req.query.name;
   var that = this;
-  var 
+
   models.Paper.findQuestionArray(temp).then(function(data) {
-
-    return filterTheArray(data.dataValues.questionArray);
+    var tempArray = filterTheArray(data.dataValues.questionArray);
+    return models.Question.findQuestionContents(tempArray);
   }).then(function(data) {
+    var tempContents = dealQuestionContent(data);
+    var tempIdArray = findTypeId(data);
+    that.result = tempContents;
 
-  })
-    models.Question.findQuestionContents(tempArray).then(function(data) {
-      var tempContents = dealQuestionContent(data);
-      var tempIdArray = findTypeId(data);
-      that.result = tempContents;
-
-      models.Type.findAll().then(function(data) {
-        addType(data, that.result);
-
-        res.render('page.hbs', {
-          name: temp,
-          array: that.result
-        });
-
-      });
+    return models.Type.findAll();
+  }).then(function(data) {
+    addType(data, that.result);
+    res.render('page.hbs', {
+      name: temp,
+      array: that.result
     });
   });
 };
@@ -79,9 +92,13 @@ function dealQuestionContent(data) {
       });
     } else {
       result.push({
+        "typeId": val.typeId,
         "questionContent": temp[0]
       });
     }
+
+    //  questionBuilder[val.typeId](val.typeId,temp);
+
   });
 
   return result;
