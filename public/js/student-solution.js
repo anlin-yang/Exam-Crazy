@@ -1,4 +1,6 @@
 $(function() {
+  var SUCCESSED="提交成功";
+  var FAILED="提交失败，请再试一次";
   $("#submit").on("click", function() {
     var forms = $('form')[0];
     var form = new formSerializer();
@@ -7,9 +9,9 @@ $(function() {
       data: data
     }, function(result) {
       if (result.status === STATUS.DATA_SUCCESS) {
-        alert("提交成功");
+        alert(SUCCESSED);
       } else {
-        alert("提交失败，请再试一次");
+        alert(FAILED);
       }
     });
   });

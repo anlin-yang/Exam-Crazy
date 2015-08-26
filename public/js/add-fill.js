@@ -1,4 +1,5 @@
 function addFill() {
+
   $('#fill_answers').click(function() {
     $('#answer').html('');
     var question = $('#fill_question').val();
@@ -69,12 +70,21 @@ function addFill() {
             },
             success: function(result) {
               var realanswers = answers.split("-");
+<<<<<<< HEAD
               console.log(realanswers);
               if (result.status === STATUS.DATA_SUCCESS) {
                 $('#showPaper').append("<tr>" +
                   "<td>" + "题目：" + question + "</td>" +
                   "<td>" + "答案" + 1 + "</td>" +
                   "<td>" + 2 + "</td>" + "</tr>");
+=======
+              if (result.status === STATUS.DATA_SUCCESS) {
+                realanswers.forEach(function(val) {
+                  $('#showPaper').append("<tr>" +
+                    "<td>" + "题目：" + question + "</td>" +
+                    "<td>" + "答案:" + val + "</td>" + "</tr>");
+                });
+>>>>>>> update teacher/paper.hbs
               } else if (result.status === STATUS.INS_ERROR) {
                 $('#submitSuccess').html('入库失败！');
               }

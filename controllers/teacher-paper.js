@@ -15,7 +15,7 @@ TeacherPaper.getAddFill = function(req, res) {
     questionKey: fill.answers,
     questionPoint: fill.count
   }).then(function(data) {
-    console.log(data.dataValues.id );
+    console.log(data.dataValues.id);
     if (data.dataValues.id > 0) {
 
       res.send({
@@ -50,12 +50,12 @@ TeacherPaper.getPaperInfo = function(req, res) {
   }).then(function(data) {
     if (data.length === 0) {
       res.send({
-        STATUS: STATUS.QUR_ERROR,
+        staus: STATUS.QUR_ERROR,
         data: {}
       });
     } else {
       res.send({
-        STATUS: STATUS.DATA_SUCCESS,
+        staus: STATUS.DATA_SUCCESS,
         data: data
       });
     }
