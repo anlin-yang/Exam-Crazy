@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Option.hasOne(models.Question, {
           foreignKey: {
-            id: 'questionId'
+            name: 'questionId'
           }
         });
       }
