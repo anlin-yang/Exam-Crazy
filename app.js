@@ -1,6 +1,7 @@
 var express = require('express');
 var hbs = require('express-hbs');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var route = require('./routes/route.js');
 var helper = require('./view-helpers/helper.js');
 var helperPaper = require('./view_helpers/student-answer-helper.js');
@@ -10,6 +11,7 @@ var app = express();
 
 app.use(express.static('bower_components/'));
 app.use(express.static('public/'));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
