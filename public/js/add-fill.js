@@ -21,26 +21,25 @@ $(function() {
       $("#submitFill").click(function() {
         var inputAnswers = $("[name='inputFillAnswers']");
         var temp = 0;
-        var answers = '';
         var answersCount = 0;
-        var allAnswers = [];
+        var answers = [];
         for (var x = 0; x < inputAnswers.length; x++) {
           if (inputAnswers[x].value.length === 0) {
             $('#fillAnswerJudge').html(fillStatus.FILL_ANSWERS_INCOMPLETE);
             temp = 1;
             break;
           } else {
+            answers.push(inputAnswers[x].value);
             answersCount++;
-            answers += '-';
-            answers += inputAnswers[x].value;
           }
         }
 
         if (temp === 0) {
           $('#fillAnswerJudge').html('');
+          var strAnswers = JSON.stringify(answers);
           var fill = {
             question: question,
-            answers: answers,
+            answers: strAnswers,
             point: answersCount
           };
 
@@ -79,7 +78,7 @@ $(function() {
                     "<td>" + "答案:" + val + "</td>" + "</tr>");
                 });
               } else if (result.status === STATUS.INS_ERROR) {
-                $('#submitSuccess').html('入库失败！');
+                $('#submitSuccess').html(fillStatus.FILL_INSERT_FAIL);
               }
             }
           });
