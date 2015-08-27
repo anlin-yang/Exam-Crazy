@@ -33,7 +33,7 @@ PaperList.getPaperList = function(req, res) {
     });
     paperList.forEach(function(val) {
       scoreList.forEach(function(item) {
-        if (val.id === item.paperId) {
+        if (val.id === item.paperId && studentId==item.studentId) {
           val.status = item.score.toString();
           val.deal = paperListStatus.ANSWERED_DEAL;
           val.url = '';
