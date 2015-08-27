@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Option', {
+  var Option = sequelize.define('Option', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -11,5 +11,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     optionContent: DataTypes.STRING
-  });
+  }, {
+    classMethods: {
+      associate: function(models) {
+        Option.hasOne(models.Question, {
+          foreignKey: {
+            id: 'questionId'
+          }
+        });
+      }
+    }
+  })
+  return Option;
 }
