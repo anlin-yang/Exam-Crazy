@@ -2,6 +2,7 @@ var models = require("../models");
 var STATUS = require('../public/js/status.js');
 
 var TeacherPaper = {};
+var array = [];
 
 TeacherPaper.getTeacherPaper = function(req, res) {
   res.render('teacher/paper');
@@ -15,7 +16,7 @@ TeacherPaper.getAddFill = function(req, res) {
     questionKey: fill.answers,
     questionPoint: fill.count
   }).then(function(data) {
-    console.log(data.dataValues.id);
+    array.push(data.dataValues.id);
     if (data.dataValues.id > 0) {
 
       res.send({
@@ -41,6 +42,8 @@ TeacherPaper.getAddSingle = function(req, res) {
     typeId: 1
   }).then(function(data) {
     if (data.length !== 0) {
+      console.log(data.dataValues.id);
+      array.push(data.dataValues.id);
       res.send({
         status: STATUS.DATA_SUCCESS,
         singleID: data.dataValues.id
@@ -59,6 +62,7 @@ TeacherPaper.getAddMultiple = function(req, res) {
     questionPoint: 1,
     typeId: 2
   }).then(function(data) {
+    array.push(data.dataValues.id);
     if (data.length !== 0) {
       res.send({
         status: STATUS.DATA_SUCCESS,

@@ -1,31 +1,33 @@
 $(function() {
-  var PaperId = [];
-  var fillBlank = $("#fillBlank");
-  var singleChoice = $("#singleChoice");
-  var mutilipeChoice = $("#multipleChoice");
-  singleChoice.hide();
-  mutilipeChoice.hide();
+  var requestData;
+  var questionType;
+  var fillBlanks = $("#fillBlank");
+  var singleChoices = $("#singleChoice");
+  var multipleChoices = $("#multipleChoice");
+  singleChoices.hide();
+  multipleChoices.hide();
 
   $("#fill").on("click", function() {
-
+    multipleChoices.hide();
+    singleChoices.hide();
+    fillBlanks.show();
+    addFill(fill);
   });
 
   $("#single").on("click", function() {
-    $("#singleChoice").show();
-
-    var singleChoice = getSingleChoice();
-
-    PaperId.push(singleChoice);
-
-
+    fillBlanks.hide();
+    multipleChoices.hide();
+    singleChoices.show();
+    addSingleChoice(single);
   });
 
   $("#multiple").on("click", function() {
-    fillBlank.hide();
-    singleChoice.hide();
-    mutilipeChoice.show();
-    var multipleChoice = addMultipleChoice();
+    fillBlanks.hide();
+    singleChoices.hide();
+    multipleChoices.show();
+    addMultipleChoice(multiple);
   });
+
 
   $("#submit").on("click", function() {
     var paperName = $("#paperName").val();
@@ -33,9 +35,7 @@ $(function() {
     $.post('/teacher', {
       paperName: paperName,
       subjectName: subject
-    }, function(result) {
-
-    });
+    }, function(result) {});
   });
 
 });

@@ -38,6 +38,32 @@
       <div id="addItem">
         <br></br>
 
+        <div id="fillBlank" class="row">
+          <div class="col-md-8 col-md-offset-2 col-md-offset-2">
+            <div class="panel panel-default">
+              <div class="panel-heading" style="background-color:lightblue;">
+                <h2 class="text-center">添加填空题题目</h2>
+              </div>
+              <form class="form-horizontal">
+                <div class="panel-body" id="addFill">
+                  <label>题目：
+                    <input type="text" class="input" id="fillQuestion">
+                    <p id="fillQusetionJudge"></p>
+                  </label>
+                  </br>
+                  <input type="button" class="btn btn-link form-group" id="fillAnswers" name="name" value="点击输入答案">
+                  </br>
+                  <p id="fillAnswerJudge"></p>
+
+                  <p id="fillBlank"></p>
+
+                  <p id="submitResult" style="display:none;color:red;">提交成功</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <div id="singleChoice" class="row">
           <div class="col-md-8">
             <div class="panel panel-default">
@@ -94,7 +120,7 @@
         </div>
 
         <div id="multipleChoice" class="row">
-          <div class="col-md-8">
+          <div class="col-md-8 col-md-offset-2 col-md-offset-2">
             <div class="panel panel-default">
               <div class="panel-heading" style="background-color:lightblue;">
                 <h4 class="text-center">添加多选题</h4>
@@ -147,17 +173,18 @@
             </div>
           </div>
         </div>
-
-
       </div>
-      <div>
+
+      <div id="showPaper">
         <h3 class="text-center">试题展示</h3>
-        <ol id="showPaper"></ol>
+        <ol id="showItem"></ol>
       </div>
-    </div>
-    <br></br>
-    <div class="sure">
-      <button type="button" id="submit" class="btn btn-info">提交</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <button type="button" id="reset" class="btn btn-info">重置</button>
     </div>
   </div>
+  <br></br>
+  <div class="sure">
+    <button type="button" id="submit" class="btn btn-info">提交</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button type="button" id="reset" class="btn btn-info">重置</button>
+  </div>
+  <br></br>
+</div>

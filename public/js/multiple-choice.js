@@ -1,5 +1,5 @@
 function addMultipleChoice(){
-  var successdata;
+
       $('#multipleEmpty').click(function(){
       $('.input').val("");
       [].forEach.call($("[name='multipleAnswer']"), function(elem) {
@@ -62,5 +62,5 @@ function addMultipleChoice(){
         });
       }
     });
-    return successdata;
+  
 }
