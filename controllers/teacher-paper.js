@@ -5,7 +5,7 @@ var TeacherPaper = {};
 var array = [];
 
 TeacherPaper.getTeacherPaper = function(req, res) {
-  res.render('teacher/paper');
+  res.render('teacher/addQuestions');
 };
 
 TeacherPaper.getAddFill = function(req, res) {
