@@ -1,1 +1,1 @@
-var module = {};
+var module = module || {};
