@@ -20,7 +20,8 @@
               <p id="fillQusetionJudge"></p>
             </label>
             </br>
-            <input type="button" class="btn btn-primary form-group" id="fillAnswers" name="name" value="提交">
+            <div class="col-md-4"> </div>
+            <button class="btn btn-primary" type="button" id="fillAnswers" name="name">提交</button>
             </br>
           </div>
         </form>
@@ -39,27 +40,27 @@
         <form class="form-horizontal">
           <label>题目：
             <input type="text" class="input" name="singleQuestion">
-            <p id="questionsingleoption">问题忘记填写！</p>
+            <p id="questionsingleoption" class="prompt">问题忘记填写！</p>
           </label>
           </br>
-          <label>A：
+          <label>A：</br>
             <input type="text" class="input" name="singleQuestion">
-            <p id="Asingleoption">A选项忘记填写！</p>
+            <p id="Asingleoption" class="prompt">A选项忘记填写！</p>
           </label>
           </br>
-          <label>B：
+          <label>B：</br>
             <input type="text" class="input" name="singleQuestion">
-            <p id="Bsingleoption">B选项忘记填写！</p>
+            <p id="Bsingleoption" class="prompt">B选项忘记填写！</p>
           </label>
           </br>
-          <label>C：
+          <label>C：</br>
             <input type="text" class="input" name="singleQuestion">
-            <p id="Csingleoption">C选项忘记填写！</p>
+            <p id="Csingleoption" class="prompt">C选项忘记填写！</p>
           </label>
           </br>
-          <label>D：
+          <label>D：</br>
             <input type="text" class="input" name="singleQuestion">
-            <p id="Dsingleoption">D选项忘记填写！</p>
+            <p id="Dsingleoption" class="prompt">D选项忘记填写！</p>
           </label>
           </br>
           <div class="row form-inline">
@@ -71,12 +72,12 @@
           </div>
           </br>
           <div class="col-md-4">
-            <button class="btn btn-primary" type="button" id="singleSure">确认</button>
-            <p id="success">保存成功！</p>
-            <p id="failed">保存失败！</p>
+            <button class="btn btn-primary" type="button" id="singleSure">确认 </button>
+            <p id="success" class="prompt">保存成功！ </p>
+            <p id="failed" class="prompt">保存失败！ </p>
           </div>
-          <div class="col-md-4">
-            <button class="btn btn-primary" type="button" id="singleEmpty">清空</button>
+          <div class="col-md-4 ">
+            <button class="btn btn-primary " type="button " id="singleEmpty ">清空</button>
           </div>
         </form>
       </div>
@@ -84,7 +85,7 @@
   </div>
 </div>
 
-<div class="multiple content">
+<div class="multiple content ">
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -94,41 +95,41 @@
         <form class="form-horizontal">
           <label>题目：
             <input type="text" class="input" name="multipleQuestion">
-            <p id="questionmultipleoption">问题忘记填写！</p>
+            <p id="questionmultipleoption" class="prompt">问题忘记填写！</p>
           </label>
           </br>
-          <label>A：
+          <label>A：</br>
             <input type="text" class="input" name="multipleQuestion">
-            <p id="Amultipleoption">A选项忘记填写！</p>
+            <p id="Amultipleoption" class="prompt">A选项忘记填写！</p>
           </label>
           </br>
-          <label>B：
+          <label>B：</br>
             <input type="text" class="input" name="multipleQuestion">
-            <p id="Bmultipleoption">B选项忘记填写！</p>
+            <p id="Bmultipleoption" class="prompt">B选项忘记填写！</p>
           </label>
           </br>
-          <label>C：
+          <label>C：</br>
             <input type="text" class="input" name="multipleQuestion">
-            <p id="Cmultipleoption">C选项忘记填写！</p>
+            <p id="Cmultipleoption" class="prompt">C选项忘记填写！</p>
           </label>
           </br>
-          <label>D：
+          <label>D：</br>
             <input type="text" class="input" name="multipleQuestion">
-            <p id="Dmultipleoption">D选项忘记填写！</p>
+            <p id="Dmultipleoption" class="prompt">D选项忘记填写！</p>
           </label>
           </br>
           <div class="row form-inline">
             <label>正确答案：</label>
-            <input type="checkbox" class="form-control" value="A" name="multipleAnswer">A
-            <input type="checkbox" class="form-control" value="B" name="multipleAnswer">B
-            <input type="checkbox" class="form-control" value="C" name="multipleAnswer">C
-            <input type="checkbox" class="form-control" value="D" name="multipleAnswer">D
+            <input type="checkbox" class="form-control" value="A" name="multipleAnswer">A &nbsp
+            <input type="checkbox" class="form-control" value="B" name="multipleAnswer">B &nbsp
+            <input type="checkbox" class="form-control" value="C" name="multipleAnswer">C &nbsp
+            <input type="checkbox" class="form-control" value="D" name="multipleAnswer">D &nbsp
           </div>
           </br>
           <div class="col-md-4">
             <button class="btn btn-primary" type="button" id="multipleSure">确认</button>
-            <p id="success">保存成功！</p>
-            <p id="failed">保存失败！</p>
+            <p id="success" class="prompt">保存成功！</p>
+            <p id="failed" class="prompt">保存失败！</p>
           </div>
           <div class="col-md-4">
             <button class="btn btn-primary" type="button" id="multipleEmpty">清空</button>
@@ -137,4 +138,5 @@
       </div>
     </div>
   </div>
+
 </div>

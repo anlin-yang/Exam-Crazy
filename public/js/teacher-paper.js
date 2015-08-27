@@ -1,47 +1,13 @@
 $(function() {
-  var requestData;
-  var questionType;
-  var fillBlanks = $("#fillBlank");
-  var singleChoices = $("#singleContant");
-  var multipleChoices = $("#multipleContant");
-  singleChoices.hide();
-  multipleChoices.hide();
-  fillBlanks.hide();
-
-  $("#fill").on("click", function() {
-    multipleChoices.hide();
-    singleChoices.hide();
-    fillBlanks.show();
-    var fill = "fill";
-    addFill(fill);
-  });
-
-  $("#single").on("click", function() {
-    fillBlanks.hide();
-    multipleChoices.hide();
-    singleChoices.show();
-    var single = "single";
-    addSingleChoice(single);
-  });
-
-  $("#multiple").on("click", function() {
-    fillBlanks.hide();
-    singleChoices.hide();
-    multipleChoices.show();
-    var multiple = "multiple";
-    addMultipleChoice(multiple);
-  });
-
-
-  $("#submit").on("click", function() {
-    var paperName = $("#paperName").val();
-    var subject = $("#subjectName").val();
-    $.post('/teacher', {
-      paperName: paperName,
-      subjectName: subject
-    }, function(result) {
-
+  $('#questionType').on('click', 'input', function() {
+    var className = $(this).attr('class');
+    $('#addItem>.content').each(function(key, question) {
+      console.log(className);
+      if ($(question).hasClass(className)) {
+        $(question).show();
+      } else {
+        $(question).hide();
+      }
     });
   });
-
 });
