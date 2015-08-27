@@ -7,7 +7,7 @@ var classifyResult = {};
 
 function filterContents(data) {
 
-  var datas = data.dataValues.questionArray.split(/\[|\]|,/);
+  var datas = JSON.parse(data.dataValues.questionArray);
   var contents = filterDatas(datas);
   return contents;
 
@@ -38,8 +38,8 @@ function seprateAnswer(arr) {
 
     for(var i = 0; i < arr.length; i++) {
         var option = [];
-       option = arr[i].questionContent.split('-');
-        arr[i].answer = option;
+      option = JSON.parse(arr[i].questionContent);
+      arr[i].answer = option;
     }
 }
 
@@ -53,7 +53,7 @@ StudentAnswer.findPaper = function(req, res) {
     }).then(function(data) {
       var mapContent = mapContents(data);
       classifyResults = classifyContents(mapContent);
-          seprateAnswer(classifyResults['2']);
+      seprateAnswer(classifyResults['2']);
       seprateAnswer(classifyResults['3']);
       res.render('student-answer',{blankContents: classifyResults['1'],
                                   singleChooseContents: classifyResults['2'],
