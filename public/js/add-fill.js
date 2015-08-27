@@ -35,6 +35,7 @@ function addFill() {
             }
           }
 
+
           if (temp === 0) {
             $('#fillAnswerJudge').html('');
             var strAnswers = JSON.stringify(answers);
