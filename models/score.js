@@ -12,7 +12,5 @@ module.exports = function(sequelize, DataTypes) {
     },
     paperId: DataTypes.INTEGER,
     score: DataTypes.FLOAT,
-  }, {
-    timestamps: false
   });
 };

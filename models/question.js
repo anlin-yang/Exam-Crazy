@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
     questionKey: DataTypes.STRING,
     questionPoint: DataTypes.INTEGER
   }, {
-    timestamps: false,
     classMethods: {
       findQuestionContentsById: function(question_array) {
         return Question.findAll({

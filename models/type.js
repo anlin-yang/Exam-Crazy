@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     type: DataTypes.STRING
   }, {
-    timestamps: false,
     classMethods: {
       findTypes: function(type_array) {
         return Type.findAll({

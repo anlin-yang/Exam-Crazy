@@ -10,7 +10,6 @@ module.exports = function(sequelize, DataTypes) {
     questionArray: DataTypes.TEXT,
     score: DataTypes.INTEGER
   }, {
-    timestamps: false,
     classMethods: {
       findQuestionArrayBypaperName: function(paperName) {
         return Paper.find({

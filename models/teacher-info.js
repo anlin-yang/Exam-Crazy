@@ -24,7 +24,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
     }
   }, {
-    timestamps: false,
     classMethods: {
       authentication: function(teacherId, password) {
         return TeacherInfo.find({

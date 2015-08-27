@@ -7,7 +7,5 @@ module.exports = function(sequelize, DataTypes) {
     },
     studentId: DataTypes.INTEGER,
     answersArray: DataTypes.TEXT
-  }, {
-    timestamps: false
   });
 };

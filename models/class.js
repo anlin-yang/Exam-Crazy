@@ -6,7 +6,5 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     className: DataTypes.STRING,
-  }, {
-    timestamps: false
   });
 };
