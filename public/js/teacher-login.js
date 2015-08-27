@@ -19,8 +19,11 @@ $(function() {
         },
         success: function(result) {
           if (result.status === STATUS.DATA_SUCCESS) {
+            $.cookie('teacherId', teacherId, {
+              expires: 1,
+              path: '/'
+            });
             location.href = "/";
-
           } else {
             $(".error").html(loginInputStatus.TEACHER_ID_OR_PASSWORD_ERROR);
             $("#inputUsername").val("");
