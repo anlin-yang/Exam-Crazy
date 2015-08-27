@@ -6,6 +6,10 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: false
     },
+    studentId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
