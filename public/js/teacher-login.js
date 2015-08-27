@@ -2,7 +2,7 @@ $(function() {
   $("#teacherLoginId").on('click', function() {
     var teacherId = $("#inputUsername").val();
     var password = $("#inputPassword").val();
-    if (id.length !== 8 || isNaN(id)) {
+    if (teacherId.length !== 8 || isNaN(teacherId)) {
       $(".error").html(loginInputStatus.TEACHER_ID_INVALID);
     } else if (password.length === 0) {
       $(".error").html(loginInputStatus.PASSWORD_NULL);
@@ -20,6 +20,7 @@ $(function() {
         success: function(result) {
           if (result.status === STATUS.DATA_SUCCESS) {
             location.href = "/";
+
           } else {
             $(".error").html(loginInputStatus.TEACHER_ID_OR_PASSWORD_ERROR);
             $("#inputUsername").val("");

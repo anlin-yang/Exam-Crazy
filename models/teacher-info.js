@@ -1,3 +1,5 @@
+var utils = require('utility');
+
 module.exports = function(sequelize, DataTypes) {
   var TeacherInfo = sequelize.define('TeacherInfo', {
     id: {
@@ -28,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         return TeacherInfo.find({
           where: {
             teacherId: teacherId,
-            password: password
+            password: utils.md5(password)
           }
         });
       }
