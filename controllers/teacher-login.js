@@ -11,6 +11,7 @@ TeacherLogin.getTeacherLogin = function(req, res) {
 TeacherLogin.postTeacherAuthority = function(req, res) {
   TeacherInfo.authentication(req.body.teacherId, req.body.password).then(function(data) {
     if (data) {
+      res.cookie('teacherId', req.body.teacherId);
       res.send({
         status: status.DATA_SUCCESS,
         message: {},
