@@ -1,66 +1,52 @@
-function addSingleChoice() {
-
-  $('#singleEmpty').click(function() {
+$(function() {
+$('#singleEmpty').on('click',function () {
+    console.log('!!!!!');
     $('.input').val("");
-    [].forEach.call($("[name='singleAnswer']"), function(elem) {
-      elem.checked = false;
+    [].forEach.call($("[name='singleAnswer']"), function (elem) {
+        elem.checked = false;
     });
-  });
+});
 
-  $('#singleSure').click(function() {
+$('#singleSure').click(function () {
     var allsingle = $("[name='singleQuestion']");
     var item = $("[name='singleAnswer']");
     var answer;
     for (var x = 0; x < item.length; x++) {
-      if (item[x].checked) {
-        answer = item[x].value;
-        break;
-      }
+        if (item[x].checked) {
+            answer = item[x].value;
+            break;
+        }
     }
 
-    var questionInformation = '',
-      questionAnswer = '',
-      count = 0;
-    var htmlInformation = '';
+    var questionInformation = '', questionOptions = [], count = 1;
     var option = ['question', 'A', 'B', 'C', 'D'];
 
-    for (var k = 0; k < allsingle.length; k++) {
-      if (!(allsingle[k].value)) {
-        var itemOne = '#' + option[k] + 'singleoption';
-        $(itemOne).show();
-        $(itemOne).delay(3000).hide(1);
-      } else {
-        htmlInformation += option[k] + ':' + allsingle[k].value + '<br>';
-        questionInformation += allsingle[k].value + '-';
-        count++;
-      }
-    }
-    if (count === allsingle.length) {
-      var information = {
-        questionInformation: questionInformation,
-        questionAnswer: answer
-      };
-
-      $.ajax({
-        url: 'teacher/singleChoice',
-        data: information,
-        type: 'POST',
-        success: function(successfulTip) {
-          if (successfulTip.status === STATUS.DATA_SUCCESS) {
-            $('.input').val("");
-
-            [].forEach.call($("[name='singleAnswer']"), function(elem) {
-              elem.checked = false;
-            });
-            $('#showPaper').append("<li>" + htmlInformation + "</li>");
-            $("#success").show();
-            $("#success").delay(3000).hide(1);
-          } else if (successfulTip.status === STATUS.INS_ERROR) {
-            $("#failed").show();
-            $("#failed").delay(3000).hide(1);
-          }
+    for (var m = 0; m < allsingle.length; m++) {
+        if (!(allsingle[m].value)) {
+            var itemOne = '#' + option[m] + 'singleoption';
+            $(itemOne).show();
+            $(itemOne).delay(3000).hide(1);
+        } else {
+            if (m === 0) {
+                questionInformation = allsingle[m].value;
+            } else {
+                questionOptions.push(option[m] + ':' + allsingle[m].value);
+                count++;
+            }
         }
-      });
     }
-  });
-}
+
+    if (count === allsingle.length) {
+        var information = {
+            questionContent: questionInformation,
+            questionKey: answer,
+            questionPoint: 1,
+            typeId: 1,
+            optionContent: questionOptions
+        };
+
+        console.log(information);
+
+    }
+});
+});
