@@ -1,4 +1,9 @@
+body {
+  background: url(../images/paper-list-backgound.jpg);
+  background-size: 100% auto;
+}
 #header {
+  margin: 30px auto 10px auto;
   text-align: center;
   color: #4682B4;
   font-weight: bold;
@@ -6,7 +11,7 @@
 }
 #paperList {
   margin: 0 auto;
-  width: 980px;
+  width: 800px;
   border-collapse: collapse;
   background-color: #FFF;
 }
@@ -20,4 +25,7 @@
 }
 #paperList tbody tr:nth-of-type(odd) {
   background-color: rgb(249, 249, 249);
+}
+button {
+  margin: 10px;
 }
