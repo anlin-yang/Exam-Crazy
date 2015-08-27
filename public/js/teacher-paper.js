@@ -2,10 +2,11 @@ $(function() {
   var requestData;
   var questionType;
   var fillBlanks = $("#fillBlank");
-  var singleChoices = $("#singleChoice");
-  var multipleChoices = $("#multipleChoice");
+  var singleChoices = $("#singleContant");
+  var multipleChoices = $("#multipleContant");
   singleChoices.hide();
   multipleChoices.hide();
+  fillBlanks.hide();
 
   $("#fill").on("click", function() {
     multipleChoices.hide();
