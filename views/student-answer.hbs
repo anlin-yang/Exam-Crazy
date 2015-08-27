@@ -6,9 +6,11 @@
   <script type="text/javascript" src="model/formSerializer.js"></script>
 {{/contentFor}}
 
+</div>
+
   <div class="panel panel-primary" id='student-info-frame'>
    <div class="panel-body" id='student-info'>
-      <h4>UML建模语言</h4>
+      <h4>{{title}}</h4>
       <table class="table">
          <tr>
            <td>姓名：孙恬静</td>
@@ -21,26 +23,8 @@
   <br>
   <div class="panel panel-primary" id='blank'>
    <div class="panel-body">
-      <h4>一.选择题</h4>
-      <table>
-        <tr>
-          <td>
-            1.UML是什么 <input type="text" class='blank'>
-          </td>
-
-        </tr>
-        <tr>
-          <td>
-            2.面向对象三要素 <input type="text" class='blank'>
-            </td>
-
-        </tr>
-        <tr>
-          <td>
-            3.面向对象五原则 <input type="text" class='blank'>
-            </td>
-        </tr>
-      </table>
+      <h4>一.填空题</h4>
+      {{{blank blankContents}}}
    </div>
   </div>
   <br>
@@ -48,31 +32,16 @@
   <div class="panel panel-primary" id='single-choose'>
    <div class="panel-body">
       <h4>二.单选题</h4>
-      <table>
-        <tr>
-          <td>
-            1.UML是什么
-            <br>
-            <input type="radio" name="optionsRadios"> 1 <br>
-            <input type="radio" name="optionsRadios"> 2 <br>
-            <input type="radio" name="optionsRadios"> 3 <br>
-            <input type="radio" name="optionsRadios"> 4 <br>
-          </td>
+      {{singleChoose singleChooseContents}}
 
-        </tr>
-        <tr>
-          <td>
-            2.面向对象三要素
-          </td>
-        </tr>
-        <tr>
-          <td>
-            3.面向对象五原则
-            </td>
-        </tr>
-      </table>
    </div>
   </div>
-  <div id='commit'>
+  <div class="panel panel-primary" id='single-choose'>
+   <div class="panel-body">
+      <h4>三、多选题</h4>
+      {{mutilChoose mutilChooseContents}}
+   </div>
+  </div>
+  <div id='submit'>
     <input type="button" value="提交">
   </div>
