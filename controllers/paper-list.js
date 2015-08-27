@@ -2,13 +2,15 @@ var models = require('../models');
 var paperListStatus = require('../public/js/paper-list-status');
 var Score = models.Score;
 var Paper = models.Paper;
-var studentId = 1;
+
 
 var PaperList = {};
 
 PaperList.getPaperList = function(req, res) {
   var paperList = [];
   var scoreList = [];
+
+  var studentId=req.cookies.studentId;
 
   Paper.findAll().then(function(data) {
     paperList = data.map(function(val) {
