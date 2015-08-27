@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('PaperQuestions', {
+  var PaperQuestion = sequelize.define('PaperQuestion', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -17,12 +17,12 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function (models) {
-        PaperQuestions.belongsTo(models.Paper, {
+        PaperQuestion.belongsTo(models.Paper, {
           foreignKey: {
             name: 'id'
           }
         });
-        PaperQuestions.hasMany(models.Question, {
+        PaperQuestion.hasMany(models.Question, {
           foreignKey: {
             name: 'id'
           }
@@ -30,4 +30,5 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
+  return PaperQuestion;
 };
