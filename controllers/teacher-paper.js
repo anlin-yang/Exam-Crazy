@@ -77,12 +77,12 @@ TeacherPaper.getJudge = function(req, res) {
 };
 
 TeacherPaper.getPaperInfo = function(req, res) {
-  var newarray=array.join(",");
+  var newarray = array.join(",");
   var user = models.Paper.create({
     paperName: req.body.paperName,
     subject: req.body.subject,
     score: req.body.score,
-    questionArray:newarray
+    questionArray: newarray
 
   }).then(function(data) {
     if (data.length === 0) {
@@ -93,7 +93,7 @@ TeacherPaper.getPaperInfo = function(req, res) {
     } else {
       res.send({
         staus: STATUS.DATA_SUCCESS,
-        data: data
+        data: {}
       });
     }
   });

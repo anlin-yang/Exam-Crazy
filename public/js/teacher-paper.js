@@ -11,7 +11,7 @@ $(function() {
     multipleChoices.hide();
     singleChoices.hide();
     fillBlanks.show();
-    var fill="fill";
+    var fill = "fill";
     addFill(fill);
   });
 
@@ -19,7 +19,7 @@ $(function() {
     fillBlanks.hide();
     multipleChoices.hide();
     singleChoices.show();
-    var single="single";
+    var single = "single";
     addSingleChoice(single);
   });
 
@@ -27,7 +27,7 @@ $(function() {
     fillBlanks.hide();
     singleChoices.hide();
     multipleChoices.show();
-    var multiple="multiple";
+    var multiple = "multiple";
     addMultipleChoice(multiple);
   });
 
