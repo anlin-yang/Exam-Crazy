@@ -34,7 +34,7 @@ PaperList.getPaperList = function(req, res) {
         if (val.id === item.paperId) {
           val.status = item.score.toString();
           val.deal = paperListStatus.ANSWERED_DEAL;
-          val.url = 'paperList';
+          val.url = '';
         }
       });
     });
