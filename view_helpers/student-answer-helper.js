@@ -1,5 +1,5 @@
 var hbs = require('express-hbs');
-var choice = ['A.','B.','C.','D.'];
+var choice = ['A.','B.','C.','D.','E.'];
 
 hbs.registerHelper('blank', function (options) {
   var text = '';
@@ -19,7 +19,6 @@ hbs.registerHelper('singleChoose', function (options) {
   for (var i = 0; i < options.length; i++) {
     var id = i + 1;
     text += "<h4>" + id + '.' + options[i].answer[0] + "</h4>";
-    console.log(options[i].answer);
     for (var j = 1; j < options[i].answer.length; j++) {
       text += "<input type='radio' name='singleChoose-' " + j + ">"+ choice[j-1] +' '+ options[i].answer[j] + "</br>";
     }
@@ -32,7 +31,6 @@ hbs.registerHelper('mutilChoose', function (options) {
   for (var i = 0; i < options.length; i++) {
     var id = i + 1;
     text += "<h4>" + id + '.' + options[i].answer[0] + "</h4>";
-    console.log(options[i].answer);
     for (var j = 1; j < options[i].answer.length; j++) {
       text += "<input type='radio'  " + ">" + choice[j - 1] + ' ' + options[i].answer[j] + "</br>";
     }
