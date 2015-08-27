@@ -11,9 +11,24 @@
 .sure {
   text-align: center;
 }
+#reset{
+  margin: 0 50px;
+}
+#addItem >.content {
+  display: none;
+}
+.panel-heading {
+  background: lightblue;
+}
+#addItem >.fill {
+  display: block;
+}
 .showPaper {
   float: left;
   width: 500px;
   margin: -10px;
   float: left;
+}
+p {
+  color: red;
 }
