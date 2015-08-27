@@ -21,6 +21,7 @@ $(function() {
           password: password
         },
         success: function(result) {
+          console.log("test");
           if (result.status === STATUS.DATA_SUCCESS) {
             $.cookie('studentId', studentId, {expires: 1, path: '/' });
             $.cookie('password', password, {expires: 1, path: '/' });
