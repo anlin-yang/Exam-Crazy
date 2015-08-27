@@ -1,34 +1,8 @@
 var models = require('../models');
+var _ = require('lodash');
 
-var paperName = '第一学期语文考试';
 var StudentAnswer = {};
-var blankContents = [];
-var singleContents = [];
-var mutilContents = [];
-
-var classifyResult = {
-  '1': function(questionObject) {
-    blankContents.push(questionObject);
-  },
-  '2': function(questionObject) {
-    singleContents.push(questionObject);
-  },
-  '3': function(questionObject) {
-    mutilContents.push(questionObject);
-  }
-};
-
-StudentAnswer.findPaper = function(req, res) {
-  models.Paper.findQuestionArray(paperName)
-    .then(function(data) {
-      contents = filterContents(data);
-      return models.Question.findQuestionContents(contents);
-    }).then(function(data) {
-      var mapContent = mapContents(data);
-      classifyContents(mapContent);
-      res.send(blankContents);
-    });
-};
+var classifyResult = {};
 
 
 function filterContents(data) {
@@ -36,6 +10,7 @@ function filterContents(data) {
   var datas = data.dataValues.questionArray.split(/\[|\]|,/);
   var contents = filterDatas(datas);
   return contents;
+
 }
 
 function filterDatas(datas) {
@@ -53,17 +28,39 @@ function mapContents(data) {
   });
 }
 
-function classifyContents(contents) {
-  var afterChangeResult = [];
-
-  contents.forEach(function(question) {
-    var questionObject = {};
-    questionObject.questionId = question.id;
-    questionObject.typeId = question.typeId;
-    questionObject.Content = question.questionContent;
-    questionObject.point = question.questionPoint;
-    classifyResult[question.typeId](questionObject);
+function classifyContents(questiones) {
+  return _.groupBy(questiones,function(question) {
+    return question.typeId;
   });
 }
+
+function seprateAnswer(arr) {
+
+    for(var i = 0; i < arr.length; i++) {
+        var option = [];
+       option = arr[i].questionContent.split('-');
+        arr[i].answer = option;
+    }
+}
+
+StudentAnswer.findPaper = function(req, res) {
+  var title;
+  models.Paper.findById(req.query.paperId)
+    .then(function(data) {
+      title = data.dataValues.paperName;
+      contents = filterContents(data);
+      return models.Question.findQuestionContents(contents);
+    }).then(function(data) {
+      var mapContent = mapContents(data);
+      classifyResults = classifyContents(mapContent);
+          seprateAnswer(classifyResults['2']);
+      seprateAnswer(classifyResults['3']);
+      res.render('student-answer',{blankContents: classifyResults['1'],
+                                  singleChooseContents: classifyResults['2'],
+                                  mutilChooseContents: classifyResults['3'],
+                                  title: title});
+    });
+};
+
 
 module.exports = StudentAnswer;
