@@ -6,27 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
-.class {
-  margin-right: 30px;
-}
+
 form {
   width: 444px;
   margin: auto;
 }
 p {
   color: red;
-}
-.all {
-  clear: both;
-  display: inline;
+  font-size: 18px;
 }
 
-.gender {
-  margin-right: 30px;
-}
 .rg_login a {
   float: right;
   margin-right: 100px;
-  color: #443;
+  color: #233;
   text-decoration: underline;
 }
+
