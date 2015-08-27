@@ -19,7 +19,7 @@ $(function() {
         },
         success: function(result) {
           if (result.status === STATUS.DATA_SUCCESS) {
-            location.href = "/";
+            location.href = "/teacherCheck";
           } else {
             $(".error").html(loginInputStatus.TEACHER_ID_OR_PASSWORD_ERROR);
             $("#inputUsername").val("");
