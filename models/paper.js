@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     paperName: DataTypes.STRING,
     subject: DataTypes.STRING,
-    questionArray: DataTypes.TEXT,
     score: DataTypes.INTEGER
   }, {
     classMethods: {
