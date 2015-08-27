@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>add-fill</title>
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/add-fill.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/css/add-fill.css" media="screen">
     <script type="text/javascript" src="jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="js/fill-status.js"></script>
     <script type="text/javascript" src="js/module_hack.js"></script>
@@ -14,28 +14,34 @@
 </head>
 
 <body>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 col-md-offset-2" id="fill">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:lightblue;">
-                <h2 class="text-center">添加填空题题目</h2>
-            </div>
-            <form class="form-horizontal">
-                <div class="panel-body" id="addFill">
-                    <label>题目：
-                        <input type="text" class="input" id="fillQuestion">
-                        <p id="fillQusetionJudge"></p>
-                    </label>
-                    </br>
-                    <input type="button" class="btn btn-link form-group" id="fillAnswers" name="name" value="点击输入答案">
-                    </br>
-                    <p id="fillAnswerJudge"></p>
-
-                    <p id="fillBlank"></p>
-
-                    <p id="submitResult" style="display:none;color:red;">提交成功</p>
+<div class="fill content">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-md-offset-2" id="fill">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:lightblue;">
+                    <h2 class="text-center">添加填空题题目</h2>
                 </div>
-            </form>
+                <form class="form-horizontal">
+                    <div class="panel-body" id="addFill">
+                        <label>题目：
+                            <input type="text" class="input" id="fillQuestion">
+
+                            <p id="fillQusetionJudge"></p>
+                        </label>
+                        </br>
+                        <label>答案：
+                            <input type="text" class="input" id="fillQuestion">
+
+                            <p id="fillQusetionJudge"></p>
+                        </label>
+                        </br>
+                        <input type="button" class="btn btn-primary form-group" id="fillAnswers" name="name"
+                               value="提交">
+                        </br>
+                        <p id="submitResult" style="display:none;color:#39ff39;">提交成功</p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
