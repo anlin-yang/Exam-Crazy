@@ -49,7 +49,7 @@ StudentAnswer.findPaper = function(req, res) {
     .then(function(data) {
       title = data.dataValues.paperName;
       contents = filterContents(data);
-      return models.Question.findQuestionContents(contents);
+      return models.Question.findQuestionContentsById(contents);
     }).then(function(data) {
       var mapContent = mapContents(data);
       classifyResults = classifyContents(mapContent);
