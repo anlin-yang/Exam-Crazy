@@ -13,6 +13,7 @@
     "express": "^4.13.3",
     "express-hbs": "^0.8.4",
     "hbs": "^3.1.0",
+    "lodash": "^3.10.1",
     "mysql": "^2.9.0",
     "sequelize": "^3.5.1",
     "sequelize-cli": "^1.7.4",
