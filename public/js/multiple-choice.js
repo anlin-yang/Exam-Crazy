@@ -9,7 +9,7 @@ $(function () {
     $('#multipleSure').click(function () {
         var allmultiple = $("[name='multipleQuestion']");
         var item = $("[name='multipleAnswer']");
-        var answer;
+        var answer = '';
         for (var x = 0; x < item.length; x++) {
             if (item[x].checked) {
                 answer += item[x].value;
