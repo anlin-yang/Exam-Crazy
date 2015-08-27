@@ -4,7 +4,14 @@
   <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
   <script src="js/jquery-cookie.js"></script>
 {{/contentFor}}
-
+<script type="text/javascript">
+    var cook = $.cookie('studentId');
+    $(function () {
+        if (cook == null) {
+            window.location = "/";
+        }
+    })
+</script>
 <header id='header'>
   学生试卷列表
 </header>
