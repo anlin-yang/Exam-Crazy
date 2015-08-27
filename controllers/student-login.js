@@ -11,7 +11,7 @@ StudentLogin.displayPage = function(req, res) {
 StudentLogin.identify = function(req, res) {
   models.Student.findAll({
     where: {
-      id: req.body.studentId,
+      studentId: req.body.studentId,
       password: utils.md5(req.body.password)
     }
   }).then(function(users) {
