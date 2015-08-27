@@ -1,6 +1,5 @@
 $(function() {
 $('#singleEmpty').on('click',function () {
-    console.log('!!!!!');
     $('.input').val("");
     [].forEach.call($("[name='singleAnswer']"), function (elem) {
         elem.checked = false;
@@ -44,9 +43,6 @@ $('#singleSure').click(function () {
             typeId: 1,
             optionContent: questionOptions
         };
-
-        console.log(information);
-
     }
 });
 });
