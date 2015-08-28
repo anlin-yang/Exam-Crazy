@@ -5,7 +5,7 @@ var TeacherPaper = {};
 var array = [];
 
 TeacherPaper.getTeacherPaper = function(req, res) {
-  res.render('teacher/addQuestions');
+  res.render('teacher/teacherPaper');
 };
 
 TeacherPaper.addPaper = function(req, res) {
@@ -52,11 +52,11 @@ TeacherPaper.addQuestions = function(req, res) {
       });
     });
   }).then(function(data) {
-    if (data[0]. _boundTo.isNewRecord === true) {
+    if (data[0]._boundTo.isNewRecord === true) {
       res.send({
         status: STATUS.DATA_SUCCESS,
         messageg: {},
-        data:{}
+        data: {}
       });
     } else {
       res.send({
@@ -67,5 +67,10 @@ TeacherPaper.addQuestions = function(req, res) {
     }
   });
 };
+
+TeacherPaper.getPaperInfo=function(req,res){
+
+};
+
 
 module.exports = TeacherPaper;
