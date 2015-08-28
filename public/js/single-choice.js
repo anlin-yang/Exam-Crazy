@@ -44,5 +44,7 @@ $(function () {
                 optionContent: questionOptions
             };
         }
+
+        $("#addItem>.content").data("onData")(information);
     });
 });
