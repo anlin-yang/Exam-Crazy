@@ -40,15 +40,31 @@ TeacherPaper.addQuestions = function(req, res) {
     questionPoint: parseInt(questionInfo.questionPoint),
     questionkey: questionInfo.questionkey
   }).then(function(data) {
-    return models.Option.create({
-      questionId: data.dataValues.id,
-      optionContent: questionInfo.optionContent
-    });
-  }).then(function(data) {
     return models.PaperQuestion.create({
       paperId: paperId,
       questionId: data.dataValues.id
     });
+  }).then(function(data) {
+    return questionInfo.optionContent.map(function(val) {
+      return models.Option.create({
+        questionId: data.dataValues.id,
+        optionContent: val
+      });
+    });
+  }).then(function(data) {
+    if (data[0]. _boundTo.isNewRecord === true) {
+      res.send({
+        status: STATUS.DATA_SUCCESS,
+        messageg: {},
+        data:{}
+      });
+    } else {
+      res.send({
+        status: STATUS.DATA_QUR_ERROR,
+        messageg: {},
+        data: {}
+      });
+    }
   });
 };
 

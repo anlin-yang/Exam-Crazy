@@ -11,7 +11,10 @@ $(function() {
       subject: subject,
       score: score
     }, function(data) {
-      paperId = data.data;
+      if (data.status === STATUS.DATA_SUCCESS) {
+        paperId = data.data;
+        alert("创建成功");
+      }
     });
   });
 
@@ -30,8 +33,10 @@ $(function() {
     $.post('/teacher/question', {
       paperId: paperId,
       data: data
-    }, function() {
-
+    }, function(result) {
+      if (result.status === STATUS.DATA_SUCCESS) {
+        return "true";
+      }
     });
   });
 
