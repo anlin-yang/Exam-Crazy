@@ -3,9 +3,9 @@ $(function () {
         var question = $('#fillQuestion').val();
         var answer = $('#fillAnswer').val();
         if (question.length === 0) {
-            $('#fillQusetionJudge').html(fillStatus.FILL_QUESTION_NULL);
+            $('#fillQuestionJudge').html(fillStatus.FILL_QUESTION_NULL);
         } else {
-            $('#fillQusetionJudge').html('');
+            $('#fillQuestionJudge').html('');
         }
         if (answer.length === 0) {
             $('#fillAnswerJudge').html(fillStatus.FILL_ANSWERS_INCOMPLETE);
