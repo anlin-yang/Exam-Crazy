@@ -1,7 +1,8 @@
 $(function() {
 
   $('#singleSure').click(function() {
-    var allsingle = $("[name='singleQuestion']");
+    var questionInformation = $("[name='singleQuestion']").val();
+    var questionOption = $("[name='singleQuestionOption']");
     var item = $("[name='singleAnswer']");
     var answer;
     for (var x = 0; x < item.length; x++) {
@@ -11,33 +12,28 @@ $(function() {
       }
     }
 
-    var questionInformation = '',
-      questionOptions = [],
-      count = 1;
-    var option = ['question', 'A', 'B', 'C', 'D'];
+    var optionInformation = [],
+      count = 0;
+    var itemOption = ['A', 'B', 'C', 'D'];
 
-    for (var m = 0; m < allsingle.length; m++) {
-      if (!(allsingle[m].value)) {
-        var itemOne = '#' + option[m] + 'singleoption';
+    for (var m = 0; m < questionOption.length; m++) {
+      if (!(questionOption[m].value)) {
+        var itemOne = '#' + itemOption[m] + 'singleoption';
         $(itemOne).show();
         $(itemOne).delay(3000).hide(1);
       } else {
-        if (m === 0) {
-          questionInformation = allsingle[m].value;
-        } else {
-          questionOptions.push(option[m] + ':' + allsingle[m].value);
-          count++;
-        }
+        optionInformation.push(itemOption[m] + ':' + questionOption[m].value);
+        count++;
       }
     }
 
-    if (count === allsingle.length) {
+    if (count === questionOption.length) {
       var information = {
         questionContent: questionInformation,
         questionKey: answer,
         questionPoint: 1,
         typeId: 1,
-        optionContent: questionOptions
+        optionContent: optionInformation
       };
       $("#addItem>.content").data("onData")(information);
     }
