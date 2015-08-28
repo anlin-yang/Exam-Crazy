@@ -1,43 +1,40 @@
 $(function() {
 
   $('#multipleSure').click(function() {
-    var allmultiple = $("[name='multipleQuestion']");
-    var item = $("[name='multipleAnswer']");
-    var answer = '';
-    for (var x = 0; x < item.length; x++) {
-      if (item[x].checked) {
-        answer += item[x].value;
+      var questionInformation = $("[name='multipleQuestion']").val();
+      var questionOption = $("[name='multipleQuestionOption']");
+      var item = $("[name='multipleAnswer']");
+      var answer = '';
+      for (var x = 0; x < item.length; x++) {
+        if (item[x].checked) {
+          answer += item[x].value;
+        }
       }
-    }
 
-    var questionInformation = '',
-      questionOptions = [],
-      count = 1;
-    var option = ['question', 'A', 'B', 'C', 'D'];
+      var optionInformation = [],
+        count = 0;
+      var itemOption = ['A', 'B', 'C', 'D'];
 
-    for (var m = 0; m < allmultiple.length; m++) {
-      if (!(allmultiple[m].value)) {
-        var itemOne = '#' + option[m] + 'multipleoption';
-        $(itemOne).show();
-        $(itemOne).delay(3000).hide(1);
-      } else {
-        if (m === 0) {
-          questionInformation = allmultiple[m].value;
+      for (var m = 0; m < questionOption.length; m++) {
+        if (!(questionOption[m].value)) {
+          var itemOne = '#' + itemOption[m] + 'multipleoption';
+          $(itemOne).show();
+          $(itemOne).delay(3000).hide(1);
         } else {
-          questionOptions.push(option[m] + ':' + allmultiple[m].value);
+          optionInformation.push(itemOption[m] + ':' + questionOption[m].value);
           count++;
         }
       }
-    }
 
-    if (count === allmultiple.length) {
+    if (count === questionOption.length) {
       var information = {
         questionContent: questionInformation,
         questionKey: answer,
         questionPoint: 1,
         typeId: 1,
-        optionContent: questionOptions
+        optionContent: optionInformation
       };
+      console.log(information);
       $("#addItem>.content").data("onData")(information);
     }
   });
