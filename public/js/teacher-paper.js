@@ -11,7 +11,7 @@ $(function() {
       subject: subject,
       score: score
     }, function(data) {
-
+      paperId = data.data;
     });
   });
 

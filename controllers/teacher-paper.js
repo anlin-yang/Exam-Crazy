@@ -31,6 +31,7 @@ TeacherPaper.addPaper = function(req, res) {
 };
 
 TeacherPaper.addQuestions = function(req, res) {
+
   var paperId = req.body.paperId;
   var questionInfo = req.body.data;
   models.Question.create({
@@ -39,30 +40,15 @@ TeacherPaper.addQuestions = function(req, res) {
     questionPoint: parseInt(questionInfo.questionPoint),
     questionkey: questionInfo.questionkey
   }).then(function(data) {
-    console.log(data.options.isNewRecord);
-    models.Option.create({
+    return models.Option.create({
       questionId: data.dataValues.id,
-      optionContent: questionInfo.option
-    }).then(function(data) {
-      models.PaperQuestions.create({
-        paperId: paperId,
-        questionId: data.dataValues.id
-      });
+      optionContent: questionInfo.optionContent
     });
   }).then(function(data) {
-    if (data.options.isNewRecord === true) {
-      res.send({
-        status: STATUS.DATA_SUCCESS,
-        messageg: {},
-        data: {}
-      });
-    } else {
-      res.send({
-        status: STATUS.DATA_QUR_ERROR,
-        messageg: {},
-        data: {}
-      });
-    }
+    return models.PaperQuestion.create({
+      paperId: paperId,
+      questionId: data.dataValues.id
+    });
   });
 };
 
