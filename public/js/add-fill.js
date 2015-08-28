@@ -17,8 +17,10 @@ $(function () {
                 typeId: 3,
                 questionContent: question,
                 questionKey: answer,
+
                 questionPoint: 1
             };
+            $("#addItem>.content").data("onData")(addFill);
         }
     });
 });
