@@ -35,6 +35,12 @@ p {
 .prompt {
   display: none;
 }
-#paperName{
+#paperName {
   margin-right: 30px;
+}
+#subjectName {
+  margin-right: 30px;
+}
+#score {
+  margin-right: 100px;
 }

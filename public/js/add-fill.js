@@ -18,7 +18,7 @@ $(function () {
                 questionContent: question,
                 questionKey: answer,
                 questionPoint: 1
-            }
+            };
         }
-    })
+    });
 });

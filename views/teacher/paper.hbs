@@ -15,8 +15,9 @@
   <div class="panel-body">
     试卷名称
     <input type="text" id="paperName"> 科目
-    <input type="text" id="subjectName">
-
+    <input type="text" id="subjectName">分数
+    <input type="text" id="score">
+    <button type="button" id="addPaper" class="btn btn-info">添加考卷</button>
   </div>
 </div>
 <div class="panel panel-default">
@@ -25,16 +26,16 @@
   </div>
   <div class="panel-body">
     <div id="questionType">
-    <label class="radio-inline">
-      <input type="radio" name="inlineRadioOptions" class="fill" value="option1" checked>填空题
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="inlineRadioOptions" class="single" value="option2">单选题
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="inlineRadioOptions" class="multiple" value="option3"> 多选题
-    </label>
-  </div>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" class="fill" value="option1" checked>填空题
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" class="single" value="option2">单选题
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" class="multiple" value="option3"> 多选题
+      </label>
+    </div>
     <div class="model">
       <div id="addItem">
         {{{body}}}
