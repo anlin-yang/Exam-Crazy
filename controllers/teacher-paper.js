@@ -5,7 +5,7 @@ var TeacherPaper = {};
 var array = [];
 
 TeacherPaper.getTeacherPaper = function(req, res) {
-  res.render('teacher/teacherPaper');
+  res.render('teacher/teacher-paper');
 };
 
 TeacherPaper.addPaper = function(req, res) {
@@ -34,6 +34,8 @@ TeacherPaper.addQuestions = function(req, res) {
 
   var paperId = req.body.paperId;
   var questionInfo = req.body.data;
+  var array = [];
+
   models.Question.create({
     typeId: parseInt(questionInfo.typeId),
     questionContent: questionInfo.questionContent,
@@ -45,14 +47,15 @@ TeacherPaper.addQuestions = function(req, res) {
       questionId: data.dataValues.id
     });
   }).then(function(data) {
-    return questionInfo.optionContent.map(function(val) {
-      return models.Option.create({
+    questionInfo.optionContent.forEach(function(val) {
+      array.push({
         questionId: data.dataValues.id,
         optionContent: val
       });
     });
+    return models.Option.bulkCreate(array);
   }).then(function(data) {
-    if (data[0]._boundTo.isNewRecord === true) {
+    if (data[0].options.isNewRecord === true) {
       res.send({
         status: STATUS.DATA_SUCCESS,
         messageg: {},
@@ -67,10 +70,5 @@ TeacherPaper.addQuestions = function(req, res) {
     }
   });
 };
-
-TeacherPaper.getPaperInfo=function(req,res){
-
-};
-
 
 module.exports = TeacherPaper;

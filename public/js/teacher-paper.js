@@ -1,11 +1,17 @@
 $(function() {
 
+  var successId = "创建成功";
   var paperId;
-  $("#addPaper").on("click", function() {
-    var score = $("#score").val();
-    var subject = $("#subjectName").val();
-    var paperName = $("#paperName").val();
+  var score = $("#score").val();
+  var subject = $("#subjectName").val();
+  var paperName = $("#paperName").val();
+  $("#singleSure").attr("disabled", true);
+  $("#singleEmpty").attr("disabled", true);
+  $("#multipleSure").attr("disabled", true);
+  $("#multipleEmpty").attr("disabled", true);
+  $("#submitFill").attr("disabled", true);
 
+  $("#addPaper").on("click", function() {
     $.post("teacher/paper", {
       paperName: paperName,
       subject: subject,
@@ -13,7 +19,13 @@ $(function() {
     }, function(data) {
       if (data.status === STATUS.DATA_SUCCESS) {
         paperId = data.data;
-        alert("创建成功");
+        alert(successId);
+        $("#singleSure").removeAttr("disabled");
+        $("#singleEmpty").removeAttr("disabled");
+        $("#multipleSure").removeAttr("disabled");
+        $("#multipleEmpty").removeAttr("disabled");
+        $("#submitFill").removeAttr("disabled");
+        $(".createPaper").hide();
       }
     });
   });
@@ -30,12 +42,16 @@ $(function() {
   });
 
   $("#addItem>.content").data("onData", function(data) {
+    var questionInfo = data;
     $.post('/teacher/question', {
       paperId: paperId,
       data: data
     }, function(result) {
       if (result.status === STATUS.DATA_SUCCESS) {
-        return "true";
+        $(".showPaper").append(questionInfo.questionContent);
+        questionInfo.optionContent.forEach(function(val) {
+          $(".showPaper").append("</br>" + val);
+        });
       }
     });
   });

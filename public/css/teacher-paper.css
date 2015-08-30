@@ -41,3 +41,8 @@ p {
 #score {
   margin-right: 90px;
 }
+.createPaper{
+  text-align: center;
+  font-size: 20px;
+  color: red;
+}

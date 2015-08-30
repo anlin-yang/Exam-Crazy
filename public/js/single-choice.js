@@ -1,14 +1,16 @@
 $(function() {
 
   $('#singleSure').click(function() {
-    var questionInformation = $("[name='singleQuestion']").val(),answer;
+    var questionInformation = $("[name='singleQuestion']").val(),
+      answer;
     $("[name='singleAnswer']").each(function() {
       if (this.checked) {
         answer = this.value;
       }
     });
 
-    var optionInformation = [],m = 0;
+    var optionInformation = [],
+      m = 0;
     var itemOption = ['A', 'B', 'C', 'D'];
 
     $("[name='singleQuestionOption']").each(function(m) {
